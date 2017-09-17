@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: article.aux
+The style file: mdpi.bst
+Database file #1: article.bib
+Warning--empty publisher in Schomer2010
+Warning--can't use both author and editor fields in Lotte2013
+Warning--empty publisher in Clerc
+Warning--empty year in Clerc
+Warning--can't use both volume and number fields in Hartman2005
+Warning--there's a number but no volume in Boiman2008
+You've used 28 entries,
+            2795 wiz_defined-function locations,
+            776 strings with 11514 characters,
+and the built_in function-call counts, 12075 in all, are:
+= -- 1029
+> -- 737
+< -- 25
++ -- 275
+- -- 219
+* -- 1071
+:= -- 1919
+add.period$ -- 81
+call.type$ -- 28
+change.case$ -- 28
+chr.to.int$ -- 28
+cite$ -- 34
+duplicate$ -- 556
+empty$ -- 940
+format.name$ -- 265
+if$ -- 2557
+int.to.chr$ -- 1
+int.to.str$ -- 28
+missing$ -- 33
+newline$ -- 139
+num.names$ -- 86
+pop$ -- 186
+preamble$ -- 0
+purify$ -- 28
+quote$ -- 0
+skip$ -- 347
+stack$ -- 0
+substring$ -- 598
+swap$ -- 182
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 181
+warning$ -- 6
+while$ -- 111
+width$ -- 0
+write$ -- 344
+(There were 6 warnings)

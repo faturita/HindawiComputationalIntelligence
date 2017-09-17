@@ -1,0 +1,194 @@
+\begin{thebibliography}{-------}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[Schomer and Silva(2010)]{Schomer2010}
+Schomer, D.L.; Silva, F.L.D.
+\newblock {\em {Niedermeyer's Electroencephalography: Basic Principles,
+  Clinical Applications, and Related Fields}}; Vol.~1,  2010; p. 1296.
+
+\bibitem[{De Vos} and Debener(2014)]{DeVos2014}
+{De Vos}, M.; Debener, S.
+\newblock {Mobile EEG: Towards brain activity monitoring during natural action
+  and cognition}.
+\newblock {\em International Journal of Psychophysiology} {\bf 2014}, {\em
+  91},~1--2.
+
+\bibitem[{Wolpaw, Jonathan R}(2012)]{WolpawJonathanR2012}
+{Wolpaw, Jonathan R}, W.E.
+\newblock {\em {Brain-Computer Interfaces: Principles and Practice}}; Oxford
+  University Press,  2012; p. 400.
+
+\bibitem[Carlson and {del R. Millan}(2013)]{Carlson2013}
+Carlson, T.; {del R. Millan}, J.
+\newblock {Brain-Controlled Wheelchairs: A Robotic Architecture}.
+\newblock {\em IEEE Robotics {\&} Automation Magazine} {\bf 2013}, {\em
+  20},~65--73.
+
+\bibitem[Guger \em{et~al.}(2009)Guger, Daban, Sellers, Holzner, Krausz,
+  Carabalona, Gramatica, and Edlinger]{Guger2009a}
+Guger, C.; Daban, S.; Sellers, E.; Holzner, C.; Krausz, G.; Carabalona, R.;
+  Gramatica, F.; Edlinger, G.
+\newblock {How many people are able to control a P300-based brain-computer
+  interface (BCI)?}
+\newblock {\em Neuroscience Letters} {\bf 2009}, {\em 462},~94--98.
+
+\bibitem[Lotte \em{et~al.}(2013)Lotte, Faller, Guger, Renard, Pfurtscheller,
+  L{\'e}cuyer, and Leeb]{Lotte2013}
+Lotte, F.; Faller, J.; Guger, C.; Renard, Y.; Pfurtscheller, G.; L{\'e}cuyer,
+  A.; Leeb, R., Combining BCI with Virtual Reality: Towards New Applications
+  and Improved BCI.
+\newblock In {\em Towards Practical Brain-Computer Interfaces: Bridging the Gap
+  from Research to Real-World Applications}; Allison, B.Z.; Dunne, S.; Leeb,
+  R.; Del R.~Mill{\'a}n, J.; Nijholt, A., Eds.; Springer Berlin Heidelberg:
+  Berlin, Heidelberg,  2013; pp. 197--220.
+
+\bibitem[Jure \em{et~al.}(2016)Jure, Carrere, Gentiletti, and
+  Tabernig]{Jure2016}
+Jure, F.A.; Carrere, L.C.; Gentiletti, G.G.; Tabernig, C.B.
+\newblock {BCI-FES system for neuro-rehabilitation of stroke patients}.
+\newblock {\em Journal of Physics: Conference Series} {\bf 2016}, {\em
+  705},~12058.
+
+\bibitem[Clerc \em{et~al.}()Clerc, Bougrain, and Lotte]{Clerc}
+Clerc, M.; Bougrain, L.; Lotte, F.
+\newblock {\em {Brain-computer interfaces., Technology and applications}}; p.
+  331.
+
+\bibitem[Riener and Seward(2014)]{Riener2014}
+Riener, R.; Seward, L.J.
+\newblock {Cybathlon 2016}.
+\newblock {\em 2014 IEEE International Conference on Systems, Man, and
+  Cybernetics (SMC)} {\bf 2014}, pp. 2792--2794.
+
+\bibitem[Huggins \em{et~al.}(2016)Huggins, Alcaide-Aguirre, and
+  Hill]{Huggins2016}
+Huggins, J.E.; Alcaide-Aguirre, R.E.; Hill, K.
+\newblock {Effects of text generation on P300 brain-computer interface
+  performance}.
+\newblock {\em Brain-Computer Interfaces} {\bf 2016}, {\em 3},~112--120.
+
+\bibitem[Ramele \em{et~al.}(2016)Ramele, Villar, and Santos]{Ramele2016}
+Ramele, R.; Villar, A.J.; Santos, J.M.
+\newblock {BCI classification based on signal plots and SIFT descriptors}.
+\newblock  4th International Winter Conference on Brain-Computer Interface, BCI
+  2016; IEEE: Yongpyong,  2016; pp. 1--4.
+
+\bibitem[Knuth \em{et~al.}(2006)Knuth, Shah, Truccolo, Ding, Bressler, and
+  Schroeder]{Knuth2006}
+Knuth, K.H.; Shah, A.S.; Truccolo, W.A.; Ding, M.; Bressler, S.L.; Schroeder,
+  C.E.
+\newblock Differentially Variable Component Analysis: Identifying Multiple
+  Evoked Components Using Trial-to-Trial Variability.
+\newblock {\em Journal of Neurophysiology} {\bf 2006}, {\em 95},~3257--3276.
+
+\bibitem[Alvarado-Gonz{\'{a}}lez \em{et~al.}(2016)Alvarado-Gonz{\'{a}}lez,
+  Gardu{\~{n}}o, Bribiesca, Y{\'{a}}{\~{n}}ez-Su{\'{a}}rez, and
+  Medina-Ba{\~{n}}uelos]{Alvarado-Gonzalez2016}
+Alvarado-Gonz{\'{a}}lez, M.; Gardu{\~{n}}o, E.; Bribiesca, E.;
+  Y{\'{a}}{\~{n}}ez-Su{\'{a}}rez, O.; Medina-Ba{\~{n}}uelos, V.
+\newblock {P300 Detection Based on EEG Shape Features}.
+\newblock {\em Computational and Mathematical Methods in Medicine} {\bf 2016},
+  pp. 1--14.
+
+\bibitem[Yamaguchi \em{et~al.}(2009)Yamaguchi, Fujio, Inoue, and
+  Pfurtscheller]{Yamaguchi2009}
+Yamaguchi, T.; Fujio, M.; Inoue, K.; Pfurtscheller, G.
+\newblock {Design Method of Morphological Structural Function for Pattern
+  Recognition of EEG Signals During Motor Imagery and Cognition}.
+\newblock  Fourth International Conference on Innovative Computing, Information
+  and Control (ICICIC). IEEE,  2009, pp. 1558--1561.
+
+\bibitem[Hartman(2005)]{Hartman2005}
+Hartman, a.L.
+\newblock {\em {Atlas of EEG Patterns}}; Vol.~65, Lippincott Williams \&
+  Wilkins,  2005; p. 307.
+
+\bibitem[Farwell and Donchin(1988)]{Farwell1988}
+Farwell, L.A.; Donchin, E.
+\newblock {Talking off the top of your head: toward a mental prosthesis
+  utilizing event-related brain potentials.}
+\newblock {\em Electroencephalography and clinical neurophysiology} {\bf 1988},
+  {\em 70},~510--23.
+
+\bibitem[Hu \em{et~al.}(2010)Hu, Mouraux, Hu, and Iannetti]{Hu2010}
+Hu, L.; Mouraux, A.; Hu, Y.; Iannetti, G.D.
+\newblock {A novel approach for enhancing the signal-to-noise ratio and
+  detecting automatically event-related potentials (ERPs) in single trials}.
+\newblock {\em NeuroImage} {\bf 2010}, {\em 50},~99--111.
+
+\bibitem[Renard \em{et~al.}(2010)Renard, Lotte, Gibert, Congedo, Maby,
+  Delannoy, Bertrand, and L{\'{e}}cuyer]{Renard2010}
+Renard, Y.; Lotte, F.; Gibert, G.; Congedo, M.; Maby, E.; Delannoy, V.;
+  Bertrand, O.; L{\'{e}}cuyer, A.
+\newblock {OpenViBE: An Open-Source Software Platform to Design, Test, and Use
+  Brain–Computer Interfaces in Real and Virtual Environments}.
+\newblock {\em Presence: Teleoperators and Virtual Environments} {\bf 2010},
+  {\em 19},~35--53.
+
+\bibitem[Krusienski \em{et~al.}(2006)Krusienski, Sellers, Cabestaing, Bayoudh,
+  McFarland, Vaughan, and Wolpaw]{Krusienski2006}
+Krusienski, D.J.; Sellers, E.W.; Cabestaing, F.; Bayoudh, S.; McFarland, D.J.;
+  Vaughan, T.M.; Wolpaw, J.R.
+\newblock {A comparison of classification techniques for the P300 Speller}.
+\newblock {\em Journal of Neural Engineering} {\bf 2006}, {\em 3},~299--305.
+
+\bibitem[Liang and Bougrain(2008)]{Liang2008}
+Liang, N.; Bougrain, L.
+\newblock {Averaging techniques for single-trial analysis of oddball
+  event-related potentials}.
+\newblock {\em 4th International Brain-Computer} {\bf 2008}, pp. 1--6.
+
+\bibitem[Lowe(2004)]{Lowe2004}
+Lowe, G.
+\newblock {SIFT - The Scale Invariant Feature Transform}.
+\newblock {\em International Journal} {\bf 2004}, {\em 2},~91--110.
+
+\bibitem[Vedaldi and Fulkerson(2010)]{Vedaldi2010}
+Vedaldi, A.; Fulkerson, B.
+\newblock {VLFeat - An open and portable library of computer vision
+  algorithms}.
+\newblock {\em Design} {\bf 2010}, {\em 3},~1--4.
+
+\bibitem[Boiman \em{et~al.}(2008)Boiman, Shechtman, and Irani]{Boiman2008}
+Boiman, O.; Shechtman, E.; Irani, M.
+\newblock {In defense of nearest-neighbor based image classification}.
+\newblock {\em 26th IEEE Conference on Computer Vision and Pattern Recognition,
+  CVPR} {\bf 2008}.
+
+\bibitem[Tibon and Levy(2015)]{Tibon2015}
+Tibon, R.; Levy, D.A.
+\newblock {Striking a balance: analyzing unbalanced event-related potential
+  data.}
+\newblock {\em Frontiers in psychology} {\bf 2015}, {\em 6},~555.
+
+\bibitem[Fornoni and Caputo(2014)]{Fornoni2014}
+Fornoni, M.; Caputo, B.
+\newblock {Scene recognition with naive bayes non-linear learning}.
+\newblock  Proceedings - International Conference on Pattern Recognition. IEEE,
+   2014, pp. 3404--3409.
+
+\bibitem[Riccio \em{et~al.}(2013)Riccio, Simione, Schettini, Pizzimenti,
+  Inghilleri, Belardinelli, Mattia, and Cincotti]{Riccio2013}
+Riccio, A.; Simione, L.; Schettini, F.; Pizzimenti, A.; Inghilleri, M.;
+  Belardinelli, M.O.; Mattia, D.; Cincotti, F.
+\newblock {Attention and P300-based BCI performance in people with amyotrophic
+  lateral sclerosis}.
+\newblock {\em Frontiers in Human Neuroscience} {\bf 2013}, {\em 7},~732.
+
+\bibitem[Brunner \em{et~al.}(2014)Brunner, Blankertz, Cincotti, K{\"{u}}bler,
+  Mattia, Miralles, Nijholt, and Otal]{Brunner2014}
+Brunner, C.; Blankertz, B.; Cincotti, F.; K{\"{u}}bler, A.; Mattia, D.;
+  Miralles, F.; Nijholt, A.; Otal, B.
+\newblock {BNCI Horizon 2020 – Towards a Roadmap for Brain / Neural Computer
+  Interaction}.
+\newblock {\em Lecture Notes in Computer Science} {\bf 2014}, {\em
+  8513},~475--486.
+
+\bibitem[Schalk \em{et~al.}(2004)Schalk, McFarland, Hinterberger, Birbaumer,
+  and Wolpaw]{Schalk2004}
+Schalk, G.; McFarland, D.J.; Hinterberger, T.; Birbaumer, N.; Wolpaw, J.R.
+\newblock {BCI2000: a general-purpose brain-computer interface (BCI) system.}
+\newblock {\em IEEE transactions on bio-medical engineering} {\bf 2004}, {\em
+  51},~1034--43.
+
+\end{thebibliography}
