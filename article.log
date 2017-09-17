@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  17 SEP 2017 04:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  17 SEP 2017 04:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1090,15 +1090,11 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 535.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: 0316EB73F2B71C69FF5D9F3527022863;2321.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  13909 strings out of 493014
  196351 string characters out of 6133352
- 296345 words of memory out of 5000000
+ 296347 words of memory out of 5000000
  17150 multiletter control sequences out of 15000+600000
  52102 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1115,7 +1111,7 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2016/texmf
 ist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
 1/urw/palatino/uplri8a.pfb>
-Output written on article.pdf (11 pages, 335987 bytes).
+Output written on article.pdf (11 pages, 335988 bytes).
 PDF statistics:
  311 PDF objects out of 1000 (max. 8388607)
  252 compressed objects within 3 object streams
