@@ -83,7 +83,7 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 \abstract{The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients.}
 
 % Keywords
-\keyword{electroencephalography (EEG); BCI; P300; ALS; classification; HOG; SIFT}
+\keyword{electroencephalography (EEG); BCI; P300; ALS; NBNN; HOG; SIFT}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -158,7 +158,7 @@ In this work, a new method to characterize and classify EEG signals is presented
 
 The method is based on the morphological analysis of the shape of the EEG signal \citep{Alvarado-Gonzalez2016,Yamaguchi2009} and was inspired by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots \citep{Hartman2005}.
 
-This paper reports a method to, (1) characterize EEG signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from signal plots, and (2) how this characterization can be used to implement a BCI classification scheme to identify Event Related Potentials, particularly the well-known P300, on an offline and public dataset.
+This paper reports a method to, (1) characterize EEG signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) how this characterization can be used to implement a BCI classification scheme to identify Event Related Potentials, particularly the well-known P300, on an offline and public dataset.
 
 This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradients of the Signal Plot method is explained. Section \ref{Preprocessing} and \ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Near Neighbor  and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
 
@@ -189,7 +189,7 @@ This article unfolds as follows: in Section \ref{Feature} the Feature Extraction
 
 \subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
 
-The P300 \citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs 300 ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm \cite{WolpawJonathanR2012} and though it is quite consistent across different subjects, it has a lower amplitude ( $ \pm 5 \mu V $ ) compared to basal EEG activity, reaching a SNR of around -15 db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity \citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix \citep{Farwell1988} (Fig. \ref{fig:p300matrix}) where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
+The P300 \citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs 300 ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm \cite{WolpawJonathanR2012} and though it is quite consistent across different subjects, it has a lower amplitude ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around -15 db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity \citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix \citep{Farwell1988} (Fig. \ref{fig:p300matrix}) where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
 \begin{figure}[H]
 \centering
@@ -225,10 +225,10 @@ The underlying idea of this method is to generate a template for the signal,  ba
 The signal is first scaled and standardized (i.e. z-score) by 
 
 \begin{equation}
-\tilde{x}(t,c) = \left \lfloor{ \gamma \cdot \frac{( x(t,c) - \bar{x}(c)  )}{ \sigma_x(c) } }\right \rfloor
+\tilde{x}(t,c) = \left \lfloor{ \gamma \cdot \frac{( x(t,c) - \bar{x}(c)  )}{ \sigma(c) } }\right \rfloor
 \end{equation}
 
-\noindent where $\gamma$ is the image scale, $t$ is the time and $ x(t,c) $ is the point-to-point averaged EEG matrix defined for each $t$ and for a channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma_x $ are the mean and standard deviation of $x$.
+\noindent where $\gamma$ is the image scale, $t$ is the time and $ x(t,c) $ is the point-to-point averaged EEG matrix defined for each $t$ and for a channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma (c) $ are the mean and standard deviation of $x$.
 
 Consequently, the image is constructed by placing the sample points according to
 
@@ -258,7 +258,7 @@ In order to complete the plot from the pixels, the Bresenham \citep{Ramele2016} 
 
 On the generated image, a keypoint is placed on a precise location along the signal trace over the image plot (Fig. \ref{fig:sampledescriptor}).  Around that keypoint, a local image patch is constructed as follows:  it is first divided in 16 blocks of size $ 3 \cdot s $ each, arranged in a 4x4 grid and centered on $T = (x,y)$. 
 
-A local representation of the shape of the signal within the patch can be described by obtaining the gradient orientations on each of the 16 blocks and creating a histogram of the oriented gradients.  This technique is based on Lowe's SIFT \citep{Lowe2004} descriptor, and it is biomimetically inspired in how the visual cortex detects shapes by analyzing orientations.   In order to calculate this histogram, the interval $ [0-360]$ of possible angles is divided in 8 bins, each one at 45 degrees.
+A local representation of the shape of the signal within the patch can be described by obtaining the gradient orientations on each of the 16 blocks and creating a histogram of the such gradients.  This technique is based on Lowe's SIFT \citep{Lowe2004} descriptor, and it is biomimetically inspired in how the visual cortex detects shapes by analyzing orientations.   In order to calculate this histogram, the interval $ [0-360]$ of possible angles is divided in 8 bins, each one at 45 degrees.
 
 The values of the image gradients for the 8 angle bins $ p = {0, 45, 90, 135, 180, 225, 270, 315} $ and for each grid block bin $ i,j = {1,2,3,4} $  are accumulated in the 3-dimensional histogram $ h $ through
 
@@ -303,7 +303,7 @@ This basic method was adapted to the P300 Speller and the classifier works accor
 \label{eq:multiclassification}
 \end{equation}
 
-The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first between the 6 rows, and then between the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
+The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first among the 6 rows, and then among the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
 
 Especially in the case of the P300 response, the oddball paradigm requires that one of the stimuli need to be infrequent so that will unavoidably force the data to be unbalanced \citep{Tibon2015}.  The NBNN method suffers from biased classification on unbalanced classes \citep{Fornoni2014}.  By reversing the roles of the query and the class in Eq. \ref{eq:multiclassification}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes.
 
@@ -349,7 +349,7 @@ s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
 \label{section:results}
-In Figure \ref{fig:subjectaveraged} the grand average (point-to-point) for all the subjects using the information from all the segments can be shown.  The P300 characteristic curve can be seen particularly in subjects 2, and 6 and in a lesser extend in the remaining subjects. In order to correctly decode the selected letter from each trial, particular care was observed to avoid unbalanced number of epochs  (i.e. an unequal number of epochs on each condition), because that may introduce a bias in the classification procedure (the variance of averaged signals is inversely proportional to the number of samples and the procedure would be discriminating signals with different variances).  
+In Figure \ref{fig:subjectaveraged} the grand average (point-to-point) for all the subjects using the information from all the segments can be shown.  The P300 characteristic curve can be seen particularly in subjects 2, and 6 and in a lesser extend in the remaining subjects. In order to correctly decode the selected letter from each trial, particular care was observed to avoid unbalanced number of epochs  (i.e. an unequal number of epochs on each condition), because that may introduce bias in the classification procedure (the variance of averaged signals is inversely proportional to the number of samples and the procedure would be discriminating signals with different variances).  
 
 \begin{figure}[H]
 \centering
@@ -358,7 +358,7 @@ In Figure \ref{fig:subjectaveraged} the grand average (point-to-point) for all t
 \label{fig:subjectaveraged}
 \end{figure}
 
-Results are shown in Table \ref{tab:results} where the percentage of correctly spelled letters is calculated while performing an offline BCI Simulation.  From the 7 trials for each subject, the first 3 were used as training, and the remaining 4 for testing.  Additionally the best performing channel is informed as well.  It is of particular interest that using this method, the best performing channel was not always Cz, and instead occipital channels PO8 and PO7 showed higher performances \citep{Huggins2016,Jure2016}.
+Results are shown in Table \ref{tab:results} where the percentage of correctly spelled letters is calculated while performing an offline BCI Simulation.  From the 7 trials for each subject, the first 3 were used as training, and the remaining 4 for testing.  The best performing channel is informed as well.  It is of particular interest that using this method, the best performing channel was not always Cz, and instead occipital channels PO8 and PO7 showed higher performances \citep{Huggins2016,Jure2016}.
 
 
 \begin{table}[H]
@@ -429,7 +429,7 @@ A method to characterize and classify EEG signals where their characterization i
 
 %Databases of descriptors.  Flexibility of the descriptor in terms of configuration and size (reference variants of SIFT on lower dimensiones).
 
-The adaptive behaviour of the algorithm make it well suited when the shape of the pattern elicited by the P300 response, does not conform to the predicted structure.  This is due to the fact that the descriptors are directly based on how the signals behave in shape domain (i.e. \textit{how actually they looked like}) for the training and calibration step, and they do not require any prior knowledge about the signal.   In contrast, when the shape of the ERP response is not consistent across the same subject, this method would not be able to find the templates and speller performance could be penalized.  
+The adaptive behaviour of the algorithm make it well suited when the shape of the pattern elicited by the P300 response does not conform to the predicted structure.  This is due to the fact that the descriptors are directly based on how the signals behave in shape domain (i.e. \textit{how actually they looked like}) for the training and calibration step, and they do not require any prior knowledge about the signal.   In contrast, when the shape of the ERP response is not consistent across the same subject, this method would not be able to find the templates and speller performance could be penalized.  
 
 At the same time, by analyzing the generated descriptors, which map in a very detailed and synthetic structure the shape information contained within the patch, a metric about the consistency of the shape of the generated P300 response could also be derived.  It may be worthy of further consideration to evaluate if there is any correlation between the lower performance obtained for some subjects and the characterization of their ALS stage.
 

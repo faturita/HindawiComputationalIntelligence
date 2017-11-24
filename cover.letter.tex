@@ -1,0 +1,116 @@
+% cov
+% Anpas
+
+% \documentstyle[12pt,my-let-head-Nov-02]{letter}
+
+\documentclass[11pt]{letter}
+
+\usepackage{graphics}
+%%%%%%%%%%%%%%%%%%%%% DEFINE USER-SPECIFIC MACROS BELOW %%%%%%%%%%%%%%%%%%%%%
+\def\Who     {Rodrigo E. Ramele}
+\def\What    {B.S. M.S.}
+\def\Where   {Instituto Tecnológico de Buenos Aires}
+\def\WhereWhere {Computer Science Department, CiC}
+\def\Address {25 de Mayo 457, 6th floor}
+\def\CityZip {Buenos Aires C.A.B.A.  C1002ABH}
+\def\Email   {{\it E-mail:} rramele@itba.edu.ar}
+\def\TEL     {{\it Phone:} (+54) (9-11)4193-9382}
+\def\FAX     {}
+\def\URL     {} % NOTE: use $\sim$
+                % for tilde
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MARGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth       6.75in
+\textheight      9.25in
+\oddsidemargin   -.25in
+\evensidemargin  -.25in
+\topmargin       -.75in
+\longindentation 0.50\textwidth
+\parindent       6ex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ADDRESS MACRO BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\address{ \hspace*{5.1in}
+               \vskip -1.07in~\\
+         \Large\hspace*{1.5in}  \hfill ~\vspace{.5ex}\\
+               \hspace*{1.5in}  \hfill  \normalsize
+               \makebox[0ex][r]{\bf  }\hspace{0.2cm} \vskip
+               -6ex ~  \\
+               \hspace*{0in}\hrulefill \\
+               \hspace*{\fill}
+               \setlength{\tabcolsep}{-3pt}
+\hfill	\parbox[t]{2.95in}{ \footnotesize   \Who \\ \em
+ 				\WhereWhere \\
+ 				\Where  \\
+				\Address \\
+				\CityZip \\
+				\TEL \\
+				\Email
+				} \hspace{-1.4in}
+    \normalsize
+	\vspace{-1.5in}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\signature{\Who}
+
+\def\opening#1{\ifx\@empty\fromaddress
+ \thispagestyle{firstpage}
+ \hspace*{\longindendation}\today\par
+ \else \thispagestyle{empty}
+ {\centering\fromaddress \vspace{1.9cm} \\*
+ %\vfill   %%<---Comment out to put more on one page (shifts the date up
+ \hspace*{0in}Summer School Application, March 2013\hspace*{\fill}\par}
+ \fi
+ %\vspace{1\parskip}
+ {\raggedright \toname \\ \toaddress \par}\vspace{2\parskip}
+ \noindent #1\par\raggedright\parindent 5ex\par
+ %\def\thefootnote{}%
+ %\def\footnoterule{\hrule}%
+% \footnotetext{\hspace*{\fill}%
+%              {\footnotesize\em An Equal Opportunity University}}
+% \def\thefootnote{\arabic{footnote}}
+ }
+
+\long\def\closing#1{\par\nobreak\vspace{\parskip}
+ \stopbreaks
+ \noindent
+ \ifx\@empty\fromaddress\else
+ \hspace*{\longindentation}\fi
+ \parbox{\indentedwidth}{\raggedright
+ \ignorespaces #1\vskip .65in
+ \ifx\@empty\fromsig
+ \else \fromsig \fi\strut}
+ \vspace*{\fill}
+ \par}
+
+% \def\footnoterule{\kern-1\p@\hrule width .4\columnwidth\kern .6\p@}
+
+% \input{/u/disk9/maguest/math/.macros/psfig.tex}
+% \input{/u/disk9/maguest/math/.macros/double.sty}
+
+\begin{document}
+
+\begin{letter}
+{Berkeley University\\
+CRCNS \\
+Course in Mining and Modeling of Neuroscience Data
+}
+
+\opening{Dear Course Organizers:}
+
+First of all, Thank you very much for your valuable time.  I would like to apply to the upcoming 2013 boreal summer course in Mining and Modeling of Neuroscience Data.
+
+Allow me please to briefly introduce myself: I am currently a PhD student in Brain Computer Interfaces for  Neurorehabilitation Robotics in the "Instituto Tecnologico de Buenos Aires",  Buenos Aires, Argentina.  I have a B.S. in Computer Science and a Graduate Research Studentship in Bioengineering and Robotics in Japan. As Graduate Student, I took math courses in Fourier Analysis, Measure Theory and Machine Learning.  I use Matlab in daily basis, as well as other more statistical oriented tools like R or NumPy.  I also use frequently very popular BCI Matlab packages, like EEGLAB or BCILAB, and other like FASTICA (for Independent Component Analysis with Matlab).
+
+As part of my PhD, I took courses in Biology and Bioengineering, but at the current stage of my theses, I need to advance in my understanding of new methods for processing neuroscience data.  As long as I am aware of, this course is precisely oriented in that direction, and I found it very exciting to be able to participate as a student. 
+
+Two years ago I had the chance to be part of another summer school in Spain.  I have to say that the experience was the cornerstone of the current work that we are doing at the lab where I belong.  We need to test our ideas against the work that others are doing in similar areas, and summer schools are one of the best ways to do that while we learn practical techniques for our daily work. 
+
+Let me tell you just a few words about our project:  we are working on developing Brain Computer Interface for assisting elderly to maintain or regain walking ability. The system is currently based on EPOC Emotiv as an EEG sensor that will allow us to drive a custom Walking Helper Device.  We are aiming to develop a Non Invasive, Passive and Online solution and we are currently improving our processing methods to better solve the complex problem of the real-time processing of the noisy EEG signal.  
+
+Attached to this application, I have included my curriculum vita.  You can find there that I also have experience working in Software Companies that I put into practice when it is required (specially, when time is short and my tutor needs something for yesterday, you know what I mean).  I will be pleased to provide you with any additional information and certificates that you may require.  Please, do not hesitate at all to contact me.  I will be tremendous grateful for any kind of feedback that you can provide me.
+
+Finally, I thank you for your consideration and look forward to hearing from you.
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}
