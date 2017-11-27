@@ -138,6 +138,11 @@ Liang, N.; Bougrain, L.
   event-related potentials}.
 \newblock {\em 4th International Brain-Computer} {\bf 2008}, pp. 1--6.
 
+\bibitem[Bresenham(1965)]{Bresenham1965}
+Bresenham, J.E.
+\newblock {Algorithm for computer control of a digital plotter}.
+\newblock {\em IBM Systems Journal} {\bf 1965}, {\em 4},~25--30.
+
 \bibitem[Lowe(2004)]{Lowe2004}
 Lowe, G.
 \newblock {SIFT - The Scale Invariant Feature Transform}.

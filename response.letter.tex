@@ -1,0 +1,268 @@
+\documentclass[journal,onecolumn,12pt]{IEEEtran} 
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{amsthm, amsfonts}	
+\usepackage{bm,bbm}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{fancybox}
+\usepackage{url,booktabs}
+
+\usepackage{xr}
+
+
+
+\title{Reply to Reviewer's Comments on\\
+``EEG characterization and classification based on image gradient histograms''\\
+(now ``Oriented Gradient Histogram applied to P300 Detection'')}
+\author{}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+We are grateful to the reviewers for pointing at relevant issues in our manuscript.
+
+In the following, we discuss how we dealt with each raised issue. 
+
+\vskip+1ex
+\noindent \dotfill
+
+\section*{\fbox{Reviewer \#1:}}
+
+I have read the manuscript "EEG characterization and classification based on Histogram of Gradients of Signal Plots" with great interest since its title promised a solution to an important problem. In spite of presenting an interesting methodology and some interesting issues related to EEG characterization, I consider the manuscript is not ready for publication. 
+
+First of all, the title is misleading since a first, and naive, read suggest being able to classify and characterize any EEG with their different components (i.e., P200, P300, P600, N100, N200, N400 to name a few). Clearly, the title does not match the content since the authors focus on the P300; of course, there is evidence of the benefits of working with these signals, but, is the proposed method extensible to other signals?, this is not clear from the manuscript. 
+
+Another issue with the manuscript is its mathematical vagueness. For example, the variable T is used as a vector or two-tuple but its notation is different from the notation the authors use for vectors. Moreover, there is something wrong in equation (4) and something inconsistent between equations (7) and (8). Also, the authors go back and forth the digital space and the continuous space and although there is an equivalence, the manuscript could benefit from a clearer explanation. 
+
+Another issue that I find worrisome is the design of experiments. First of all, it seems that the number of subjects is rather low, it would be interesting to know why the authors decided to use such a subset. Also, the authors speculate that their results are not that good because they did not take into account the latency and magnitude of the signals, there is previous evidence in the literature that the P300 suffers from these, and other, problems and, thus, one wonders why the authors did not anticipate such problems. 
+
+A couple of finale observations. First, it seems the authors assume that the readers have some previous deep knowledge of some topics such as that some channels should carry more or better information without a previous reference. Another issue has to do with the way the manuscript is written, sometimes is very difficult to follow the ideas the authors want to convey, an example can be found in the paragraph containing equation (5), the manuscript surely benefit from a careful review before submitting.
+
+
+\subsection*{\ovalbox{General Comments}}
+
+2.1) the title is misleading since a first, and naive, read suggest being able to classify and characterize any EEG with their different components (i.e., P200, P300, P600, N100, N200, N400 to name a few). Clearly, the title does not match the content since the authors focus on the P300
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Thank you for the observation. You're very clever.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+2.2) these signals, but, is the proposed method extensible to other signals?
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+This comment is very important, thank you very much. 
+An explanation  of which is a satisfactory result for Algorithm~\ref{Algoritmo} was added in sections~\ref{errorevaluation} and~\ref{sec:EdgeSimulatedData}.  
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+\subsection*{\ovalbox{Third Paragraph}}
+
+3.1) Another issue with the manuscript is its mathematical vagueness. For example, the variable T is used as a vector or two-tuple but its notation is different from the notation the authors use for vectors
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Thank you for the observation.  You are so clever that it is very likely that you are God.}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+3.2) Moreover, there is something wrong in equation (4)
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Oh my God, I can't believe how smart you are !!! You probably are rich by now.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+3.3) and something inconsistent between equations (7) and (8)
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+We have revised the manuscript and made a clear distinction between ``methods'' and ``features''.
+We thank you for noticing this, that led to a less ambiguous text.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+3.4) Also, the authors go back and forth the digital space and the continuous space and although there is an equivalence, the manuscript could benefit from a clearer explanation. 
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Thank you for the observation.  Smart people like you should be president.
+Following your suggestion, we added graphical evidence of the difficulty of separating targets characterized by $\mathcal{G}_I^0(-2,1,1)$, $\mathcal{G}_I^0(-3,1,1)$, $\mathcal{G}_I^0(-4,1,1)$, and $\mathcal{G}_I^0(-5,1,1)$ data; cf.\ Fig.~\ref{fig:DifficultProblem}.
+With this, and the corresponding discussion, we believe we have addressed your point.
+ }
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+\subsection*{\ovalbox{Fourth Paragraph}}
+
+4.1) Another issue that I find worrisome is the design of experiments.\\
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Thank you for the observation. 
+We now specify details of the E-SAR image used in the applications to true data; cf. Sec.~\ref{sec:ActualData}.
+Following your suggestion, we added  a comparison with the Triangular distance in actual data. 
+We applied the method in edge detection with both distances and we discovered that both of them resulted in exactly the same edge point. 
+Then, we concluded that these distances are very similar in terms of accuracy in finding the transition point, but the geodesic distance is better in terms of  computation time. 
+We fully addressed your point.
+ }
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+4.2) it seems that the number of subjects is rather low, it would be interesting to know why the authors decided to use such a subset.
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Thank you for your suggestion. We increased the discussion and conclusions, and enhanced lines for future research.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+4.3) Also, the authors speculate that their results are not that good because they did not take into account the latency and magnitude of the signals, there is previous evidence in the literature that the P300 suffers from these, and other, problems and, thus, one wonders why the authors did not anticipate such problems. 
+
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Oh God. You are clearly an oracle. 
+All these points were modified according to the suggestions, but instead of doing what you asked for we do what we want instead.
+We hope this is acceptable.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+
+\subsection*{\ovalbox{Fifth Paragraph}}
+
+5.1) it seems the authors assume that the readers have some previous deep knowledge of some topics such as that some channels should carry more or better information without a previous reference.
+
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Oh God. You are clearly an oracle. 
+All these points were modified according to the suggestions, but instead of doing what you asked for we do what we want instead.
+We hope this is acceptable.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+5.2)  issue has to do with the way the manuscript is written
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Oh God. You are clearly an oracle. 
+All these points were modified according to the suggestions, but instead of doing what you asked for we do what we want instead.
+We hope this is acceptable.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+
+5.3) sometimes is very difficult to follow the ideas the authors want to convey, an example can be found in the paragraph containing equation (5)
+
+
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+%
+\begin{quotation}
+{\color{blue}
+Oh God. You are clearly an oracle. 
+
+We hope this is acceptable.
+}
+\end{quotation}
+%
+\vskip+1ex
+\noindent \dotfill
+\vskip+1ex
+
+
+
+\end{document}

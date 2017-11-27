@@ -9,45 +9,45 @@ Warning--empty publisher in Clerc
 Warning--empty year in Clerc
 Warning--can't use both volume and number fields in Hartman2005
 Warning--there's a number but no volume in Boiman2008
-You've used 28 entries,
+You've used 29 entries,
             2795 wiz_defined-function locations,
-            776 strings with 11514 characters,
-and the built_in function-call counts, 12075 in all, are:
-= -- 1029
-> -- 737
-< -- 25
-+ -- 275
-- -- 219
-* -- 1071
-:= -- 1919
-add.period$ -- 81
-call.type$ -- 28
-change.case$ -- 28
-chr.to.int$ -- 28
-cite$ -- 34
-duplicate$ -- 556
-empty$ -- 940
-format.name$ -- 265
-if$ -- 2557
+            783 strings with 11638 characters,
+and the built_in function-call counts, 12389 in all, are:
+= -- 1060
+> -- 744
+< -- 26
++ -- 279
+- -- 221
+* -- 1096
+:= -- 1967
+add.period$ -- 84
+call.type$ -- 29
+change.case$ -- 29
+chr.to.int$ -- 29
+cite$ -- 35
+duplicate$ -- 573
+empty$ -- 971
+format.name$ -- 268
+if$ -- 2622
 int.to.chr$ -- 1
-int.to.str$ -- 28
-missing$ -- 33
-newline$ -- 139
-num.names$ -- 86
-pop$ -- 186
+int.to.str$ -- 29
+missing$ -- 34
+newline$ -- 144
+num.names$ -- 89
+pop$ -- 191
 preamble$ -- 0
-purify$ -- 28
+purify$ -- 29
 quote$ -- 0
-skip$ -- 347
+skip$ -- 356
 stack$ -- 0
-substring$ -- 598
-swap$ -- 182
+substring$ -- 619
+swap$ -- 186
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 181
+type$ -- 188
 warning$ -- 6
-while$ -- 111
+while$ -- 115
 width$ -- 0
-write$ -- 344
+write$ -- 356
 (There were 6 warnings)
