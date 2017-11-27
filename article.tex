@@ -256,7 +256,7 @@ In order to complete the plot from the pixels, the Bresenham \citep{Bresenham196
 
 %is calculated on local image patches centered on sample points \citep{Vedaldi2010}.
 
-On the generated image, a keypoint $\mathbf{kp}$ is placed on a pixel $(x_kp, y_kp)$ over the image plot. In Figure  \ref{fig:sampledescriptor}.  Around the keypoint, a local image patch is constructed by dividing it in 16 blocks of size $ 3 \cdot s $ where $ s is the size of the local patch $, arranged in a 4x4 grid and centered on $ \mathbf{kp} = (x_kp,y_kp)$, the patch center.
+On the generated image, a keypoint $\mathbf{kp}$ is placed on a pixel $(x_{kp}, y_{kp})$ over the image plot. Figure~\ref{fig:sampledescriptor} shows a patch centered in the keypoint and.  Around the keypoint, a local image patch is constructed by dividing it in 16 blocks of size $ 3 \cdot s $ where $ s$ is the size of the local patch , arranged in a $4 \times 4$ grid and centered on $ \mathbf{kp} = (x_{kp},y_{kp})$, the patch center.
 
 A local representation of the shape of the signal within the patch can be described by obtaining the gradient orientations on each of the 16 blocks and creating a histogram of such gradients.  This technique is based on Lowe's SIFT \citep{Lowe2004} descriptor, and it is biomimetically inspired in how the visual cortex detects shapes by analyzing orientations.   In order to calculate this histogram, the interval $ [0-360]$ of possible angles is divided in 8 bins, each one at 45 degrees.
  
@@ -271,8 +271,8 @@ The values of the image gradients for the 8 angle bins $ p = {0, 45, 90, 135, 18
  
 \begin{figure}[H]
 \centering
-\includegraphics[width=5cm]{descriptorpatchsample.png}
-\includegraphics[width=6cm]{histogramsbines.png}
+\subfigure{[The local patch]\includegraphics[width=5cm]{descriptorpatchsample.png}\label{patch}}
+\subfigure[The local patch]{\includegraphics[width=6cm]{histogramsbines.png}\label{histogrambines}}
 %\includegraphics[width=9cm]{gradientszoom.png}
 \caption{(Left) AGREGAR UN GRAFICO QUE MUESTRE MEJOR EL HISTOGRAMA Y PONER UNO DONDE EL P300 CON SU DESCRIPTOR SE VEAN PERFECTO.The local patch is located on a precise location within the generated plot. The 4x4 block grid can be seen on the patch. (Right) On each grid block, eight bins are used to describe the eight different orientations, and they are later arranged in a 128-dimension vector (4x4x8).}
 \label{fig:sampledescriptor}
