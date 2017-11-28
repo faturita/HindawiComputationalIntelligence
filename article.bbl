@@ -3,24 +3,25 @@
 
 \bibitem[Schomer and Silva(2010)]{Schomer2010}
 Schomer, D.L.; Silva, F.L.D.
-\newblock {\em {Niedermeyer's Electroencephalography: Basic Principles,
-  Clinical Applications, and Related Fields}}; Vol.~1,  2010; p. 1296.
+\newblock {\em Niedermeyer's Electroencephalography: Basic Principles, Clinical
+  Applications, and Related Fields}; Walters Klutter -Lippincott Williams \&
+  Wilkins,  2010.
 
-\bibitem[{De Vos} and Debener(2014)]{DeVos2014}
-{De Vos}, M.; Debener, S.
-\newblock {Mobile EEG: Towards brain activity monitoring during natural action
-  and cognition}.
+\bibitem[De~Vos and Debener(2014)]{DeVos2014}
+De~Vos, M.; Debener, S.
+\newblock Mobile {EEG}: Towards brain activity monitoring during natural action
+  and cognition.
 \newblock {\em International Journal of Psychophysiology} {\bf 2014}, {\em
   91},~1--2.
 
-\bibitem[{Wolpaw, Jonathan R}(2012)]{WolpawJonathanR2012}
-{Wolpaw, Jonathan R}, W.E.
-\newblock {\em {Brain-Computer Interfaces: Principles and Practice}}; Oxford
-  University Press,  2012; p. 400.
+\bibitem[Wolpaw and E.(2012)]{WolpawJonathanR2012}
+Wolpaw, J.; E., W.
+\newblock {\em Brain-Computer Interfaces: Principles and Practice}; Oxford
+  University Press,  2012.
 
 \bibitem[Carlson and {del R. Millan}(2013)]{Carlson2013}
 Carlson, T.; {del R. Millan}, J.
-\newblock {Brain-Controlled Wheelchairs: A Robotic Architecture}.
+\newblock Brain-Controlled Wheelchairs: A Robotic Architecture.
 \newblock {\em IEEE Robotics {\&} Automation Magazine} {\bf 2013}, {\em
   20},~65--73.
 
@@ -38,21 +39,20 @@ Lotte, F.; Faller, J.; Guger, C.; Renard, Y.; Pfurtscheller, G.; L{\'e}cuyer,
   A.; Leeb, R., Combining BCI with Virtual Reality: Towards New Applications
   and Improved BCI.
 \newblock In {\em Towards Practical Brain-Computer Interfaces: Bridging the Gap
-  from Research to Real-World Applications}; Allison, B.Z.; Dunne, S.; Leeb,
-  R.; Del R.~Mill{\'a}n, J.; Nijholt, A., Eds.; Springer Berlin Heidelberg:
+  from Research to Real-World Applications}; Springer Berlin Heidelberg:
   Berlin, Heidelberg,  2013; pp. 197--220.
 
 \bibitem[Jure \em{et~al.}(2016)Jure, Carrere, Gentiletti, and
   Tabernig]{Jure2016}
-Jure, F.A.; Carrere, L.C.; Gentiletti, G.G.; Tabernig, C.B.
-\newblock {BCI-FES system for neuro-rehabilitation of stroke patients}.
+Jure, F.; Carrere, L.; Gentiletti, G.; Tabernig, C.
+\newblock {BCI-FES} system for neuro-rehabilitation of stroke patients.
 \newblock {\em Journal of Physics: Conference Series} {\bf 2016}, {\em
-  705},~12058.
+  705},~1--8.
 
-\bibitem[Clerc \em{et~al.}()Clerc, Bougrain, and Lotte]{Clerc}
+\bibitem[Clerc \em{et~al.}(2016)Clerc, Bougrain, and Lotte]{Clerc}
 Clerc, M.; Bougrain, L.; Lotte, F.
-\newblock {\em {Brain-computer interfaces., Technology and applications}}; p.
-  331.
+\newblock {\em Brain-computer interfaces, Technology and applications
+  2(Cognitive Science)}; ISTE Ltd. and Wiley,  2016.
 
 \bibitem[Riener and Seward(2014)]{Riener2014}
 Riener, R.; Seward, L.J.
@@ -93,15 +93,15 @@ Alvarado-Gonz{\'{a}}lez, M.; Gardu{\~{n}}o, E.; Bribiesca, E.;
 \bibitem[Yamaguchi \em{et~al.}(2009)Yamaguchi, Fujio, Inoue, and
   Pfurtscheller]{Yamaguchi2009}
 Yamaguchi, T.; Fujio, M.; Inoue, K.; Pfurtscheller, G.
-\newblock {Design Method of Morphological Structural Function for Pattern
-  Recognition of EEG Signals During Motor Imagery and Cognition}.
+\newblock Design Method of Morphological Structural Function for Pattern
+  Recognition of {EEG} Signals During Motor Imagery and Cognition.
 \newblock  Fourth International Conference on Innovative Computing, Information
-  and Control (ICICIC). IEEE,  2009, pp. 1558--1561.
+  and Control (ICICIC),  2009, pp. 1558--1561.
 
 \bibitem[Hartman(2005)]{Hartman2005}
 Hartman, a.L.
-\newblock {\em {Atlas of EEG Patterns}}; Vol.~65, Lippincott Williams \&
-  Wilkins,  2005; p. 307.
+\newblock {\em Atlas of {EEG} Patterns}; Vol.~65, Lippincott Williams \&
+  Wilkins,  2005.
 
 \bibitem[Farwell and Donchin(1988)]{Farwell1988}
 Farwell, L.A.; Donchin, E.
@@ -150,13 +150,13 @@ Lowe, G.
 
 \bibitem[Vedaldi and Fulkerson(2010)]{Vedaldi2010}
 Vedaldi, A.; Fulkerson, B.
-\newblock {VLFeat - An open and portable library of computer vision
-  algorithms}.
+\newblock {VLF}eat - {A}n open and portable library of computer vision
+  algorithms.
 \newblock {\em Design} {\bf 2010}, {\em 3},~1--4.
 
 \bibitem[Boiman \em{et~al.}(2008)Boiman, Shechtman, and Irani]{Boiman2008}
 Boiman, O.; Shechtman, E.; Irani, M.
-\newblock {In defense of nearest-neighbor based image classification}.
+\newblock In defense of nearest-neighbor based image classification.
 \newblock {\em 26th IEEE Conference on Computer Vision and Pattern Recognition,
   CVPR} {\bf 2008}.
 
@@ -169,8 +169,8 @@ Tibon, R.; Levy, D.A.
 \bibitem[Fornoni and Caputo(2014)]{Fornoni2014}
 Fornoni, M.; Caputo, B.
 \newblock {Scene recognition with naive bayes non-linear learning}.
-\newblock  Proceedings - International Conference on Pattern Recognition. IEEE,
-   2014, pp. 3404--3409.
+\newblock  Proceedings - International Conference on Pattern Recognition,
+  2014, pp. 3404--3409.
 
 \bibitem[Riccio \em{et~al.}(2013)Riccio, Simione, Schettini, Pizzimenti,
   Inghilleri, Belardinelli, Mattia, and Cincotti]{Riccio2013}
