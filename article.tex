@@ -5,6 +5,7 @@
 
 %=================================================================
 \documentclass[entropy,article,submit,moreauthors,pdftex,10pt,a4paper]{mdpi} 
+\usepackage{subfigure}
 
 %
 %--------------------
@@ -189,12 +190,12 @@ This article unfolds as follows: in Section \ref{Feature} the Feature Extraction
 
 \subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
 
-The P300 \citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around 300 ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm \cite{WolpawJonathanR2012} and though it is quite consistent across different subjects, it has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around -15 db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity \citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix \citep{Farwell1988} as shown in Fig. \ref{fig:p300matrix}, where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
+The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and though it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\citep{Farwell1988} as shown in Fig.~\ref{fig:p300matrix}, where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm]{openvibep300matrix.png}
-\caption{The P300 Matrix\citep{Farwell1988} used in the OpenVibe Open Source software \citep{Renard2010}. Rows are labeled from 1 to 6 and columns from 7 to 12.  Rows/columns flash intermittently in random permutations.}
+\caption{The P300 Matrix used in the OpenVibe Open Source software~\citep{Renard2010}. Rows are labeled from $1$ to $6$ and columns from $7$ to $12$. Rows/columns flash intermittently in random permutations.}
 \label{fig:p300matrix}
 \end{figure}
 
@@ -206,13 +207,13 @@ The P300 \citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 
 The first step consists of the enhancement of the SNR of the P300 pattern above the level of basal EEG. 
 The processing pipeline starts by applying a notch filter to the raw signal, a 
-4th degree 10 Hz lowpass Butterworth filter and finally a decimation with an Finite Impulse Response (FIR) filter of order 30 from the original sampling frequency down to 16 Hz \citep{Krusienski2006}.
+$4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with an Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
 
 \subsubsection{Processing Pipeline} \label{Pipeline}
 
 \begin{itemize}
-\item \textbf{Artefact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the 6 rows plus the 6 columns, a basic artefact elimination procedure is implemented by removing the entire segment when any signal deviates above/bellow $ \pm 70 \mu V $.
-\item \textbf{Segmentation}: For each of the 12 stimuli,  a window of 1 second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments are labeled as \textit{hit}, whereas the remaining 10 are labeled as \textit{no hit}.  A hit represents that the EEG segment should contain the P300 ERP signature time-locked to the flashing stimulus. 
+\item \textbf{Artefact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the $6$ rows plus the $6$ columns, a basic artefact elimination procedure is implemented by removing the entire segment when any signal deviates above/bellow $ \pm 70 \mu V $.
+\item \textbf{Segmentation}: For each of the $12$ stimuli,  a window of $1$ second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments are labeled as \textit{hit}, whereas the remaining $10$ are labeled as \textit{no hit}.  A hit represents that the EEG segment should contain the P300 ERP signature time-locked to the flashing stimulus. 
 \item \textbf{Signal Averaging}:  The P300 ERP is deeply buried under background EEG so the traditional approach to identify it is by point-to-point averaging the time-locked stacked signal segments.  Hence the values which are not related to, and not time-locked to the onset of the stimulus are canceled out \citep{Liang2008}. 
 \end{itemize}
 
@@ -256,25 +257,29 @@ In order to complete the plot from the pixels, the Bresenham \citep{Bresenham196
 
 %is calculated on local image patches centered on sample points \citep{Vedaldi2010}.
 
-On the generated image, a keypoint $\mathbf{kp}$ is placed on a pixel $(x_{kp}, y_{kp})$ over the image plot. Figure~\ref{fig:sampledescriptor} shows a patch centered in the keypoint and.  Around the keypoint, a local image patch is constructed by dividing it in 16 blocks of size $ 3 \cdot s $ where $ s$ is the size of the local patch , arranged in a $4 \times 4$ grid and centered on $ \mathbf{kp} = (x_{kp},y_{kp})$, the patch center.
+On the generated image, a keypoint $\mathbf{kp}$ is placed on a pixel $(x_{kp}, y_{kp})$ over the image plot.   Around the keypoint, a local image patch is constructed by dividing it in $16$ blocks of size $3s$ each one,  where $s$ is the scale of the local patch and it is an input parameter of the algorithm. It is arranged in a $4 \times 4$ grid and $ \mathbf{kp} = (x_{kp},y_{kp})$ is the patch center. 
 
-A local representation of the shape of the signal within the patch can be described by obtaining the gradient orientations on each of the 16 blocks and creating a histogram of such gradients.  This technique is based on Lowe's SIFT \citep{Lowe2004} descriptor, and it is biomimetically inspired in how the visual cortex detects shapes by analyzing orientations.   In order to calculate this histogram, the interval $ [0-360]$ of possible angles is divided in 8 bins, each one at 45 degrees.
- 
-The values of the image gradients for the 8 angle bins $ p = {0, 45, 90, 135, 180, 225, 270, 315} $ and for each grid block bin $ i,j = {1,2,3,4} $  are accumulated in the 3-dimensional histogram $ h $ through
+A local representation of the shape of the signal within the patch can be described by obtaining the gradient orientations on each of the $16$ blocks and creating a histogram of gradients.  This technique is based on Lowe's SIFT~\citep{Lowe2004} method, and it is biomimetically inspired in how the visual cortex detects shapes by analyzing orientations.   In order to calculate the histogram, the interval $[0-360]$ of possible angles is divided in $8$ bins, each one at $45$ degrees.
+Then, the angles $\theta$  are $ \theta = \{0, 45, 90, 135, 180, 225, 270, 315\} $. For each spacial bin $ i,j = \{1,2,3,4\} $, corresponding to the indexes of each block,  the orientations are accumulated in a  $3$-dimensional histogram $h$ through the following equation: %In each step, the histogram is computed by multiplying the length of the gradient vector by a Wang trilinear interpolation between the gradient angle and the bin, in order to give importance to the module of the gradient. 
 
 \begin{equation}
- h(p,i,j) = 3 \cdot s \sum w_\mathrm{ang}(\angle J(\mathbf{x}) - \theta_p)\, w_{ij}\left(\frac{\mathbf{x} - \mathbf{kp_c}}{3 s}\right)\, |J(\mathbf{x})|
+ h(\theta,i,j) = 3s \sum_{\mathbf{x}} w_\mathrm{ang}(\angle J(\mathbf{x}) - \theta)\, w_{ij}\left(\frac{\mathbf{x} - \mathbf{kp}}{3 s}\right)\, |J(\mathbf{x})|
 \label{eq:histogram}
 \end{equation}
 
-\noindent where $s$ is the size of the local patch, which can be converted into pixels by doing $ Px = 4 \cdot 3 \cdot s $ ,  $ |J(\mathbf{x})| $ is the norm of the gradient vector found at each one of the 16 blocks of the patch, whereas $\angle J(\mathbf{x}) $ is the angle of the gradient vector and  $\theta_p$ is the angle bin.  On the other hand $ \textbf{x} = (x_i, x_j) $ corresponds to each one of the pixels of the local patch, and $ w_\mathrm{ang}  $  and $ w_{ij} $ are linear interpolation functions \citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each grid block when the size of the patch is one (i.e. $s = 1$).  As the patch is 4x4, it gives a descriptor of 128 dimension as shown on Figure \ref{fig:sampledescriptor}.
+
+\noindent  where $ |J(\mathbf{x})| $ is the norm of the gradient vector found at each block of the patch, $\angle J(\mathbf{x}) $ is the angle of the gradient vector,  $\theta$ is the angle bin, $\mathbf{x}$ is a pixel from  the $i,j$-block and $ w_\mathrm{ang}(\cdot) $  and $ w_{ij}(\cdot) $ are linear interpolation functions used by Lowe and Vedaldi et al. in~\citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each block when $s = 1$.  As the patch is of size $4 \times 4$ and  $8$ bin angles are considered, a descriptor of $128$ dimension is obtained. In each step, the histogram is computed by multiplying by the length of the gradient vector, in order to take account of it. 
+
+Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the histogram computation. Fig.~\ref{patch} is a plot of the signal and the patch centered in the keypoint. In Fig.~\ref{histogrambines} the orientations on each patch are illustrtaed which encompass the corresponding $\mathbf{kp}$-descriptor of $128$ coordinates. The first two bloks orientations are shown. 
+ 
+
  
 \begin{figure}[H]
 \centering
-\subfigure{[The local patch]\includegraphics[width=5cm]{descriptorpatchsample.png}\label{patch}}
-\subfigure[The local patch]{\includegraphics[width=6cm]{histogramsbines.png}\label{histogrambines}}
+\subfigure[Plot of the signal, a keypoint and the corresponding patch.]{\includegraphics[width=.5\linewidth]{DiagramaConkeypoint.png}\label{patch}}
+\subfigure[Orientations on each patch.]{\includegraphics[width=.5\linewidth]{histogramsbines.png}\label{histogrambines}}
 %\includegraphics[width=9cm]{gradientszoom.png}
-\caption{(Left) AGREGAR UN GRAFICO QUE MUESTRE MEJOR EL HISTOGRAMA Y PONER UNO DONDE EL P300 CON SU DESCRIPTOR SE VEAN PERFECTO.The local patch is located on a precise location within the generated plot. The 4x4 block grid can be seen on the patch. (Right) On each grid block, eight bins are used to describe the eight different orientations, and they are later arranged in a 128-dimension vector (4x4x8).}
+\caption{ Example of a patch and a scheme of the orientations histogram computation.}
 \label{fig:sampledescriptor}
 \end{figure}
 
