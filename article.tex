@@ -287,6 +287,30 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 
 The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN) \citep{Boiman2008}.
 
+Steps
+
+\begin{itemize}
+\item For a Reactive Synchronous speller, like the P300 Speller, we need to identify the selected letter 1 out of 36 (like the matrix).
+\item Rows are 1-6 and columns are 7-12
+\item The matrix is randomly highlighted, rows and columns, making a permutation 1-12.
+\item So, each 12 stimulations there are one row and one column that matches the selected letter by the user and that it should generate the P300 waveform.
+\item Thus, we need to identify the segment that generated the p300 response.
+\item Descriptors are obtained from images of signal plots according to previously described algorithm.
+\item Descriptors thus belong to two classes: hits vs no-hits
+\item During training phase, descriptors from labeled segments are extracted.  These are the templates and they are grouped in a template set $ T $.
+\item On decoding phase, a new query image is generated from the signal plot of a segment of single-channel EEG (in the same way as for training phase).  From this image a new \textit{query} descriptor is extracted.
+\item so we need to identify the row, and the column.  There are 6 rows and 6 columns for a given letter.
+\item the letter that the person was focusing on is i,j, corresponding to one out of the 6 rows, and one out of the 6 columns.
+\item how we can do this ?  Well we generate 12 images, 6 for rows, and 6 for columns
+\item we pick the first 6 rows, and get one descriptor for each.
+\item we have 6 descriptors and we build 6 classes.
+\item we compute \ref{eq:classification} and we pick the class that minimize it.
+\item we thus have now the row.
+\item repeat for column.
+\item we can now identify the selected letter. 
+\end{itemize}
+
+
 %The first step consists in extracting labeled descriptors from the training set for the  which are thus grouped together in two KD-tree \citep{Vedaldi2010} database structures. and group those marked as \textit{hit} in a template set $ T $
 
 %BCI Simulation vs k-fold cross validation.  It is quite known and understood that because the same experience will not generate the same markers in the EEG, BCI Simulation is sometimes better suited to understand how the device will operate on a real online application (the graeat variability of BCI).
@@ -351,6 +375,11 @@ s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 \caption{The local patch captures the signal information based on both the vertical and horizontal scale.}
 \label{fig:sampledescriptor2}
 \end{figure}
+
+\subsubsection{P300 for healthy subjects}
+
+We replicated the same experiment on healthy subjects using g.Tec g.Nautilus 8 channels, bla bla bla bla in order to validate
+the obtained results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
