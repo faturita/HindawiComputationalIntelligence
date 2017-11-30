@@ -268,9 +268,9 @@ Then, the angles $\theta$  are $ \theta = \{0, 45, 90, 135, 180, 225, 270, 315\}
 \end{equation}
 
 
-\noindent  where $ |J(\mathbf{x})| $ is the norm of the gradient vector found at each block of the patch, $\angle J(\mathbf{x}) $ is the angle of the gradient vector,  $\theta$ is the angle bin, $\mathbf{x}$ is a pixel from  the $i,j$-block $B_{i,j}$ and $ w_\mathrm{ang}(\cdot) $  and $ w_{ij}(\cdot) $ are linear interpolation functions used by Lowe and Vedaldi et al. in~\citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each block when $s = 1$.  As the patch is of size $4 \times 4$ and  $8$ bin angles are considered, a descriptor of $128$ dimension is obtained. It can be observed that in each step, the histogram is computed by multiplying by $ |J(\mathbf{x})| $ , so the method considers both, the magnitude and the orientation of the gradient vector. 
+\noindent  where $ |J(\mathbf{x})| $ is the norm of the gradient vector found at each block of the patch using finite differences, $\angle J(\mathbf{x}) $ is the angle of the gradient vector,  $\theta$ is the angle bin, $\mathbf{x}$ is a pixel from  the $i,j$-block $B_{i,j}$ and $ w_\mathrm{ang}(\cdot) $  and $ w_{ij}(\cdot) $ are linear interpolation functions used by Lowe and Vedaldi et al. in~\citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each block when $s = 1$.  As the patch is of size $4 \times 4$ and  $8$ bin angles are considered, a descriptor of $128$ dimension is obtained. It can be observed that in each step, the histogram is computed by multiplying by $ |J(\mathbf{x})| $ , so the method considers both, the magnitude and the orientation of the gradient vector. 
 
-Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the histogram computation. Fig.~\ref{patch} is a plot of the signal and the patch centered in the keypoint. In Fig.~\ref{histogrambines} the possible orientations on each patch are illustrated. They form the corresponding $\mathbf{kp}$-descriptor of $128$ coordinates. The first two blocks orientations are shown. 
+Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the histogram computation. Fig.~\ref{patch} is a plot of the signal and the patch centered in the keypoint. In Fig.~\ref{histogrambines} the possible orientations on each patch are illustrated. They form the corresponding $\mathbf{kp}$-descriptor of $128$ coordinates. The first two blocks orientations are shown.  Following this procedure for every assigned keypoint, we obtain $N_{kp}$ descriptors.
  
 
  
@@ -287,28 +287,28 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 
 The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN) \citep{Boiman2008}.
 
-Steps
+The aim is to identify the selected letter from the matrix. Previously, during training phase, descriptors from labeled segments are extracted.  The P300 templates are grouped in a template set called $ T $.  Rows are labeled 1-6, whereas columns are labeled 7-12.  The process has the following steps:
 
-\begin{itemize}
-\item For a Reactive Synchronous speller, like the P300 Speller, we need to identify the selected letter 1 out of 36 (like the matrix).
-\item Rows are 1-6 and columns are 7-12
-\item The matrix is randomly highlighted, rows and columns, making a permutation 1-12.
-\item So, each 12 stimulations there are one row and one column that matches the selected letter by the user and that it should generate the P300 waveform.
-\item Thus, we need to identify the segment that generated the p300 response.
-\item Descriptors are obtained from images of signal plots according to previously described algorithm.
-\item Descriptors thus belong to two classes: hits vs no-hits
-\item During training phase, descriptors from labeled segments are extracted.  These are the templates and they are grouped in a template set $ T $.
-\item On decoding phase, a new query image is generated from the signal plot of a segment of single-channel EEG (in the same way as for training phase).  From this image a new \textit{query} descriptor is extracted.
-\item so we need to identify the row, and the column.  There are 6 rows and 6 columns for a given letter.
-\item the letter that the person was focusing on is i,j, corresponding to one out of the 6 rows, and one out of the 6 columns.
-\item how we can do this ?  Well we generate 12 images, 6 for rows, and 6 for columns
-\item we pick the first 6 rows, and get one descriptor for each.
-\item we have 6 descriptors and we build 6 classes.
-\item we compute \ref{eq:classification} and we pick the class that minimize it.
-\item we thus have now the row.
-\item repeat for column.
-\item we can now identify the selected letter. 
-\end{itemize}
+
+\begin{enumerate}
+\item Highlight randomly the rows and columns from the matrix.  There are one row and one column that matches the selected letter by the user.
+\item For $ k= {1-6} $: Obtain the descriptor from the image of the signal plot according to the method described in Section~\ref{Feature}, $ d^r_1, \dots  d^r_6 $ for rows and  $ d^c_1, \dots  d^c_6 $ 
+\item For $ k= {7-12} $: Compute  
+
+\begin{equation}
+\hat{r} = \arg \min_u \sum_{q \in NN_T(d^r_u)}^{} \left\lVert q -  d^r_u \right\rVert ^2,\; u = 1,\dots,6
+\label{eq:multiclassification}
+\end{equation}
+
+\noindent This procedure is repeated for the 6 columns.
+
+\begin{equation}
+\hat{c} = \arg \min_u \sum_{q \in NN_T(d^c_u)}^{} \left\lVert q -  d^c_u \right\rVert ^2,\; u = 7,\dots,12
+\label{eq:multiclassification}
+\end{equation}
+
+
+\end{enumerate}
 
 
 %The first step consists in extracting labeled descriptors from the training set for the  which are thus grouped together in two KD-tree \citep{Vedaldi2010} database structures. and group those marked as \textit{hit} in a template set $ T $
