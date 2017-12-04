@@ -73,14 +73,6 @@ Ramele, R.; Villar, A.J.; Santos, J.M.
 \newblock  4th International Winter Conference on Brain-Computer Interface, BCI
   2016; IEEE: Yongpyong,  2016; pp. 1--4.
 
-\bibitem[Knuth \em{et~al.}(2006)Knuth, Shah, Truccolo, Ding, Bressler, and
-  Schroeder]{Knuth2006}
-Knuth, K.H.; Shah, A.S.; Truccolo, W.A.; Ding, M.; Bressler, S.L.; Schroeder,
-  C.E.
-\newblock Differentially Variable Component Analysis: Identifying Multiple
-  Evoked Components Using Trial-to-Trial Variability.
-\newblock {\em Journal of Neurophysiology} {\bf 2006}, {\em 95},~3257--3276.
-
 \bibitem[Alvarado-Gonz{\'{a}}lez \em{et~al.}(2016)Alvarado-Gonz{\'{a}}lez,
   Gardu{\~{n}}o, Bribiesca, Y{\'{a}}{\~{n}}ez-Su{\'{a}}rez, and
   Medina-Ba{\~{n}}uelos]{Alvarado-Gonzalez2016}
@@ -109,6 +101,14 @@ Farwell, L.A.; Donchin, E.
   utilizing event-related brain potentials.}
 \newblock {\em Electroencephalography and clinical neurophysiology} {\bf 1988},
   {\em 70},~510--23.
+
+\bibitem[Knuth \em{et~al.}(2006)Knuth, Shah, Truccolo, Ding, Bressler, and
+  Schroeder]{Knuth2006}
+Knuth, K.H.; Shah, A.S.; Truccolo, W.A.; Ding, M.; Bressler, S.L.; Schroeder,
+  C.E.
+\newblock Differentially Variable Component Analysis: Identifying Multiple
+  Evoked Components Using Trial-to-Trial Variability.
+\newblock {\em Journal of Neurophysiology} {\bf 2006}, {\em 95},~3257--3276.
 
 \bibitem[Hu \em{et~al.}(2010)Hu, Mouraux, Hu, and Iannetti]{Hu2010}
 Hu, L.; Mouraux, A.; Hu, Y.; Iannetti, G.D.

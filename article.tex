@@ -153,13 +153,14 @@ Moreover, EEG markers \citep{Clerc} that can be used to volitionally transmit in
 
 %Besides novel applications of BCI, the goal of the entire discipline is to provide communication assistance to people affected by neuro-degenerative diseases.  It is understood that for people suffering from ALS, even though this pathology do not harm the CNS, their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.
 
-BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon  \citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments \citep{Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement \citep{Clerc}.
+BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon  \citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments \citep{Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\citep{Clerc}.
 
-In this work, a new method to characterize and classify EEG signals is presented, expanded and detailed.  Its validity is verified by processing offline data for ALS patients.  This is the continuation of the work previously presented in \citep{Ramele2016}, where it was applied to rhythmic patterns, and that it can be extended to describe transient events like those produced by P300 Event Related Potential \citep{Knuth2006}.
 
-The method is based on the morphological analysis of the shape of the EEG signal \citep{Alvarado-Gonzalez2016,Yamaguchi2009} and was inspired by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots \citep{Hartman2005}.
+In~\citep{Ramele2016}, the authors introduces a method for classification of rhythmic patterns using gradient histograms orientations. Inspired in that work, we proposed another application of the developed method for classify and describe transient events like those produced by P300 Event Related Potential. 
+ Its validity is verified by processing offline data for ALS patients.  
+The proposed method is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots~\citep{Hartman2005}.
 
-This paper reports a method to, (1) characterize EEG signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) how this characterization can be used to implement a BCI classification scheme to identify Event Related Potentials, particularly the well-known P300, on an offline and public dataset.
+This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) describe the way in which  this classification can be used to implement a BCI Event Related Potentials identification, on an offline and public dataset and another own dataset. 
 
 This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradients of the Signal Plot method is explained. Section \ref{Preprocessing} and \ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Near Neighbor  and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
 
@@ -300,18 +301,18 @@ The aim is to identify the selected letter from the matrix. Previously, during t
 \item Compute  
 
 \begin{equation}
-\hat{r} = \arg \min_u \sum_{q \in NN_T(d^r_u)}^{} \left\lVert q -  d^r_u \right\rVert ^2,\; u = 1,\dots,6
+\hat{r} = \arg \min_{u \in \{1,\dots,6\}} \sum_{q \in NN_T(d^r_u)}^{} \left\lVert q -  d^r_u \right\rVert ^2
 \label{eq:multiclassificationrow}
 \end{equation}
 
 \noindent This procedure is repeated for the columns.
 
 \begin{equation}
-\hat{c} = \arg \min_u \sum_{q \in NN_T(d^c_u)}^{} \left\lVert q -  d^c_u \right\rVert ^2,\; u = 7,\dots,12
+\hat{c} = \arg \min_{u \in \{7,\dots,12\}} \sum_{q \in NN_T(d^c_u)}^{} \left\lVert q -  d^c_u \right\rVert ^2
 \label{eq:multiclassificationcol}
 \end{equation}
 
-where $q$ is a template descriptor that belongs to the $k$ nearest neighbors  $NN_T(d^c_u)$.  By computing the aforementioned equations, the letter of the matrix can be determined from the intersection of the row $ \hat{r} $ and column $ \hat{c} $.
+where $NN_T(d^l_u), \;l=r,c$ is the set of the $k$ nearest neighbors to $d^l_u, \;l=r,c$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u), \;l=r,c$.  By computing the aforementioned equations, the letter of the matrix can be determined from the intersection of the row $ \hat{r} $ and column $ \hat{c} $.
 
 %The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first among the 6 rows, and then among the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
 
