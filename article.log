@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.29)  1 DEC 2017 19:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.29)  4 DEC 2017 14:10
 entering extended mode
 **article.tex
 (C:\Users\Juliana\HindawiComputationalIntelligence2\article.tex
@@ -903,13 +903,13 @@ File: histogramsbines.png Graphic file (type png)
  <use histogramsbines.png>
 Package pdftex.def Info: histogramsbines.png used on input line 281.
 (pdftex.def)             Requested size: 217.49539pt x 115.11378pt.
-
+ [5 <C:/Users/Juliana/HindawiComputationalIntelligence2/DiagramaConkeypoint.png> <C:/Users/Juliana/HindawiComputationalI
+ntelligence2/histogramsbines.png>]
 Underfull \hbox (badness 1776) in paragraph at lines 322--323
 []\T1/ppl/m/n/10 The NBNN al-go-rithm tack-les this prob-lem by com-par-ing each im-age against a whole
  []
 
-[5 <C:/Users/Juliana/HindawiComputationalIntelligence2/DiagramaConkeypoint.png> <C:/Users/Juliana/HindawiComputationalIn
-telligence2/histogramsbines.png>] [6] <localpatch.png, id=201, 218.31563pt x 176.15813pt>
+[6] <localpatch.png, id=201, 218.31563pt x 176.15813pt>
 File: localpatch.png Graphic file (type png)
  <use localpatch.png>
 Package pdftex.def Info: localpatch.png used on input line 376.
@@ -924,10 +924,10 @@ Package epstopdf Info: Source file: <subjectaveraged.eps>
 (epstopdf)             Command: <epstopdf --outfile=subjectaveraged-eps-converted-to.pdf subjectaveraged.eps>
 (epstopdf)             \includegraphics on input line 393.
 Package epstopdf Info: Output file is already uptodate.
-
-<subjectaveraged-eps-converted-to.pdf, id=212, 1026.83624pt x 491.8375pt>
+ <subjectaveraged-eps-converted-to.pdf, id=212, 1026.83624pt x 491.8375pt>
 File: subjectaveraged-eps-converted-to.pdf Graphic file (type pdf)
- <use subjectaveraged-eps-converted-to.pdf>
+
+<use subjectaveraged-eps-converted-to.pdf>
 Package pdftex.def Info: subjectaveraged-eps-converted-to.pdf used on input line 393.
 (pdftex.def)             Requested size: 455.24408pt x 218.05272pt.
 
@@ -946,34 +946,34 @@ Package epstopdf Info: Source file: <performance.eps>
 (epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
 
-<performance-eps-converted-to.pdf, id=241, 562.1pt x 421.575pt>
+<performance-eps-converted-to.pdf, id=240, 562.1pt x 421.575pt>
 File: performance-eps-converted-to.pdf Graphic file (type pdf)
  <use performance-eps-converted-to.pdf>
 Package pdftex.def Info: performance-eps-converted-to.pdf used on input line 427.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
 
-<subject8.png, id=244, 1261.71375pt x 451.6875pt>
+<subject8.png, id=243, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
 Package pdftex.def Info: subject8.png used on input line 436.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
- <subject3.png, id=245, 1226.5825pt x 434.62375pt>
+ <subject3.png, id=244, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
 
 <use subject3.png>
 Package pdftex.def Info: subject3.png used on input line 437.
 (pdftex.def)             Requested size: 284.52756pt x 100.81685pt.
- [9 <C:/Users/Juliana/HindawiComputationalIntelligence2/performance-eps-converted-to.pdf> <C:/Users/Juliana/HindawiCompu
-tationalIntelligence2/subject8.png (PNG copy)> <C:/Users/Juliana/HindawiComputationalIntelligence2/subject3.png (PNG cop
-y)>]
+ [9 <C:/Users/Juliana/HindawiComputationalIntelligence2/performance-eps-converted-to.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 530--530
 
  []
 
-(C:\Users\Juliana\HindawiComputationalIntelligence2\article.bbl [10] [11])
+[10 <C:/Users/Juliana/HindawiComputationalIntelligence2/subject8.png (PNG copy)> <C:/Users/Juliana/HindawiComputationalI
+ntelligence2/subject3.png (PNG copy)>] (C:\Users\Juliana\HindawiComputationalIntelligence2\article.bbl [11])
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 570.
- 
+
+
 AED: lastpage setting LastPage
 [12]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 570.
@@ -991,11 +991,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  14025 strings out of 493921
  198047 string characters out of 3147276
- 291641 words of memory out of 3000000
+ 290642 words of memory out of 3000000
  16994 multiletter control sequences out of 15000+200000
  50730 words of font info for 117 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 49i,12n,45p,2038b,525s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,12n,45p,2038b,505s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Juliana\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss0500.pk>{C:/Program Files/MiKTeX 2.
 9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
@@ -1003,7 +1003,7 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 
 lic/mathpazo/fplmr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on article.pdf (12 pages, 405846 bytes).
+Output written on article.pdf (12 pages, 406047 bytes).
 PDF statistics:
  338 PDF objects out of 1000 (max. 8388607)
  78 named destinations out of 1000 (max. 500000)
