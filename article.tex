@@ -156,11 +156,11 @@ Moreover, EEG markers \citep{Clerc} that can be used to volitionally transmit in
 BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon  \citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments \citep{Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\citep{Clerc}.
 
 
-In~\citep{Ramele2016}, the authors introduces a method for classification of rhythmic patterns using gradient histograms orientations. Inspired in that work, we proposed another application of the developed method for classify and describe transient events like those produced by P300 Event Related Potential. 
+In~\citep{Ramele2016},  authors introduce a method for classification of rhythmic patterns using gradient histograms orientations. Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events like those produced by P300 Event Related Potential. 
  Its validity is verified by processing offline data for ALS patients.  
-The proposed method is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots~\citep{Hartman2005}.
+The proposed approach is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots~\citep{Hartman2005}.
 
-This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) describe the way in which  this classification can be used to implement a BCI Event Related Potentials identification, on an offline and public dataset and another own dataset. 
+This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two public datasets.
 
 This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradients of the Signal Plot method is explained. Section \ref{Preprocessing} and \ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Near Neighbor  and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
 
@@ -191,7 +191,7 @@ This article unfolds as follows: in Section \ref{Feature} the Feature Extraction
 
 \subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
 
-The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and though it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\citep{Farwell1988}. Fig.~\ref{fig:p300matrix} shows an example of a Speller Matrix used in the OpenVibe Open Source software~\citep{Renard2010}, where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
+The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\citep{Farwell1988}. Fig.~\ref{fig:p300matrix} shows an example of a Speller Matrix used in the OpenVibe Open Source software~\citep{Renard2010}, where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
 \begin{figure}[H]
 \centering
@@ -208,12 +208,12 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 
 The first step consists of the enhancement of the SNR of the P300 pattern above the level of basal EEG. 
 The processing pipeline starts by applying a notch filter to the raw signal, a 
-$4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with an Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
+$4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with a Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
 
 \subsubsection{Processing Pipeline} \label{Pipeline}
 
 \begin{itemize}
-\item \textbf{Artefact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the $6$ rows plus the $6$ columns, a basic artefact elimination procedure is implemented by removing the entire segment when any signal deviates above/bellow $ \pm 70 \mu V $.
+\item \textbf{Artefact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the $6$ rows plus the $6$ columns, a basic artefact elimination procedure is implemented by removing the entire sequence when any signal deviates above/bellow $ \pm 70 \mu V $.
 \item \textbf{Segmentation}: For each of the $12$ stimuli,  a window of $1$ second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments are labeled as \textit{hit}, whereas the remaining $10$ are labeled as \textit{no hit}.  A hit represents that the EEG segment should contain the P300 ERP signature time-locked to the flashing stimulus. 
 \item \textbf{Signal Averaging}:  The P300 ERP is deeply buried under background EEG so the traditional approach to identify it is by point-to-point averaging the time-locked stacked signal segments.  Hence the values which are not related to, and not time-locked to the onset of the stimulus are canceled out \citep{Liang2008}. 
 \end{itemize}
@@ -222,7 +222,7 @@ This last step determines the operation of any P300 Speller.  In order to obtain
 
 \subsubsection{Signal Plotting} \label{Plot}
 
-The underlying idea of this method is to generate a template for the signal \citep{Ramele2016},  based on the image plot.  Hence, the first step is its transformation into a temporary binary image.
+The underlying idea of this method is to generate a template for the signal \citep{Ramele2016},  based on the image plot.  Hence, the first step is the signal transformation into a temporary binary image.
 
 Averaged signal segments obtained from the preprocessing stage are first scaled and standardized (i.e. z-score) by 
 
@@ -230,7 +230,7 @@ Averaged signal segments obtained from the preprocessing stage are first scaled 
 \tilde{x}(t,c) = \left \lfloor{ \gamma \cdot \frac{( x(t,c) - \bar{x}(c)  )}{ \sigma(c) } }\right \rfloor
 \end{equation}
 
-\noindent where $\gamma$ is the image scale, $t$ is the time and $ x(t,c) $ is the point-to-point averaged EEG matrix for time $t$ and for  channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma (c) $ are the mean and standard deviation of $x$.
+\noindent where $\gamma$ is the image scale, $t$ is time and $ x(t,c) $ is the point-to-point averaged EEG matrix for time $t$ and for  channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma (c) $ are the mean and standard deviation of $x$.
 
 Consequently, the image is constructed by placing the sample points according to
 
@@ -290,13 +290,13 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 \subsubsection{Classification}
 \label{Classification}
 
-The following step is classify the descriptors $\{d_{kp}, kp =1,\dots, 12\}$ in order to determine the correct row and column of the chosen letter en the Speller Matrix.   The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}.
+The following step is classify the descriptors $\{d_{kp}, kp =1,\dots, 12\}$ in order to determine the correct row and column of the chosen letter on the Speller Matrix.   The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}.
 
 The aim is to identify the selected letter from the matrix. Previously, during training phase, descriptors from labeled segments are extracted.  These descriptors are the P300 templates which are grouped in a template set called $ T $.  Rows are labeled 1-6, whereas columns are labeled 7-12.  The process has the following steps:
 
 
 \begin{enumerate}
-\item Highlight randomly the rows and columns from the matrix.  There is one row and one column that should match the selected letter by the subject.
+\item Highlight randomly the rows and columns from the matrix.  There is one row and one column that should match the letter selected by the subject.
 \item Obtain the descriptor from the image of the signal plot according to the method described in Section~\ref{SIFT}, $ d^r_1, \dots,  d^r_6 $ for rows and  $ d^c_7, \dots,  d^c_{12} $ for columns. 
 \item Compute  
 
@@ -320,12 +320,12 @@ where $NN_T(d^l_u), \;l=r,c$ is the set of the $k$ nearest neighbors to $d^l_u, 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10cm]{classification.png}
+\includegraphics[width=15cm]{classificationgraph.pdf}
 \caption{For each letter, single trial segments are averaged for the 6 rows and 6 columns.}
 \label{fig:classification}
 \end{figure}
 
-Especially in the case of the P300 response, the oddball paradigm requires that one of the stimuli need to be infrequent so that will unavoidably force the data to be unbalanced \citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes \citep{Fornoni2014}.  By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. Figure \ref{fig:classification} schematize this basic algorithm where the classification is only performed against the template set T, for each one of the twelve classes, thus avoiding the unbalanced situation (2 hit vs. 10 no-hit).
+Especially in the case of the P300 response, the oddball paradigm requires that one of the stimuli need to be infrequent. Hence this will unavoidably force the data to be unbalanced \citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes \citep{Fornoni2014}.  By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. Figure \ref{fig:classification} schematize this basic algorithm where the classification is only performed against the template set T, for each one of the twelve classes, thus avoiding the unbalanced situation (2 hit vs. 10 no-hit).
 
 
 \subsection{Experimental Protocol} \label{Protocol}
@@ -354,7 +354,7 @@ s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 \label{eq:mapping2}
 \end{equation}
 
-\noindent where $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz), $ \lambda $ is the length in seconds covered by the patch, and $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch. By using $ s = 3 $ and a quadruple scale of the image $ \gamma = 4 $ this gives the local patch, and the descriptor, the ability to identify events of 9 $ \mu V $ of amplitude, a resolution of $ 1 $ Pixel $ = \frac{1}{4} \mu V $ and span   of $ \lambda = 0.56 s $ (because the patch is a geometric square, $ s $ must be the same to map both the height and the required span of the signal).  Finally, descriptor locations $ T $ were selected at $ x =  0.55 s \cdot Fs \cdot \gamma = 35 $ and $ y = z(c) $ (Eq. \ref{eq:zerolevel}).
+\noindent where $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz), $ \lambda $ is the length in seconds covered by the patch, and $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch. By using $ s = 3 $ and a quadruple scale of the image $ \gamma = 4 $ this gives the local patch, and the descriptor, the ability to identify events of 9 $ \mu V $ of amplitude, a resolution of $ 1 $ Pixel $ = \frac{1}{4} \mu V $ and span   of $ \lambda = 0.56 s $ (because the patch is a geometric square, $ s $ must be the same to map both the height and the required span of the signal).  Finally, descriptor locations $\mathbf{kp}$  were selected at $ x =  0.55 s \cdot Fs \cdot \gamma = 35 $ and $ y = z(c) $ (Eq. \ref{eq:zerolevel}).
 
 \begin{figure}[H]
 \centering
@@ -367,7 +367,12 @@ s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 
 We replicated the same experiment on healthy subjects using g.Tec g.Nautilus 8 channels.  The experiment protocol is exactly the same and we 20 subjects, age $ 30$, 5 females and 15 males, 6 right handed and the remaining left handed. 
 
-Results are shown in Figure 9191.
+Participants were recruited voluntarily and the experiment were conducted anonymyzing information in accordance with the declaration of Helsinki.  No monetary compensation was delivered and all participants agreed and signed a written informed consent.  All healthy participants (n=13, 7 males, 6 females, average age 22.5 years (SD = 1,8 years), range 21–26 years) had normal or corrected-to normal vision and no history of neuropsychiatric dis- orders.
+
+EEG data were recorded from the same 8 electrodes positions (C3, Cz, C4, CPz, P3, Pz, P4, POz) with all the systems. The reference positions were placed at the right ear. The ground positions was placed at the left ear, except with the g.Nautilus system (placed at AFz, because this could not be changed). Sampling rate was set at 250 Hz, the closest possible to predefined g.Mobilab sampling rate (256 Hz). Data were acquired notch filtered at 50 Hz and passband filtered between 2 Hz and 30 Hz. The filtering was performed via the proprietary Simulink HighSpeed Online Processing block modules for g.MOBIlab and g.Nautilus systems, and via MATLAB code for the Xpress system. Table 1 summarizes the acquisition settings for each system.
+
+8 gel-based active electrodes (g.LADYbird) + g.LADYbird (GND) + g.GAMMAearclip (REF) C3, Cz, C4, CPz, P3, Pz, P4, POz, GND: AFz, REF: right ear
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
