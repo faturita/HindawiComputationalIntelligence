@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.29)  6 DEC 2017 14:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.29)  6 DEC 2017 14:49
 entering extended mode
 **article.tex
 (C:\Users\Juliana\HindawiComputationalIntelligence2\article.tex
@@ -896,12 +896,12 @@ Underfull \hbox (badness 2790) in paragraph at lines 228--229
  []
 
 [3 <C:/Users/Juliana/HindawiComputationalIntelligence2/openvibep300matrix.png> <C:/Users/Juliana/HindawiComputationalInt
-elligence2/p300matrixcoloriginal.png>] <DiagramaConkeypoint.png, id=147, 473.77pt x 504.88625pt>
-File: DiagramaConkeypoint.png Graphic file (type png)
+elligence2/p300matrixcoloriginal.png>] <signalpatchkeypoint.png, id=147, 664.4825pt x 561.09625pt>
+File: signalpatchkeypoint.png Graphic file (type png)
 
-<use DiagramaConkeypoint.png>
-Package pdftex.def Info: DiagramaConkeypoint.png used on input line 284.
-(pdftex.def)             Requested size: 217.49539pt x 231.78053pt.
+<use signalpatchkeypoint.png>
+Package pdftex.def Info: signalpatchkeypoint.png used on input line 284.
+(pdftex.def)             Requested size: 217.49539pt x 183.65549pt.
  <histogramsbines.png, id=148, 283.0575pt x 149.8097pt>
 File: histogramsbines.png Graphic file (type png)
  <use histogramsbines.png>
@@ -913,7 +913,7 @@ File: classificationgraph.pdf Graphic file (type pdf)
  <use classificationgraph.pdf>
 Package pdftex.def Info: classificationgraph.pdf used on input line 328.
 (pdftex.def)             Requested size: 426.79134pt x 276.75638pt.
- [5 <C:/Users/Juliana/HindawiComputationalIntelligence2/DiagramaConkeypoint.png> <C:/Users/Juliana/HindawiComputationalI
+ [5 <C:/Users/Juliana/HindawiComputationalIntelligence2/signalpatchkeypoint.png> <C:/Users/Juliana/HindawiComputationalI
 ntelligence2/histogramsbines.png>] [6 <C:/Users/Juliana/HindawiComputationalIntelligence2/classificationgraph.pdf>]
 <localpatch.png, id=230, 218.31563pt x 176.15813pt>
 File: localpatch.png Graphic file (type png)
@@ -1005,7 +1005,7 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 
 lic/mathpazo/fplmr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on article.pdf (12 pages, 443746 bytes).
+Output written on article.pdf (12 pages, 429114 bytes).
 PDF statistics:
  368 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
