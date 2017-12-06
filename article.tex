@@ -195,7 +195,8 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=.49\linewidth]{openvibep300matrix.png}
+\subfigure[Row flash.]{\includegraphics[width=.29\linewidth]{openvibep300matrix.png}}
+\subfigure[Column flash.]{\includegraphics[width=.29\linewidth]{p300matrixcoloriginal.png}}
 \caption{Example of a Speller Matrix.  Rows and columns flash intermittently in random permutations.}
 \label{fig:p300matrix}
 \end{figure}
@@ -281,7 +282,7 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 \begin{figure}[H]
 \centering
 \subfigure[Plot of the signal, a keypoint and the corresponding patch.]{\includegraphics[width=.49\linewidth]{DiagramaConkeypoint.png}\label{patch}}
-\subfigure[Orientations on each patch.]{\includegraphics[width=.49\linewidth]{histogramsbines.png}\label{histogrambines}}
+\subfigure[Orientations on two blocks of the patch.]{\includegraphics[width=.49\linewidth]{histogramsbines.png}\label{histogrambines}}
 %\includegraphics[width=9cm]{gradientszoom.png}
 \caption{ Example of a patch and a scheme of the orientation's histogram computation.}
 \label{fig:sampledescriptor}
@@ -305,45 +306,47 @@ The aim is to identify the selected letter from the matrix. Previously, during t
 \label{eq:multiclassificationrow}
 \end{equation}
 
-\noindent This procedure is repeated for the columns.
+\noindent and
 
 \begin{equation}
 \hat{c} = \arg \min_{u \in \{7,\dots,12\}} \sum_{q \in NN_T(d^c_u)}^{} \left\lVert q -  d^c_u \right\rVert ^2
 \label{eq:multiclassificationcol}
 \end{equation}
 
-where $NN_T(d^l_u), \;l=r,c$ is the set of the $k$ nearest neighbors to $d^l_u, \;l=r,c$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u), \;l=r,c$.  By computing the aforementioned equations, the letter of the matrix can be determined from the intersection of the row $ \hat{r} $ and column $ \hat{c} $.
+where $NN_T(d^l_u), \;l=r,c$ is the set of the $k$ nearest neighbors to $d^l_u, \;l=r,c$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u), \;l=r,c$.  By computing the aforementioned equations, the letter of the matrix can be determined from the intersection of the row $ \hat{r} $ and column $ \hat{c} $. The parameter $k$ is an input parameter of the algorithm.
 
 %The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first among the 6 rows, and then among the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
 
 \end{enumerate}
 
+
+%Este párrafo no se entiende nada
+%------------------
+Especially in the case of the P300 response, the oddball paradigm requires that one of the stimuli needs to be infrequent. Hence this will unavoidably force the data to be unbalanced~\citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes~\citep{Fornoni2014}.  By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. Figure~\ref{fig:classification} shows a schema of this idea,  where the classification is only performed against the template set T, for each one of the twelve classes, thus avoiding the unbalanced situation (2 hit vs. 10 no-hit).
 \begin{figure}[H]
 \centering
 \includegraphics[width=15cm]{classificationgraph.pdf}
 \caption{For each letter, single trial segments are averaged for the 6 rows and 6 columns.}
 \label{fig:classification}
 \end{figure}
-
-Especially in the case of the P300 response, the oddball paradigm requires that one of the stimuli needs to be infrequent. Hence this will unavoidably force the data to be unbalanced \citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes \citep{Fornoni2014}.  By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. Figure \ref{fig:classification} schematize this basic algorithm where the classification is only performed against the template set T, for each one of the twelve classes, thus avoiding the unbalanced situation (2 hit vs. 10 no-hit).
-
-
+%------------------
 \subsection{Experimental Protocol} \label{Protocol}
 
-To verify the validity of the proposed framework and method, the public dataset 008-2014  \citep{Riccio2013} published on the BNCI-Horizon website \citep{Brunner2014} by  IRCCS Fondazione Santa Lucia, was used to perform an offline BCI Simulation to decode the spelled words from the provided signals.  The algorithm was implemented using  VLFeat  \citep{Vedaldi2010} Computer Vision libraries on MATLAB 2014a (Mathworks Inc., Natick, MA, USA). 
+To verify the validity of the proposed framework and method, the public dataset 008-2014~\citep{Riccio2013} published on the BNCI-Horizon website~\citep{Brunner2014} by  IRCCS Fondazione Santa Lucia, was used to perform an offline BCI Simulation to decode the spelled words from the provided signals.  The algorithm was implemented using  VLFeat~\citep{Vedaldi2010} Computer Vision libraries on MATLAB 2014a (Mathworks Inc., Natick, MA, USA). 
 
 \subsubsection{P300 ALS Public Dataset}
 
-The experimental protocol used to generate this dataset is explained in \citep{Riccio2013} but can be summarized as follows:  8 subjects with confirmed diagnoses but on different stages of ALS disease, were recruited and accepted to perform the experiments. The P300 detection task designed for this experiment consisted of spelling 7 words (runs) of 5 letters each, using the traditional P300 Speller Matrix \citep{Farwell1988} where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.  The first 3 runs were used for training and the remaining 4 for testing with visual feedback.  A trial, as defined by the BCI2000 platform \citep{Schalk2004}, was every attempt to select a letter from the speller, and it was composed of signal segments corresponding to 10 repetitions of flashes of 6 rows and 6 columns of the traditional 6x6 P300 matrix , yielding 120 repetitions.  Flashing of row/columns was performed for 0.125 s, following by a resting period (i.e. Inter-stimulus interval) of the same length.  After 120 repetitions an inter-trial pause was included before resuming with the following letter.
+The experimental protocol used to generate this dataset is explained in~\citep{Riccio2013} but can be summarized as follows:  8 subjects with confirmed diagnoses but on different stages of ALS disease, were recruited and accepted to perform the experiments. The P300 detection task designed for this experiment consisted of spelling 7 words of 5 letters each, using the traditional P300 Speller Matrix~\citep{Farwell1988}. The flashing of rows and columns provide the deviant stimulus required to elicit this physiological response.  The first 3 words are used for training and the remaining 4 words, for testing with visual feedback.  A trial, as defined by the BCI2000 platform~\citep{Schalk2004}, is every attempt to select a letter from the speller. It is composed of signal segments corresponding to 10 repetitions of flashes of 6 rows and 10 repetitions of flashes of 6 columns of the matrix, yielding 120 repetitions.  Flashing of a row or a column is performed for 0.125 s, following by a resting period (i.e. Inter-stimulus interval) of the same length.  After 120 repetitions an inter-trial pause is included before resuming with the following letter.
 
 The recorded dataset was sampled at 256 Hz and consisted of an EEG matrix for electrode channels Fz,Cz,Pz,Oz,P3,P4,PO7 and PO8, identified according to the 10-20 International System,  for each one of the 8 subjects.  
 
-In order to asses and verify the identification of the P300 response, subjects are instructed to perform a copy-spelling task where they have to fix their attention to successive letters in order to copy a previously determined set of words (in contrast to an online free-running operation of the speller where each users decides on its own what letter to choose).
+%Este párrafo no se entiende nada y repite in order
+In order to asses and verify the identification of the P300 response, subjects are instructed to perform a copy-spelling task. They have to fix their attention to successive letters in order to copy a previously determined set of words (in contrast to an online free-running operation of the speller where each users decides on its own what letter to choose).
 
 \subsubsection{Parameters}
 
-Parameters were selected according to the experimental protocol. As the P300 event latency and amplitude vary greatly between subjects, it is necessary to provide a patch that will be able to capture an entire transient event.  Equations \ref{eq:mapping1} and \ref{eq:mapping2} can be used to map the original signal parameters to local image patch structure. 
-
+Parameters are selected according to the experimental protocol. As the P300 event latency and amplitude vary greatly between subjects, it is necessary to provide a patch that will be able to capture an entire transient event.  Equations~\ref{eq:mapping1} and~\ref{eq:mapping2} can be used to map the original signal parameters to local image patch structure. 
+%¿Qué es s? hay que hacer acordar. 
 \begin{equation}
 s= \frac{\Delta \mu V}{4 \cdot 3} \cdot \gamma 
 \label{eq:mapping1}
@@ -353,9 +356,12 @@ s= \frac{\Delta \mu V}{4 \cdot 3} \cdot \gamma
 s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 \label{eq:mapping2}
 \end{equation}
+%falta definir gamma
+\noindent where $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch, $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz) and $ \lambda $ is the length in seconds covered by the patch. 
+% estos son los parámetros que vos usaste en tu experimento? 
+By using $ s = 3 $ and a quadruple scale of the image $ \gamma = 4 $ this gives the local patch, and the descriptor, the ability to identify events of 9 $ \mu V $ of amplitude, a resolution of $ 1 $ Pixel $ = \frac{1}{4} \mu V $ and span   of $ \lambda = 0.56 s $ (because the patch is a geometric square, $ s $ must be the same to map both the height and the required span of the signal).  Finally, descriptor locations $\mathbf{kp}$  were selected at $ x =  0.55 s \cdot Fs \cdot \gamma = 35 $ and $ y = z(c) $ (Eq. \ref{eq:zerolevel}). %demasiado larga la frase, no se puede leer.
 
-\noindent where $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz), $ \lambda $ is the length in seconds covered by the patch, and $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch. By using $ s = 3 $ and a quadruple scale of the image $ \gamma = 4 $ this gives the local patch, and the descriptor, the ability to identify events of 9 $ \mu V $ of amplitude, a resolution of $ 1 $ Pixel $ = \frac{1}{4} \mu V $ and span   of $ \lambda = 0.56 s $ (because the patch is a geometric square, $ s $ must be the same to map both the height and the required span of the signal).  Finally, descriptor locations $\mathbf{kp}$  were selected at $ x =  0.55 s \cdot Fs \cdot \gamma = 35 $ and $ y = z(c) $ (Eq. \ref{eq:zerolevel}).
-
+% esta figura no está comentada en el texto.
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm]{localpatch.png}
