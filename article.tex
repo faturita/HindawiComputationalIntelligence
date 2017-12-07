@@ -361,26 +361,27 @@ The experimental protocol used to generate this dataset is explained in~\citep{R
 
 The recorded dataset was sampled at 256 Hz and it consisted of an EEG matrix for electrode channels Fz,Cz,Pz,Oz,P3,P4,PO7 and PO8, identified according to the 10-20 International System,  for each one of the 8 subjects.  
 
-%Este párrafo no se entiende nada y repite in order
+
 In order to asses and verify the identification of the P300 response, subjects are instructed to perform a copy-spelling task. They have to fix their attention to successive letters for copying a previously determined set of words, in contrast to a free-running operation of the speller where each user decides on its own what letter to choose.
 
 \subsubsection{Parameters}
 
-Parameters are selected according to the experimental protocol. As the P300 event latency and amplitude vary greatly between subjects, it is necessary to provide a patch that will be able to capture an entire transient event.  Equations~\ref{eq:mapping1} and~\ref{eq:mapping2} can be used to map the original signal parameters to local image patch structure. 
-%¿Qué es s? hay que hacer acordar. 
+Parameters are selected according to the experimental protocol. It is define in Section~\ref{Feature}, the patch size is $S_P = 3s.4 \times 3s.4$ .
+As the P300 event latency and amplitude vary greatly between subjects, it is necessary to utilize a size patch $S_P$ that be able to capture an entire transient event. With this purpose the $s$ value election is essential.
+%necesitamos definir el valor de s en función de los parámetros de la señal, de modo tal que el parche cubra el evento completo.  
+We proposed the equations~\ref{eq:mapping2} and~\ref{eq:mapping1} for compute the scale value in horizontal and vertical directions, respectively. 
 \begin{equation}
-s= \frac{\Delta \mu V}{4 \cdot 3} \cdot \gamma 
-\label{eq:mapping1}
+s_x = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
+\label{eq:mapping2}
 \end{equation}
 
 \begin{equation}
-s = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
-\label{eq:mapping2}
+s_y= \frac{\Delta \mu V}{4 \cdot 3} \cdot \gamma 
+\label{eq:mapping1}
 \end{equation}
-%falta definir gamma
-\noindent where $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch, $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz) and $ \lambda $ is the length in seconds covered by the patch. 
-% estos son los parámetros que vos usaste en tu experimento? 
-By using $ s = 3 $ and a quadruple scale of the image $ \gamma = 4 $ this gives the local patch, and the descriptor, the ability to identify events of 9 $ \mu V $ of amplitude, a resolution of $ 1 $ Pixel $ = \frac{1}{4} \mu V $ and span   of $ \lambda = 0.56 s $ (because the patch is a geometric square, $ s $ must be the same to map both the height and the required span of the signal).  Finally, descriptor locations $\mathbf{kp}$  were selected at $ x =  0.55 s \cdot Fs \cdot \gamma = 35 $ and $ y = z(c) $ (Eq. \ref{eq:zerolevel}). %demasiado larga la frase, no se puede leer.
+
+
+\noindent where $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch, $ Fs $ is the sample frequency of the EEG signal (downsampled to 16 Hz) and $ \lambda $ is the length in seconds covered by the patch. In this way the whole event is capture. But we need a squared patch, then we discovered that by using $ s =s_x =s_y = 3 $ and $ \gamma = 4 $  the local patch and the descriptor can identify events of 9 $ \mu V $ of amplitude, span of $ \lambda = 0.56$ seconds.  The resolution of $ 1 $ Pixel representing $  \frac{1}{4} \mu V $ in the vertical direction and $\frac{1}{Fs}\gamma$ in horizontal direction. Finally, descriptors  $\mathbf{kp}$  are located at $ x =  0.55 Fs.\gamma = 35 $ and $ y = z(c) $ (Eq.~\ref{eq:zerolevel}). 
 
 % esta figura no está comentada en el texto.
 \begin{figure}[H]
