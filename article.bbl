@@ -154,24 +154,6 @@ Vedaldi, A.; Fulkerson, B.
   algorithms.
 \newblock {\em Design} {\bf 2010}, {\em 3},~1--4.
 
-\bibitem[Boiman \em{et~al.}(2008)Boiman, Shechtman, and Irani]{Boiman2008}
-Boiman, O.; Shechtman, E.; Irani, M.
-\newblock In defense of nearest-neighbor based image classification.
-\newblock {\em 26th IEEE Conference on Computer Vision and Pattern Recognition,
-  CVPR} {\bf 2008}.
-
-\bibitem[Tibon and Levy(2015)]{Tibon2015}
-Tibon, R.; Levy, D.A.
-\newblock {Striking a balance: analyzing unbalanced event-related potential
-  data.}
-\newblock {\em Frontiers in psychology} {\bf 2015}, {\em 6},~555.
-
-\bibitem[Fornoni and Caputo(2014)]{Fornoni2014}
-Fornoni, M.; Caputo, B.
-\newblock {Scene recognition with naive bayes non-linear learning}.
-\newblock  Proceedings - International Conference on Pattern Recognition,
-  2014, pp. 3404--3409.
-
 \bibitem[Riccio \em{et~al.}(2013)Riccio, Simione, Schettini, Pizzimenti,
   Inghilleri, Belardinelli, Mattia, and Cincotti]{Riccio2013}
 Riccio, A.; Simione, L.; Schettini, F.; Pizzimenti, A.; Inghilleri, M.;
