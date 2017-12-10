@@ -95,6 +95,12 @@ Hartman, a.L.
 \newblock {\em Atlas of {EEG} Patterns}; Vol.~65, Lippincott Williams \&
   Wilkins,  2005.
 
+\bibitem[Boiman \em{et~al.}(2008)Boiman, Shechtman, and Irani]{Boiman2008}
+Boiman, O.; Shechtman, E.; Irani, M.
+\newblock In defense of nearest-neighbor based image classification.
+\newblock {\em 26th IEEE Conference on Computer Vision and Pattern Recognition,
+  CVPR} {\bf 2008}.
+
 \bibitem[Farwell and Donchin(1988)]{Farwell1988}
 Farwell, L.A.; Donchin, E.
 \newblock {Talking off the top of your head: toward a mental prosthesis
