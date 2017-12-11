@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  10 DEC 2017 02:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  11 DEC 2017 00:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1094,7 +1094,7 @@ to.pdf performance.eps>
 (epstopdf)             \includegraphics on input line 457.
 Package epstopdf Info: Output file is already uptodate.
 
-<performance-eps-converted-to.pdf, id=298, 562.1pt x 421.575pt>
+<performance-eps-converted-to.pdf, id=302, 562.1pt x 421.575pt>
 File: performance-eps-converted-to.pdf Graphic file (type pdf)
 
 <use performance-eps-converted-to.pdf>
@@ -1102,13 +1102,13 @@ Package pdftex.def Info: performance-eps-converted-to.pdf used on input line 45
 7.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
 
-<subject8.png, id=301, 1261.71375pt x 451.6875pt>
+<subject8.png, id=305, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
 Package pdftex.def Info: subject8.png used on input line 466.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
 
-<subject3.png, id=302, 1226.5825pt x 434.62375pt>
+<subject3.png, id=306, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
  <use subject3.png>
 Package pdftex.def Info: subject3.png used on input line 467.
@@ -1153,10 +1153,10 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2016/texmf
 ist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
 1/urw/palatino/uplri8a.pfb>
-Output written on article.pdf (12 pages, 436281 bytes).
+Output written on article.pdf (12 pages, 438478 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 311 compressed objects within 4 object streams
+ 396 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
  81 named destinations out of 1000 (max. 500000)
  163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
