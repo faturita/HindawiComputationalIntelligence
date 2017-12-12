@@ -225,22 +225,10 @@ Ouyang, G.; Hildebrandt, A.; Sommer, W.; Zhou, C.
 \newblock {\em {Signal processing for neuroscientists: an introduction to the
   analysis of physiological signals}}; Academic press,  2006.
 
-\bibitem[Nijboer and Broermann(2009)]{Nijboer2009}
-Nijboer, F.; Broermann, U.
-\newblock {Brain Computer Interfaces for Communication and Control in Locked-in
-  Patients}. In {\em Graimann B., Pfurtscheller G., Allison B. (eds)
-  Brain-Computer Interfaces. The Frontiers Collection.}; Springer Berlin
-  Heidelberg,  2009; pp. 185--201.
-
 \bibitem[Chavarriaga \em{et~al.}(2017)Chavarriaga, Fried-Oken, Kleih, Lotte,
   and Scherer]{Chavarriaga2017}
 Chavarriaga, R.; Fried-Oken, M.; Kleih, S.; Lotte, F.; Scherer, R.
 \newblock {Heading for new shores! Overcoming pitfalls in BCI design}.
 \newblock {\em Brain-Computer Interfaces} {\bf 2017}, {\em 4},~60--73.
-
-\bibitem[Cole and Voytek(2017)]{Cole2017}
-Cole, S.R.; Voytek, B.
-\newblock {Brain Oscillations and the Importance of Waveform Shape}.
-\newblock {\em Trends in Cognitive Sciences} {\bf 2017}, {\em 21},~137--149.
 
 \end{thebibliography}
