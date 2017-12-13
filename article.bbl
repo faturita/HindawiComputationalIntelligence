@@ -73,6 +73,20 @@ Ramele, R.; Villar, A.J.; Santos, J.M.
 \newblock  4th International Winter Conference on Brain-Computer Interface, BCI
   2016; IEEE: Yongpyong,  2016; pp. 1--4.
 
+\bibitem[Ben-Simon \em{et~al.}(2013)Ben-Simon, Podlipsky, Okon-Singer,
+  Gruberger, Cvetkovic, Intrator, and Hendler]{Ben-Simon2013}
+Ben-Simon, E.; Podlipsky, I.; Okon-Singer, H.; Gruberger, M.; Cvetkovic, D.;
+  Intrator, N.; Hendler, T.
+\newblock {The dark side of the alpha rhythm: FMRI evidence for induced alpha
+  modulation during complete darkness}.
+\newblock {\em European Journal of Neuroscience} {\bf 2013}, {\em
+  37},~795--803.
+
+\bibitem[Hartman(2005)]{Hartman2005}
+Hartman, a.L.
+\newblock {\em Atlas of {EEG} Patterns}; Vol.~65, Lippincott Williams \&
+  Wilkins,  2005.
+
 \bibitem[Alvarado-Gonz{\'{a}}lez \em{et~al.}(2016)Alvarado-Gonz{\'{a}}lez,
   Gardu{\~{n}}o, Bribiesca, Y{\'{a}}{\~{n}}ez-Su{\'{a}}rez, and
   Medina-Ba{\~{n}}uelos]{Alvarado-Gonzalez2016}
@@ -89,11 +103,6 @@ Yamaguchi, T.; Fujio, M.; Inoue, K.; Pfurtscheller, G.
   Recognition of {EEG} Signals During Motor Imagery and Cognition.
 \newblock  Fourth International Conference on Innovative Computing, Information
   and Control (ICICIC),  2009, pp. 1558--1561.
-
-\bibitem[Hartman(2005)]{Hartman2005}
-Hartman, a.L.
-\newblock {\em Atlas of {EEG} Patterns}; Vol.~65, Lippincott Williams \&
-  Wilkins,  2005.
 
 \bibitem[Boiman \em{et~al.}(2008)Boiman, Shechtman, and Irani]{Boiman2008}
 Boiman, O.; Shechtman, E.; Irani, M.

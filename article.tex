@@ -74,17 +74,19 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 % Contact information of the corresponding author
 \corres{Correspondence: rramele@itba.edu.ar; Tel.: +54-11-2150-4800(5834)}
 
-% Current address and/or shared authorship
-\firstnote{Current address: C1437FBH Lavarden 315, Ciudad Autónoma de Buenos Aires, Argentina} 
+% Current address and/or shared authorship  COMMENTED PER REVIEWER
+%\firstnote{Current address: C1437FBH Lavarden 315, Ciudad Autónoma de Buenos Aires, Argentina} 
+
+\firstnote{.} 
 
 % Simple summary
 %\simplesumm{}
 
 % Abstract (Do not use inserted blank lines, i.e. \\) 
-\abstract{The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients.}
+\abstract{EL OBJETIVO DE ESTE PAPER, EL HILO CONDUCTOR, ES DEMOSTRAR QUE ESTE METODO QUE ESTA BASADO EN LA ESTRUCTURA DE LA SENIAL SE PUEDE UTILIZAR TAMBIEN PARA IDENTIFICAR EVENTOS TRANSIENTES COMO EL P300, Y QUE CON ESO SE PUEDE IMPLEMENTAR UN SPELLER DE P300.  The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset for healthy subjects.}
 
 % Keywords
-\keyword{electroencephalography (EEG); BCI; P300; ALS; NBNN; HOG; SIFT}
+\keyword{EEG; BCI; P300; ALS; NBNN; HOG; SIFT}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -118,26 +120,6 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 
 \section{Introduction}
 
-%\begin{enumerate}[leftmargin=*,labelsep=3mm]
-%\item	Why
-%\item	Purpose and significance
-%\item	Current state of the research field and key publications cited
-%\item   Controversial hypothesis
-%\item   Main aim and principal conclusions.
-%\end{enumerate}
-%
-%\begin{enumerate}[leftmargin=*,labelsep=3mm]
-%\item El paper tiene un foco general en EEG y rapidamente se centra en BCI como una prueba del método.
-%\item La relevancia de estudiar métodos de análisis de EEG para pacientes con ALS.
-%\item Ofrece una Receta de cómo implementar un esquema simple de detección de P300 y ofrece una comparativa contra el paper de las italianas.
-%\item La transversalidad del método de poder detectar eventos rítmicos asi como transientes como p300.
-%\item La posibilidad de utilizarlo para reconocer, fuertemente un patron particular y con la flexibilidad de detectar variantes basado en las poblaciones de descriptores (esta es mi hipótesis de porque funciona, porque yo vi que el método se hace pelota con pequeñas variantes de la señal).
-%\item La importancia del averaging de EEG y sus desbalanceos, puntualizando que en el paper original
-%\item Que la caída en la clasificación no cae significativamente aún bajando la cantidad de repeticiones requeridas para el averaging.
-%\item ¿ Por qué da mejor en PO8 que en Cz y Pz que son los canales P300 ?  (como future work).
-%\end{enumerate}
-
-
 Although recent advances in neuroimagining techniques (particularly radio-nuclear and radiological scanning methods) \citep{Schomer2010} have diminished the prospects of the traditional Electroencephalography (EEG), the advent and development of digitalized devices has pressed for a revamping of this hundred years old technology.  Their versatility, ease of use, temporal resolution, ease of development and fabrication, and its proliferation as consumer devices, are pushing EEG to become the de-facto non invasive portable or ambulatory method to access and harness brain information \cite{DeVos2014}
 
 A key contribution to this expansion has been the field of Brain Computer Interfaces (BCI) \citep{WolpawJonathanR2012} which is the pursuit of the development of a new channel of communication particularly aimed to persons affected by neurodegenerative diseases.
@@ -150,46 +132,18 @@ Moreover, EEG markers \citep{Clerc} that can be used to volitionally transmit in
 
 %Patients suffering from ALS their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.
 
-
 %Besides novel applications of BCI, the goal of the entire discipline is to provide communication assistance to people affected by neuro-degenerative diseases.  It is understood that for people suffering from ALS, even though this pathology do not harm the CNS, their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.
 
 BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon  \citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments \citep{Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\citep{Clerc}.
 
-
-In~\citep{Ramele2016},  authors introduce a method for classification of rhythmic patterns using gradient histograms orientations. Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events like those produced by P300 Event Related Potential. 
- Its validity is verified by processing offline data for ALS patients.  
-The proposed approach is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting  raw signal plots~\citep{Hartman2005}.
+In~\citep{Ramele2016},  authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves~\citep{Ben-Simon2013}  and Motor Imagery rolandic central $\mu$ rhythms~\citep{Hartman2005} using gradient histograms orientations. Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  Its validity is verified by processing offline data for ALS patients and for healthy subjects. 
+The proposed approach is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting raw signal plots~\citep{Hartman2005}.
 
 This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two public datasets.
 
 This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradients of the Signal Plot method is explained. Section \ref{Preprocessing} and \ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008} and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
 
-%\subsection{Morphological Signal Analysis}
-%
-%Several approaches and methods have been applied to decode them.  Of particular interests are morphological signal analysis 
-%CITE (Paper del chabon del ITBA que detalla bien los diferentes metodos) \citep{Alvarado-Gonzalez2016,Yamaguchi2009}.
-%
-%Morphological or 
-%
-%template matching
-%
-%spike
-%sharp wave
-%spike wave
-%polyspike 
-%slow wave complex
-%
-%shape domain
-%
-%\subsection{P300}
-%
-%Uhhhh I can talk a lot about P300 \citep{Knuth2006}.
-%
-%P300 single trial is a golden grail of Brain computer interfaces.  It is studied and analyzed in this way, here in this other way, in this other way is here.
-
 \section{Materials and Methods}
-
-\subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
 
 The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\citep{Farwell1988}. Fig.~\ref{fig:p300matrix} shows an example of the Speller Matrix used in the OpenVibe Open Source software~\citep{Renard2010}, where the flashings of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
@@ -201,59 +155,21 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 \label{fig:p300matrix}
 \end{figure}
 
-%The proposed algorithm was designed to perform specifically this decoding.
+\subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
 
-% of the selected letter based on the detection of the P300 Event Related Potential response on the corresponding EEG signal.  
-
-\subsubsection{Preprocessing} \label{Preprocessing}
-
-The preprocessing stage consists of the enhancement of the SNR of the P300 pattern above the level of basal EEG. 
-The processing pipeline starts by applying a notch filter to the raw signal, a 
-$4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with a Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
+The underlying idea of this method is to generate templates for the signal \citep{Ramele2016}, based on the image plot.  Hence, the first step is the signal transformation into a temporary binary image.
 
 \subsubsection{Processing Pipeline} \label{Pipeline}
 
 \begin{itemize}
+\item \textbf{Preprocessing}: The preprocessing stage consists of the enhancement of the SNR of the P300 pattern above the level of basal EEG. The processing pipeline starts by applying a notch filter to the raw signal, a 
+$4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with a Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
 \item \textbf{Artefact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the $6$ rows plus the $6$ columns, a basic artefact elimination procedure is implemented by removing the entire sequence when any signal deviates above/bellow $ \pm 70 \mu V $.
-\item \textbf{Segmentation}: For each of the $12$ stimuli,  a window of $1$ second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments are labeled as \textit{hit}, whereas the remaining $10$ are labeled as \textit{no hit}.  A hit represents that the EEG segment should contain the P300 ERP signature time-locked to the flashing stimulus. 
+\item \textbf{Segmentation}: For each of the $12$ stimuli,  a window of $1$ second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments should contain the P300 ERP signature time-locked to the flashing stimulus, one for the row, and one for the column.
 \item \textbf{Signal Averaging}:  The P300 ERP is deeply buried under background EEG so the traditional approach to identify it is by point-to-point averaging the time-locked stacked signal segments.  Hence the values which are not related to, and not time-locked to the onset of the stimulus are canceled out \citep{Liang2008}. 
 \end{itemize}
 
 This last step determines the operation of any P300 Speller.  In order to obtain an improved signal in terms of its SNR, repetitions of the sequence of row/column intensification are necessary.  And, at the same time, as long as more repetitions are needed, the ability to transfer information faster is diminished, so there is a trade-off that must be acutely determined.
-
-\subsubsection{Signal Plotting} \label{Plot}
-
-The underlying idea of this method is to generate a template for the signal \citep{Ramele2016},  based on the image plot.  Hence, the first step is the signal transformation into a temporary binary image.
-
-Averaged signal segments obtained from the preprocessing stage are first scaled and standardized (i.e. z-score) by 
-
-\begin{equation}
-\tilde{x}(t,c) = \left \lfloor{ \gamma \cdot \frac{( x(t,c) - \bar{x}(c)  )}{ \sigma(c) } }\right \rfloor
-\end{equation}
-
-\noindent where $\gamma$ is the image scale, $t$ is time and $ x(t,c) $ is the point-to-point averaged EEG matrix for time $t$ and for  channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma (c) $ are the mean and standard deviation of $x$.
-
-Consequently, the image is constructed by placing the sample points according to
-
-\begin{equation}
-I(z_1,z_2) = \left\{ \begin{array}{rl}
-255 & \text{if} \,  z_1 = \gamma \cdot t; z_2 = \tilde{x}(t,c) + z(c) \\
-0   & \mbox{otherwise}
-\end{array}\right.
-\label{eq:images}
-\end{equation}
-
-\noindent where $ z_1$ and $z_2$ iterate over the width (based on the length of the signal segment) and height (based on the peak-to-peak amplitude) of the newly created image.  The function $z(c)$ is the \textit{zerolevel} which is the location on the image where the signal's zero value should be located in order to fit the entire signal within the image:
-
-\begin{equation}
-z(c) = \left \lfloor{ \frac{\max \tilde{x}(t,c)  - \min \tilde{x}(t,c) }{2} }\right \rfloor -   \left \lfloor{ \frac{\max \tilde{x}(t,c)  + \min \tilde{x}(t,c)}{ 2} }\right \rfloor
-\label{eq:zerolevel}
-\end{equation}
-  
-
-In order to complete the plot from the pixels, the Bresenham \citep{Bresenham1965,Ramele2016} algorithm is used to interpolate straight lines between each pair of  consecutive pixels.
-
-%\noindent and is used to derive local representations that captures the visual shape of the signal.
 
 \subsubsection{Feature Extraction: Histogram of Oriented Gradients}
 \label{SIFT}
@@ -293,7 +209,7 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 
 %The following step is classify the descriptors $\{d_{kp}, kp =1,\dots, 12\}$ in order to determine the correct row and column of the chosen letter on the Speller Matrix.   The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}.
 
-The aim is to identify the selected letter from the matrix. Previously, during training phase, descriptors from \textit{hit} labeled segments are extracted.  These descriptors are the P300 templates which are grouped in a template set called $ T $.  Segments corresponding to rows are labeled 1-6, whereas those corresponding to columns are labeled 7-12.  The process has the following steps:
+The aim is to identify the selected letter from the matrix. Previously, during training phase, two descriptors are extracted from averaged signal segments which correspond to the letter where the user was supposed to be focusing onto.  These descriptors are the P300 templates which are grouped in a template set called $ T $.  Segments corresponding to rows are labeled 1-6, whereas those corresponding to columns are labeled 7-12.  The process has the following steps:
 
 
 \begin{enumerate}
@@ -339,13 +255,41 @@ Figure~\ref{fig:classification} shows a schema of this process.
 \label{fig:classification}
 \end{figure}
 
-%In the case of the P300 response, the oddball paradigm requires that one of the stimuli be infrequent. Hence this forces the data to be unbalanced~\citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes~\citep{Fornoni2014}. %Para solucionar este problema, 
-
-
 %Este párrafo no se entiende nada
 %------------------
 
 %------------------
+%In the case of the P300 response, the oddball paradigm requires that one of the stimuli be infrequent. Hence this forces the data to be unbalanced~\citep{Tibon2015}.  At the same time, the NBNN method suffers from biased classification on unbalanced classes~\citep{Fornoni2014}. %Para solucionar este problema, 
+
+\subsubsection{Signal Plotting} \label{Plot}
+
+Averaged signal segments are scaled and standardized by 
+
+\begin{equation}
+\tilde{x}(t,c) = \left \lfloor{ \gamma \cdot \frac{( x(t,c) - \bar{x}(c)  )}{ \sigma(c) } }\right \rfloor
+\end{equation}
+
+\noindent where $\gamma$ is the image scale, $t$ is time and $ x(t,c) $ is the point-to-point averaged EEG matrix for time $t$ and for  channel $c$. Lastly, $\bar{x}(c)$ and $ \sigma (c) $ are the mean and standard deviation of $x$.
+
+Consequently, the image is constructed by placing the sample points according to
+
+\begin{equation}
+I(z_1,z_2) = \left\{ \begin{array}{rl}
+255 & \text{if} \,  z_1 = \gamma \cdot t; z_2 = \tilde{x}(t,c) + z(c) \\
+0   & \mbox{otherwise}
+\end{array}\right.
+\label{eq:images}
+\end{equation}
+
+\noindent where $ z_1$ and $z_2$ iterate over the width (based on the length of the signal segment) and height (based on the peak-to-peak amplitude) of the newly created image.  The function $z(c)$ is the \textit{zerolevel} which is the location on the image where the signal's zero value should be located in order to fit the entire signal within the image:
+
+\begin{equation}
+z(c) = \left \lfloor{ \frac{\max \tilde{x}(t,c)  - \min \tilde{x}(t,c) }{2} }\right \rfloor -   \left \lfloor{ \frac{\max \tilde{x}(t,c)  + \min \tilde{x}(t,c)}{ 2} }\right \rfloor
+\label{eq:zerolevel}
+\end{equation}
+  
+In order to complete the plot from the pixels, the Bresenham \citep{Bresenham1965,Ramele2016} algorithm is used to interpolate straight lines between each pair of  consecutive pixels.
+
 \subsection{Experimental Protocol} \label{Protocol}
 
 To verify the validity of the proposed framework and method, the public dataset 008-2014~\citep{Riccio2013} published on the BNCI-Horizon website~\citep{Brunner2014} by  IRCCS Fondazione Santa Lucia, is used. Additionally, an own dataset with  the same experimental conditions is generated. Both of them are utilized to perform an offline BCI Simulation to decode the spelled words from the provided signals. 
@@ -364,11 +308,11 @@ In order to asses and verify the identification of the P300 response, subjects a
 
 \subsubsection{P300 for healthy subjects}
 
-We replicated the same experiment on healthy subjects using a wireless digital EEG device (g.Nautilus, g.Tec, Austria).  The experimental conditions were the same as those used for the previous dataset, as detailed in section~\ref{ALSDataset}.
+We replicate the same experiment on healthy subjects using a wireless digital EEG device (g.Nautilus, g.Tec, Austria).  The experimental conditions are the same as those used for the previous dataset, as detailed in section~\ref{ALSDataset}.
 
-Participants were recruited voluntarily and the experiment were conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation was handed out and all participants agreed and signed a written informed consent.  All healthy subjects had normal or corrected-to normal vision and no history of neurological disorders. The experiment was performed with 20 subjects, 7 males, 4 females, average age 22.5 years, standard deviation  1,8 years, range 21–26 years.
+Participants are recruited voluntarily and the experiment is conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation is handed out and all participants agree and sign a written informed consent.  All healthy subjects have normal or corrected-to normal vision and no history of neurological disorders. The experiment is performed with 20 subjects, 17 males, 3 females, average age 26.85 years, standard deviation  8.8 years, range 19-50 years.
 
-Gel-based active electrodes (g.LADYbird, g.Tec, Austria) were used on the same locations Fz, Cz, P3, Pz, P4, PO7, PO8 and Oz.  Reference was set to the right ear lobe and ground was preset as the AFz position.   Sampling frequency is slightly different, and was set to 250 Hz, which is the closest possible to the one used with the other dataset.
+Gel-based active electrodes (g.LADYbird, g.Tec, Austria) are used on the same locations Fz, Cz, P3, Pz, P4, PO7, PO8 and Oz.  Reference is set to the right ear lobe and ground is preset as the AFz position.   Sampling frequency is slightly different, and is set to 250 Hz, which is the closest possible to the one used with the other dataset.
 
 
 %EEG data were recorded from the same 8 electrodes positions (C3, Cz, C4, CPz, P3, Pz, P4, POz) with all the systems. The reference positions were placed at the right ear. The ground positions was placed at the left ear, except with the g.Nautilus system (placed at AFz, because this could not be changed). Sampling rate was set at 250 Hz, the closest possible to predefined g.Mobilab sampling rate (256 Hz). Data were acquired notch filtered at 50 Hz and passband filtered between 2 Hz and 30 Hz. The filtering was performed via the proprietary Simulink HighSpeed Online Processing block modules for g.MOBIlab and g.Nautilus systems, and via MATLAB code for the Xpress system. Table~\ref{tab:results} summarizes the acquisition settings for each system.
@@ -404,7 +348,7 @@ Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the c
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm]{patchgeometry.pdf}
-\caption{The scale of local patch is selected in order to capture the whole signal information}
+\caption{The scale of local patch is selected in order to capture the whole signal information.  The vertical size $4 \cdot 3 s_y$ of the patch is required to be long enough as to contain the signal $\Delta  \mu V $, which is the peak-to-peak amplitude of the transient event. The horizontal size $ 4 \cdot 3 s_x$ , on the other hand, needs to cover the entire duration in seconds of the transient signal event, $ \lambda $.   }
 \label{fig:sampledescriptor2}
 \end{figure}
 
@@ -413,39 +357,36 @@ Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
 \label{section:results}
-In Figure \ref{fig:subjectaveraged} the grand average (point-to-point) for all the subjects using the information from all the segments can be shown.  The P300 characteristic curve can be seen particularly in subjects 2, and 6 and in a lesser extend in the remaining subjects. In order to correctly decode the selected letter from each trial, particular care was observed to avoid unbalanced number of epochs  (i.e. an unequal number of epochs on each condition), because that may introduce bias in the classification procedure (the variance of averaged signals is inversely proportional to the number of samples and the procedure would be discriminating signals with different variances).  
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=16cm]{subjectaveraged.eps}
-\caption{Point-to-point grand averages of epochs obtained for hits (solid line) and no hits (dashed line) for each one of the 8 subjects for channel Cz. The P300 characteristic curve can be well identified particularly on subjects 2 and 6.}
-\label{fig:subjectaveraged}
-\end{figure}
+%In Figure \ref{fig:subjectaveraged} the grand average (point-to-point) for all the subjects using the information from all the segments can be shown.  The P300 characteristic curve can be seen particularly in subjects 2, and 6 and in a lesser extend in the remaining subjects. In order to correctly decode the selected letter from each trial, particular care was observed to avoid unbalanced number of epochs  (i.e. an unequal number of epochs on each condition), because that may introduce bias in the classification procedure (the variance of averaged signals is inversely proportional to the number of samples and the procedure would be discriminating signals with different variances).  
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=16cm]{subjectaveraged.eps}
+%\caption{Point-to-point grand averages of epochs obtained for hits (solid line) and no hits (dashed line) for each one of the 8 subjects for channel Cz. The P300 characteristic curve can be well identified particularly on subjects 2 and 6.}
+%\label{fig:subjectaveraged}
+%\end{figure}
 
-Results are shown in Table \ref{tab:results} where the percentage of correctly spelled letters is calculated while performing an offline BCI Simulation.  From the 7 words for each subject, the first 3 were used as training, and the remaining 4 for testing.  The best performing channel is informed as well.  
+Results are shown in Table \ref{tab:results} where the percentage of correctly spelled letters is calculated while performing an offline BCI Simulation for the public dataset of ALS patients.  From the 7 words for each subject, the first 3 were used as training, and the remaining 4 for testing.  The best performing channel is informed as well.  
 
-DRAFT: Traditionally P300 can be seen in this channel and this other channel.  However, Wolpaw showed that the response may also arise in occipital channels as well.  The authors of the original paper concluded that Cz was the best performing channel.  However, in our approach 
-
-
-It is of particular interest that using this method, the best performing channel was not always Cz, and instead occipital channels PO8 and PO7 showed higher performances \citep{Huggins2016,Jure2016}.
-
+DRAFT: Traditionally P300 can be seen in this channel and this other channel.  However, Wolpaw showed that the response may also arise in occipital channels as well.  The authors of the original paper concluded that Cz was the best performing channel, more representative of the difference in amplitudes. However, in our approach occipital channels,  PO8 and PO7 showed higher performances \citep{Huggins2016,Jure2016}.
 
 \begin{table}[H]
-\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject. Chance level is 0.02 }
+\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject. Chance level is $2\%$. }
 \centering
 %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
 \begin{tabular}{ccc}
 \toprule
 \textbf{Participant}	&  \textbf{BPC}	& \textbf{Performance}\\
 \midrule
-1     &     Cz   &   0.35  \\
-2     &     Fz   &   0.85  \\
-3     &     Cz   &   0.25  \\
-4     &     PO8 &   0.55  \\
-5     &     PO7 &   0.40 \\
-6     &     PO7 &   0.60  \\
-7     &     PO8 &   0.80  \\
-8     &     PO7 &   0.95 \\
+1     &     Cz   &   $35\%$  \\
+2     &     Fz   &   $85\%$  \\
+3     &     Cz   &   $25\%$  \\
+4     &     PO8 &   $55\%$  \\
+5     &     PO7 &   $40\%$ \\
+6     &     PO7 &   $60\%$  \\
+7     &     PO8 &   $80\%$  \\
+8     &     PO7 &   $95\%$ \\
 
 \bottomrule
 \end{tabular}
@@ -453,6 +394,7 @@ It is of particular interest that using this method, the best performing channel
 \end{table}
 
 The ITR, or BTR, in the case of reactive BCIs \citep{WolpawJonathanR2012} strongly depends on the amount of signal averaging required to transmit a valid and robust selection.  The Performance curves (Fig. \ref{fig:performance}) show how the percentage of correctly identified letters depends on the number of repetitions that were used to obtain the averaged signal.
+For both datasets, the experimental protocol uses a very short ISI which has the potential to increase the ITR but at the same time is inversily proportional to the amplitude of the p300 response (i.e. harder to detect).  As an unexpected consequence, 15 out of 20 subject reported high ocular tiredness by using this configuration.
 
 \begin{figure}[H]
 \centering
@@ -461,7 +403,19 @@ The ITR, or BTR, in the case of reactive BCIs \citep{WolpawJonathanR2012} strong
 \label{fig:performance}
 \end{figure}
 
-We found that only by using the visual aspect of the P300 signal plot,  for some subjects it was not possible to find templates that could allow the classification to reach a higher level.  We hypothesize that as subjects may have different latencies and amplitudes of the P300 signal \citep{Riccio2013}, it may also be the case that the shape of the generated ERP may vary greatly in an intra-subject manner, thus the pattern could not be well generalized and a higher performance could not be reached (Fig.  \ref{fig:p300templates}).
+We found that only by using the visual aspect of the P300 signal plot,  for some subjects it was not possible to find templates that could allow the classification to reach a higher level.  Moreover, as can be seen in the figure, as repetitions tend to 1, which will correspond to single trial letter identification, the performance suffers greatly as the signal plot is simple too complex to be used as template and the method is completely unable to find good matches  PODRIA ACA MOSTRAR ADEMAS PLOTS DE SINGLE TRIAL PARA QUE VEAN QUE SON UN QUILOMBO.
+
+UNA DE LAS RAZONES POR LA CUAL PODEMOS LLEGAR A ARGUMENTAR QUE NO FUIMOS MAS A FONDO CON EL TEMA ES QUE NO QUERIAMOS DISTORSIONAR DEMASIADO LA SENAL COMPLEJIZANDO EL ALGORITMO Y QUERIAMOS MANTENERNOS ENTRE LO MAS ESTANDAR POSIBLE (PUEDO CITAR MAS O MENOS QUE NUESTRO PROCESSING PIPELINE ES ESTANDARD).
+
+We hypothesize that as subjects may have different latencies and amplitudes of the P300 signal \citep{Riccio2013}, it may also be the case that the shape of the generated ERP may vary greatly in an intra-subject manner, thus the pattern could not be well generalized and a higher performance could not be reached (Fig.  \ref{fig:p300templates}).  It is known (REFERENCE) that the point-to-point averaging suffers from inter-trial variability (REFERENCIA A ESE PAPER Con ese nombre) due to latencies shifts.  We tested a naive approach to verify if the morphological shape of the p300 can be stabilized by applying different shifts and we verified that there is a better performance when a correct resynchronization is applied.  We also applied DTW but couldn't found a sustantial improvement.
+
+Additionally we believe that our method suffers also from null signals.
+
+ACA EL PUNTO PARA MOSTRAR ES QUE DE ALGUNA MANERA ESTAMOS COMO MOSTRANDO UN "SI SE PUEDE" DE UN TRABAJO QUE PUEDE CONTINUAR Y EXPANDIRSE.   POR ESO LA IDEA DE MOSTRAR PUNTAS DE COSAS QUE VIMOS E HICIMOS, PERO SIN MOSTRAR RESULTADOS CONCRETOS.
+
+Considering the amplitude variation of the p300 and its components, we proposed a conservative approach by standarizing the signal (which can have both effects, of reducing noise that were not reduced by the averaging procedure but at the same time it can reduce the amplitude of a significant p300 compoent).   The standarization also provides another benefit which is sometimes neglected as unimportant.  The variance of the averaged signal depends on the number of signals averaged.  As this method analyze precisely the shape of the signal in the plot, which is very affected by the variance, the method will not be able to discriminate solely based on the underlying cognitive event, it will be confused by the number of signals that were used to calculate the averaged signal.
+
+The SIFT method is invariant to the scale, but in order to allow our method to be also invariant to the amplitude of the signal we had to modify the geometry of the descriptor to remove the squared constrain.
 
 \begin{figure}[H]
 \centering
@@ -471,7 +425,41 @@ We found that only by using the visual aspect of the P300 signal plot,  for some
 \label{fig:p300templates}
 \end{figure}
 
+\begin{table}[H]
+\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each healthy subject. Chance level is $2\%$. }
+\centering
+%% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+\begin{tabular}{cccc}
+\toprule
+\textbf{Participant}	&  \textbf{BPC}	& \textbf{Performance}\\
+\midrule
+1     &     Cz   &     0.7000  &  0.3500  \\
+1     &     Cz   &    0.1000  &  0.0500 \\
+1     &     Cz   &     0.1000  &  0.1000 \\
+1     &     Cz   &     0.1000  &  0.1500 \\
+1     &     Cz   &     0.1000  &  0.1000 \\
+1     &     Cz   &     0.5500  &  0.4000 \\
+1     &     Cz   &     0.1500   & 0.1000 \\
+1     &     Cz   &     0.4500   & 0.2000 \\
+1     &     Cz   &     0.3000  &  0.2000 \\
+1     &     Cz   &     0.2500  &  0.1500 \\
+1     &     Cz   &     0.5500  &  0.3000 \\
+1     &     Cz   &     0.3500  &  0.1000 \\
+1     &     Cz   &     0.3000  &  0.3500 \\
+1     &     Cz   &     0.5000  &  0.4000 \\
+1     &     Cz   &     0.3000  &  0.1500 \\
+1     &     Cz   &     0.3000  &  0.3000 \\
+1     &     Cz   &     0.3500  &  0.3500 \\
+1     &     Cz   &          0      & 0.0500 \\
+1     &     Cz   &     0.7000   & 0.5000 \\
+1     &     Cz   &     0.4000  &  0.3000 \\
 
+\bottomrule
+\end{tabular}
+\label{tab:resultsowndataset}
+\end{table}
+
+In Table \ref{tab:resultsowndataset} results obtained for the 20 healthy subjects is shown.  The third column shows the results obtained by using the Krusienski feature and the SVM classifier.  On the other hand, the fourth column shows the results obtained by the present method as described in previous sections.  Subject 17 was used as control as he was instructed to count only the letters and to stare at the screen but not neglected row/column flashing.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Discussion}
@@ -502,7 +490,7 @@ The adaptive behaviour of the algorithm make it well suited when the shape of th
 
 At the same time, by analyzing the generated descriptors, which map in a very detailed and synthetic structure the shape information contained within the patch, a metric about the consistency of the shape of the generated P300 response could also be derived.  It may be worthy of further consideration to evaluate if there is any correlation between the lower performance obtained for some subjects and the characterization of their ALS stage.
 
-We believe that the expanding and the understanding of this tool in order to automatically classify those patterns in EEG that are specifically identified by their shapes (e.g. K-Complex, Vertex Waves, Positive Occipital Sharp Transient \citep{Hartman2005}) is a prospect future work to be considered.  It may also provide  assistance to physician or electroencephalographers to help them locate these EEG patterns particularly in long recording periods, frequent in sleep research.
+We believe that the expanding and the understanding of this tool in order to automatically classify those patterns in EEG that are specifically identified by their shapes (e.g. K-Complex, Vertex Waves, Positive Occipital Sharp Transient \citep{Hartman2005}) is a prospect future work to be considered. We are currently working in unpublished material analyzing KComplex that may also provide  assistance to physician or electroencephalographers to help them locate these EEG patterns particularly in long recording periods, frequent in sleep research.
 
 Moreover, this method can be used as an alternate \textit{BCI predictor} \citep{Clerc}, i.e. to detect BCI illiteracy or to predict the achievable performance of a given method, or even as a tool for artefact removal (which is performed on many occasions by visually inspecting the signal).
 
