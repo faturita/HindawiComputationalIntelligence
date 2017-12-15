@@ -48,8 +48,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example of a Speller Matrix. Rows and columns flash intermittently in random permutations.\relax }}{3}{figure.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:p300matrix}{{1}{3}{Example of a Speller Matrix. Rows and columns flash intermittently in random permutations.\relax }{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Feature Extraction based on Histogram of Gradients of the Signal Plot}{3}{subsection.1.1}}
-\newlabel{Feature}{{1.1}{3}{Feature Extraction based on Histogram of Gradients of the Signal Plot}{subsection.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot}{3}{subsection.1.1}}
+\newlabel{Feature}{{1.1}{3}{Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot}{subsection.1.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1}Processing Pipeline}{3}{subsubsection.1.1.1}}
 \newlabel{Pipeline}{{1.1.1}{3}{Processing Pipeline}{subsubsection.1.1.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2}Signal Plotting}{3}{subsubsection.1.1.2}}
@@ -59,9 +59,9 @@
 \citation{Lowe2004,Vedaldi2010}
 \newlabel{eq:images}{{2}{4}{Signal Plotting}{equation.1.2}{}}
 \newlabel{eq:zerolevel}{{3}{4}{Signal Plotting}{equation.1.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.3}Feature Extraction: Histogram of Oriented Gradients}{4}{subsubsection.1.1.3}}
-\newlabel{SIFT}{{1.1.3}{4}{Feature Extraction: Histogram of Oriented Gradients}{subsubsection.1.1.3}{}}
-\newlabel{eq:histogram}{{4}{4}{Feature Extraction: Histogram of Oriented Gradients}{equation.1.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.3}Feature Extraction: Histogram of Gradient Orientations}{4}{subsubsection.1.1.3}}
+\newlabel{SIFT}{{1.1.3}{4}{Feature Extraction: Histogram of Gradient Orientations}{subsubsection.1.1.3}{}}
+\newlabel{eq:histogram}{{4}{4}{Feature Extraction: Histogram of Gradient Orientations}{equation.1.4}{}}
 \newlabel{patch}{{2(a)}{5}{Subfigure 2(a)}{subfigure.2.1}{}}
 \newlabel{sub@patch}{{(a)}{5}{Subfigure 2(a)\relax }{subfigure.2.1}{}}
 \newlabel{histogrambines}{{2(b)}{5}{Subfigure 2(b)}{subfigure.2.2}{}}
@@ -83,28 +83,29 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Column flash.}}}{6}{figure.3}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Plot of the signal, a keypoint and the corresponding patch.}}}{6}{figure.3}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Orientations on two blocks of the patch.}}}{6}{figure.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Single trial segments are averaged for the 6 rows and 6 columns.\relax }}{6}{figure.3}}
-\newlabel{fig:classification}{{3}{6}{Single trial segments are averaged for the 6 rows and 6 columns.\relax }{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Single trial segments are averaged for the 6 rows and 6 columns. From the averaged signal, the image of the signal plot is generated and each descriptor is computed. By comparing each descriptor against the set of templates, the P300 ERP can be detected, and finally the desired letter from the matrix can be inferred.\relax }}{6}{figure.3}}
+\newlabel{fig:classification}{{3}{6}{Single trial segments are averaged for the 6 rows and 6 columns. From the averaged signal, the image of the signal plot is generated and each descriptor is computed. By comparing each descriptor against the set of templates, the P300 ERP can be detected, and finally the desired letter from the matrix can be inferred.\relax }{figure.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Experimental Protocol}{6}{subsection.1.2}}
 \newlabel{Protocol}{{1.2}{6}{Experimental Protocol}{subsection.1.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}P300 ALS Public Dataset}{6}{subsubsection.1.2.1}}
 \newlabel{ALSDataset}{{1.2.1}{6}{P300 ALS Public Dataset}{subsubsection.1.2.1}{}}
 \citation{Schalk2004}
+\citation{Renard2010}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2}P300 for healthy subjects}{7}{subsubsection.1.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.3}Parameters}{7}{subsubsection.1.2.3}}
 \newlabel{eq:mapping2}{{8}{7}{Parameters}{equation.1.8}{}}
 \newlabel{eq:mapping1}{{9}{7}{Parameters}{equation.1.9}{}}
 \citation{WolpawJonathanR2012}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The scale of local patch is selected in order to capture the whole signal information. The vertical size $4 \cdot 3 s_y$ of the patch is required to be long enough as to contain the signal $\Delta \mu V $, which is the peak-to-peak amplitude of the transient event. The horizontal size $ 4 \cdot 3 s_x$ , on the other hand, needs to cover the entire duration in seconds of the transient signal event, $ \lambda $. \relax }}{8}{figure.4}}
-\newlabel{fig:sampledescriptor2}{{4}{8}{The scale of local patch is selected in order to capture the whole signal information. The vertical size $4 \cdot 3 s_y$ of the patch is required to be long enough as to contain the signal $\Delta \mu V $, which is the peak-to-peak amplitude of the transient event. The horizontal size $ 4 \cdot 3 s_x$ , on the other hand, needs to cover the entire duration in seconds of the transient signal event, $ \lambda $. \relax }{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The scale of local patch is selected in order to capture the whole transient event. The size of the patch is $S_p \times S_p$ pixels. The vertical size consists of $4$ blocks $B_{i,j}$ of size $3 s_y$ pixels which is long enough as to contain the signal $\Delta \mu V $, the peak-to-peak amplitude of the transient event. The horizontal size on the other hand, includes $4$ blocks of $3 s_x$ and cover the entire duration in seconds of the transient signal event, $ \lambda $. \relax }}{8}{figure.4}}
+\newlabel{fig:sampledescriptor2}{{4}{8}{The scale of local patch is selected in order to capture the whole transient event. The size of the patch is $S_p \times S_p$ pixels. The vertical size consists of $4$ blocks $B_{i,j}$ of size $3 s_y$ pixels which is long enough as to contain the signal $\Delta \mu V $, the peak-to-peak amplitude of the transient event. The horizontal size on the other hand, includes $4$ blocks of $3 s_x$ and cover the entire duration in seconds of the transient signal event, $ \lambda $. \relax }{figure.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Results and Discussion}{8}{section.2}}
 \newlabel{Results}{{2}{8}{Results and Discussion}{section.2}{}}
 \newlabel{section:results}{{2}{8}{Results and Discussion}{section.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject. \relax }}{8}{table.1}}
 \newlabel{tab:results}{{1}{8}{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject. \relax }{table.1}{}}
 \citation{Riccio2013}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Performance curves for the eight subjects included in the published dataset. Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.\relax }}{9}{figure.5}}
-\newlabel{fig:performance}{{5}{9}{Performance curves for the eight subjects included in the published dataset. Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.\relax }{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Performance curves for the eight subjects included in the ALS dataset. Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.\relax }}{9}{figure.5}}
+\newlabel{fig:performance}{{5}{9}{Performance curves for the eight subjects included in the ALS dataset. Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.\relax }{figure.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Ten P300 template patches found for subjects 8 (up) and 3(down). In coincidence with the performance results, the P300 signature is more clear and consistent for subject 8 (higher performance) while for subject 3 (lower performance) the characteristic pattern is much more difficult to perceive.\relax }}{10}{figure.6}}
 \newlabel{fig:p300templates}{{6}{10}{Ten P300 template patches found for subjects 8 (up) and 3(down). In coincidence with the performance results, the P300 signature is more clear and consistent for subject 8 (higher performance) while for subject 3 (lower performance) the characteristic pattern is much more difficult to perceive.\relax }{figure.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each healthy subject. Chance level is $2\%$. \relax }}{10}{table.2}}
@@ -113,8 +114,8 @@
 \citation{Clerc}
 \bibstyle{mdpi}
 \bibdata{article}
-\bibcite{Schomer2010}{{1}{2010}{{Schomer and Silva}}{{}}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}}
+\bibcite{Schomer2010}{{1}{2010}{{Schomer and Silva}}{{}}}
 \bibcite{DeVos2014}{{2}{2014}{{De~Vos and Debener}}{{}}}
 \bibcite{WolpawJonathanR2012}{{3}{2012}{{Wolpaw and E.}}{{}}}
 \bibcite{Carlson2013}{{4}{2013}{{Carlson and {del R. Millan}}}{{}}}

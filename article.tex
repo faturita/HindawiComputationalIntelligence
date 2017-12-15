@@ -42,8 +42,8 @@
 \articlenumber{x}
 \doinum{10.3390/------}
 \pubvolume{xx}
-\pubyear{2016}
-\copyrightyear{2016}
+\pubyear{2017}
+\copyrightyear{2017}
 \externaleditor{Academic Editor: name}
 \history{Received: date; Accepted: date; Published: date}
 
@@ -60,10 +60,10 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{Oriented Gradient Histogram applied to P300 Detection}
+\Title{Histogram of Gradient Orientations of Signal Plots applied to P300 Detection}
 
 % Authors, for the paper (add full first names)
-\Author{Rodrigo Ramele $^{1,\dagger}$*, Ana Julia Villar $^{1}$ and Juan Miguel Santos  $^{1}$}
+\Author{Rodrigo Ramele $^{1}$*, Ana Julia Villar $^{1}$ and Juan Miguel Santos  $^{1}$}
 % Authors, for metadata in PDF
 \AuthorNames{Rodrigo Ramele, Ana Julia Villar and Juan Miguel Santos}
 
@@ -77,7 +77,7 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 % Current address and/or shared authorship  COMMENTED PER REVIEWER
 %\firstnote{Current address: C1437FBH Lavarden 315, Ciudad Autónoma de Buenos Aires, Argentina} 
 
-\firstnote{.} 
+%\firstnote{.} 
 
 % Simple summary
 %\simplesumm{}
@@ -86,7 +86,7 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 \abstract{EL OBJETIVO DE ESTE PAPER, EL HILO CONDUCTOR, ES DEMOSTRAR QUE ESTE METODO QUE ESTA BASADO EN LA ESTRUCTURA DE LA SENIAL SE PUEDE UTILIZAR TAMBIEN PARA IDENTIFICAR EVENTOS TRANSIENTES COMO EL P300, Y QUE CON ESO SE PUEDE IMPLEMENTAR UN SPELLER DE P300.  The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset for healthy subjects.}
 
 % Keywords
-\keyword{EEG; BCI; P300; ALS; NBNN; HOG; SIFT}
+\keyword{EEG; BCI; P300; ALS; NBNN; HGOSP; SIFT}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -136,12 +136,12 @@ Moreover, EEG markers \citep{Clerc} that can be used to volitionally transmit in
 
 BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon  \citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments \citep{Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\citep{Clerc}.
 
-In~\citep{Ramele2016},  authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves~\citep{Ben-Simon2013}  and Motor Imagery rolandic central $\mu$ rhythms~\citep{Hartman2005} using gradient histograms orientations. Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  Its validity is verified by processing offline data for ALS patients and for healthy subjects. 
+In~\citep{Ramele2016},  authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves~\citep{Ben-Simon2013}  and Motor Imagery rolandic central $\mu$ rhythms~\citep{Hartman2005} using the histogram of gradient orientations of signal plots. Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  Its validity is verified by processing offline data for ALS patients and for healthy subjects. 
 The proposed approach is based on the morphological analysis of the shape of the EEG signal~\citep{Alvarado-Gonzalez2016,Yamaguchi2009} and it was built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting raw signal plots~\citep{Hartman2005}.
 
-This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of oriented gradients extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two public datasets.
+This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of gradient orientations extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two public datasets.
 
-This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradients of the Signal Plot method is explained. Section~\ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008} and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
+This article unfolds as follows: in Section \ref{Feature} the Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot method is explained. Section~\ref{Pipeline} describe the processing pipeline.  Section \ref{Plot}  clarifies how the image of the signal plot is constructed whereas Section \ref{SIFT}  describes in detail the feature extraction procedure.  Section \ref{Classification}  presents the classification algorithm based on Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008} and the final Section shows results and discussion where we expose our remarks, conclusions and future work.
 
 \section{Materials and Methods}
 
@@ -155,9 +155,9 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 \label{fig:p300matrix}
 \end{figure}
 
-\subsection{Feature Extraction based on Histogram of Gradients of the Signal Plot} \label{Feature}
+\subsection{Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot} \label{Feature}
 
-The underlying idea of this method is to generate templates for the signal \citep{Ramele2016}, based on the image plot.  Hence, the first step is the signal transformation into a temporary binary image.
+The underlying idea of this method is to generate templates for the signal \citep{Ramele2016}, based on the image plot.  Hence, the first step is the processing of the EEG signal.
 
 \subsubsection{Processing Pipeline} \label{Pipeline}
 
@@ -201,7 +201,7 @@ z(c) = \left \lfloor{ \frac{\max \tilde{x}(t,c)  - \min \tilde{x}(t,c) }{2} }\ri
 In order to complete the plot from the pixels, the Bresenham \citep{Bresenham1965,Ramele2016} algorithm is used to interpolate straight lines between each pair of  consecutive pixels.
 
 
-\subsubsection{Feature Extraction: Histogram of Oriented Gradients}
+\subsubsection{Feature Extraction: Histogram of Gradient Orientations}
 \label{SIFT}
 
 %is calculated on local image patches centered on sample points \citep{Vedaldi2010}.
@@ -259,6 +259,10 @@ for each row and column.
 
 \item Match to the Template $T$ by computing  
 
+%$(\hat{r},\hat{c})$
+
+%$d^{col}_{\hat{c}}$          $d^{row}_{\hat{r}}$ 
+
 \begin{equation}
 \hat{r} = \arg \min_{u \in \{1,\dots,6\}} \sum_{q \in NN_T(d^{row}_u)}^{} \left\lVert q -  d^{row}_u \right\rVert ^2
 \label{eq:multiclassificationrow}
@@ -281,8 +285,8 @@ where $NN_T(d^l_u), \;l\in\{row,{col}\}$ is the set of the $k$ nearest neighbors
 Figure~\ref{fig:classification} shows a schema of this process. 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=15cm]{classificationgraph2.pdf}
-\caption{Single trial segments are averaged for the 6 rows and 6 columns.}
+\includegraphics[width=15cm]{classificationgraph.pdf}
+\caption{Single trial segments are averaged for the 6 rows and 6 columns. From the averaged signal, the image of the signal plot is generated and each descriptor is computed.  By comparing each descriptor against the set of templates, the P300 ERP can be detected, and finally the desired letter from the matrix can be inferred.}
 \label{fig:classification}
 \end{figure}
 
@@ -315,7 +319,7 @@ We replicate the same experiment on healthy subjects using a wireless digital EE
 
 Participants are recruited voluntarily and the experiment is conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation is handed out and all participants agree and sign a written informed consent.  All healthy subjects have normal or corrected-to normal vision and no history of neurological disorders. The experiment is performed with 20 subjects, 17 males, 3 females, average age 26.85 years, standard deviation  8.8 years, range 19-50 years.
 
-EEG data is collected in a single recording session. Participants are seated in a comfortable chair, with their vision aligned to a computer screen located one meter in front of them.  The handling and processing of the data and stimulations is handled by the OpenVibe platform. 
+EEG data is collected in a single recording session. Participants are seated in a comfortable chair, with their vision aligned to a computer screen located one meter in front of them.  The handling and processing of the data and stimulations is handled by the OpenVibe platform~\citep{Renard2010}. 
 
 Gel-based active electrodes (g.LADYbird, g.Tec, Austria) are used on the same locations Fz, Cz, P3, Pz, P4, PO7, PO8 and Oz.  Reference is set to the right ear lobe and ground is preset as the AFz position.   Sampling frequency is slightly different, and is set to 250 Hz, which is the closest possible to the one used with the other dataset.
 
@@ -353,7 +357,8 @@ Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the c
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm]{patchgeometry.pdf}
-\caption{The scale of local patch is selected in order to capture the whole signal information.  The vertical size $4 \cdot 3 s_y$ of the patch is required to be long enough as to contain the signal $\Delta  \mu V $, which is the peak-to-peak amplitude of the transient event. The horizontal size $ 4 \cdot 3 s_x$ , on the other hand, needs to cover the entire duration in seconds of the transient signal event, $ \lambda $.   }
+\caption{The scale of local patch is selected in order to capture the whole transient event.  The size of the patch is $S_p \times S_p$ pixels. The vertical size consists of $4$ blocks $B_{i,j}$  of size $3 s_y$ pixels which is long enough as to contain the signal $\Delta  \mu V $, the peak-to-peak amplitude of the transient event. The horizontal size on the other hand, includes $4$ blocks  of $3 s_x$ and cover the entire duration in seconds of the transient signal event, $ \lambda $.   }
+
 \label{fig:sampledescriptor2}
 \end{figure}
 
@@ -372,8 +377,9 @@ Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the c
 %\label{fig:subjectaveraged}
 %\end{figure}
 
-Table~\ref{tab:results} shows the results of applying the algorithm to the subjects of the public dataset. The percentage of correctly spelled letters is calculated while performing an offline BCI Simulation for the public dataset of ALS patients.  From the 7 words for each subject, the first 3 were used as training, and the remaining 4 for testing.  The best performing channel is informed as well. The chance level is $2\%$.  
+Table~\ref{tab:results} shows the results of applying the algorithm to the subjects of the public dataset of ALS patients. The percentage of correctly spelled letters is calculated while performing an offline BCI Simulation.  From the 7 words for each subject, the first 3 were used as training, and the remaining 4 for testing.  The best performing channel is informed as well. The chance level is $2\%$.  
 %JG esto después lo hablamos, ¿porque lo pondrías aca?
+%RR: esto corresponde al punto 4.1 que dijo el revisor y tiene que ver con proveer informacion del canal en el que la clasificacion dio mejor.
 %DRAFT: Traditionally P300 can be seen in this channel and this other channel.  However, Wolpaw showed that the response may also arise in occipital channels as well.  The authors of the original paper concluded that Cz was the best performing channel, more representative of the difference in amplitudes. However, in our approach occipital channels,  PO8 and PO7 showed higher performances \citep{Huggins2016,Jure2016}.
 
 \begin{table}[H]
@@ -404,7 +410,7 @@ For both datasets, the experimental protocol uses a very short ISI which has the
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm]{performance.eps}
-\caption{Performance curves for the eight subjects included in the published dataset.  Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.}
+\caption{Performance curves for the eight subjects included in the ALS dataset.  Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.}
 \label{fig:performance}
 \end{figure}
 
@@ -438,26 +444,27 @@ The SIFT method is invariant to the scale, but in order to allow our method to b
 \toprule
 \textbf{Participant}	&  \textbf{BPC}	& \textbf{Performance}\\
 \midrule
-1     &     Cz   &     0.7000  &  0.3500  \\
-1     &     Cz   &    0.1000  &  0.0500 \\
-1     &     Cz   &     0.1000  &  0.1000 \\
-1     &     Cz   &     0.1000  &  0.1500 \\
-1     &     Cz   &     0.1000  &  0.1000 \\
-1     &     Cz   &     0.5500  &  0.4000 \\
-1     &     Cz   &     0.1500   & 0.1000 \\
-1     &     Cz   &     0.4500   & 0.2000 \\
-1     &     Cz   &     0.3000  &  0.2000 \\
-1     &     Cz   &     0.2500  &  0.1500 \\
-1     &     Cz   &     0.5500  &  0.3000 \\
-1     &     Cz   &     0.3500  &  0.1000 \\
-1     &     Cz   &     0.3000  &  0.3500 \\
-1     &     Cz   &     0.5000  &  0.4000 \\
-1     &     Cz   &     0.3000  &  0.1500 \\
-1     &     Cz   &     0.3000  &  0.3000 \\
-1     &     Cz   &     0.3500  &  0.3500 \\
-1     &     Cz   &          0      & 0.0500 \\
-1     &     Cz   &     0.7000   & 0.5000 \\
-1     &     Cz   &     0.4000  &  0.3000 \\
+1     &     Cz   &     0.7000  &  $45\%$  \\
+1     &     Cz   &    0.1000   &  $10\%$ \\
+1     &     Cz   &     0.1000  &  $15\%$ \\
+1     &     Cz   &     0.1000  &  $20\%$  \\
+1     &     Cz   &     0.1000  &  $10\%$ \\
+1     &     Cz   &     0.5500  &  $25\%$ \\
+1     &     Cz   &     0.1500  &  $15\%$ \\
+1     &     Cz   &     0.4500  &  $20\%$ \\
+1     &     Cz   &     0.3000  &  $20\%$ \\
+1     &     Cz   &     0.2500  &  $20\%$ \\
+1     &     Cz   &     0.5500  &  $15\%$ \\
+1     &     Cz   &     0.3500  &  $30\%$ \\
+1     &     Cz   &     0.3000  &  $10\%$ \\
+1     &     Cz   &     0.5000  &  $35\%$ \\
+1     &     Cz   &     0.3000  &  $45\%$ \\
+1     &     Cz   &     0.3000  &  $10\%$ \\
+1     &     Cz   &     0.3500  &  $30\%$ \\
+1     &     Cz   &          0      &  $45\%$ \\
+1     &     Cz   &          0      &  $15\%$ \\
+1     &     Cz   &     0.7000  &  $65\%$ \\
+1     &     Cz   &     0.4000  &  $40\%$ \\
 
 \bottomrule
 \end{tabular}
@@ -551,8 +558,7 @@ P300: Positive deflection of an Event-Related Potential which occurs 300 ms afte
 ITR: Information Transfer Rate\\
 BTR: Bit Transfer Rate\\
 SIFT: Scale Invariant Feature Transform\\
-NBNN: Naive Bayes Nearest Neighbor\\
-HOG: Histogram Of Gradients}
+NBNN: Naive Bayes Nearest Neighbor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  13 DEC 2017 18:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  15 DEC 2017 03:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1044,24 +1044,25 @@ File: histogramsbines.png Graphic file (type png)
 Package pdftex.def Info: histogramsbines.png used on input line 231.
 (pdftex.def)             Requested size: 217.49539pt x 115.11378pt.
  [4] [5 <./signalpatchkeypoint.png> <./histogramsbines.png>] <classificationgra
-ph2.pdf, id=187, 614.295pt x 398.3386pt>
-File: classificationgraph2.pdf Graphic file (type pdf)
+ph.pdf, id=187, 614.295pt x 398.3386pt>
+File: classificationgraph.pdf Graphic file (type pdf)
 
-<use classificationgraph2.pdf>
-Package pdftex.def Info: classificationgraph2.pdf used on input line 284.
+<use classificationgraph.pdf>
+Package pdftex.def Info: classificationgraph.pdf used on input line 288.
 (pdftex.def)             Requested size: 426.79134pt x 276.75638pt.
- [6 <./classificationgraph2.pdf>]
-Underfull \hbox (badness 1565) in paragraph at lines 316--317
+ [6 <./classificationgraph.pdf>]
+Underfull \hbox (badness 1565) in paragraph at lines 320--321
 []\T1/ppl/m/n/10 Participants are re-cruited vol-un-tar-ily and the ex-per-i-me
 nt is con-ducted anony-mously in
  []
 
-[7] <patchgeometry.pdf, id=252, 284.52759pt x 227.62209pt>
+[7] <patchgeometry.pdf, id=265, 284.52759pt x 227.62209pt>
 File: patchgeometry.pdf Graphic file (type pdf)
 
 <use patchgeometry.pdf>
-Package pdftex.def Info: patchgeometry.pdf used on input line 355.
+Package pdftex.def Info: patchgeometry.pdf used on input line 359.
 (pdftex.def)             Requested size: 284.52756pt x 227.64235pt.
+ [8 <./patchgeometry.pdf>]
 Package epstopdf Info: Source file: <performance.eps>
 (epstopdf)                    date: 2017-09-14 15:24:22
 (epstopdf)                    size: 338199 bytes
@@ -1070,67 +1071,71 @@ Package epstopdf Info: Source file: <performance.eps>
 (epstopdf)                    size: 86640 bytes
 (epstopdf)             Command: <repstopdf --outfile=performance-eps-converted-
 to.pdf performance.eps>
-(epstopdf)             \includegraphics on input line 406.
+(epstopdf)             \includegraphics on input line 412.
 Package epstopdf Info: Output file is already uptodate.
 
-<performance-eps-converted-to.pdf, id=256, 562.1pt x 421.575pt>
+<performance-eps-converted-to.pdf, id=308, 562.1pt x 421.575pt>
 File: performance-eps-converted-to.pdf Graphic file (type pdf)
 
 <use performance-eps-converted-to.pdf>
-Package pdftex.def Info: performance-eps-converted-to.pdf used on input line 40
-6.
+Package pdftex.def Info: performance-eps-converted-to.pdf used on input line 41
+2.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
- [8 <./patchgeometry.pdf>]
-Underfull \hbox (badness 1939) in paragraph at lines 413--414
+
+Underfull \hbox (badness 1939) in paragraph at lines 419--420
 \T1/ppl/m/n/10 EN-TRE LO MAS ES-TANDAR POSI-BLE (PUEDO CITAR MAS O MENOS QUE NU
 E-STRO
  []
 
 
-Underfull \hbox (badness 2080) in paragraph at lines 421--422
+Underfull \hbox (badness 2080) in paragraph at lines 427--428
 []\T1/ppl/m/n/10 Considering the am-pli-tude vari-a-tion of the p300 and its co
 m-po-nents, we pro-posed a
  []
 
 [9 <./performance-eps-converted-to.pdf>]
-<subject8.png, id=300, 1261.71375pt x 451.6875pt>
+<subject8.png, id=326, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
-Package pdftex.def Info: subject8.png used on input line 427.
+Package pdftex.def Info: subject8.png used on input line 433.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
 
-<subject3.png, id=301, 1226.5825pt x 434.62375pt>
+<subject3.png, id=327, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
  <use subject3.png>
-Package pdftex.def Info: subject3.png used on input line 428.
+Package pdftex.def Info: subject3.png used on input line 434.
 (pdftex.def)             Requested size: 284.52756pt x 100.81685pt.
  [10 <./subject8.png (PNG copy)> <./subject3.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 555--555
+Underfull \hbox (badness 10000) in paragraph at lines 561--561
 
  []
 
 (./article.bbl [11] [12])
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 595.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 601.
  
 AED: lastpage setting LastPage
 [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 595.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 595.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 601.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 601.
  (./article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 595.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 595.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 601.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 601.
 Package rerunfilecheck Info: File `article.out' has not changed.
-(rerunfilecheck)             Checksum: 931D332F43A222AA34511FB3478B0DBA;2509.
+(rerunfilecheck)             Checksum: 5F9F3B23A5B69EEDF5586B6AFEB15995;2587.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 14083 strings out of 493014
- 198893 string characters out of 6133352
- 298070 words of memory out of 5000000
+ 14082 strings out of 493014
+ 198881 string characters out of 6133352
+ 298798 words of memory out of 5000000
  17294 multiletter control sequences out of 15000+600000
- 52944 words of font info for 123 fonts, out of 8000000 for 9000
+ 52689 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,12n,45p,2038b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,2038b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
@@ -1144,10 +1149,10 @@ dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/palatino/uplri8a.pfb>
-Output written on article.pdf (13 pages, 405066 bytes).
+Output written on article.pdf (13 pages, 415726 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
+ 410 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
  82 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
