@@ -84,6 +84,12 @@ Yamaguchi, T.; Fujio, M.; Inoue, K.; Pfurtscheller, G.
 \newblock  Fourth International Conference on Innovative Computing, Information
   and Control (ICICIC),  2009, pp. 1558--1561.
 
+\bibitem[Berger \em{et~al.}(2017)Berger, Schneider, Kochs, and
+  Jordan]{Berger2017}
+Berger, S.; Schneider, G.; Kochs, E.; Jordan, D.
+\newblock {Permutation Entropy: Too Complex a Measure for EEG Time Series?}
+\newblock {\em Entropy 2017, Vol. 19, Page 692} {\bf 2017}, {\em 19},~692.
+
 \bibitem[Ramele \em{et~al.}(2016)Ramele, Villar, and Santos]{Ramele2016}
 Ramele, R.; Villar, A.J.; Santos, J.M.
 \newblock {BCI classification based on signal plots and SIFT descriptors}.
