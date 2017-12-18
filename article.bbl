@@ -190,10 +190,41 @@ Schalk, G.; McFarland, D.J.; Hinterberger, T.; Birbaumer, N.; Wolpaw, J.R.
 \newblock {\em IEEE transactions on bio-medical engineering} {\bf 2004}, {\em
   51},~1034--43.
 
+\bibitem[Rao(2013)]{Rao2013}
+Rao, R.P.N.
+\newblock {\em Brain-Computer Interfacing: An Introduction}; Cambridge
+  University Press: New York, NY, USA,  2013.
+
 \bibitem[Polich(2007)]{Polich2007}
 Polich, J.
 \newblock {Updating P300: An integrative theory of P3a and P3b},  2007,
   \href{http://xxx.lanl.gov/abs/arXiv:1011.1669v3}{{\normalfont
   [arXiv:1011.1669v3]}}.
+
+\bibitem[Casarotto \em{et~al.}(2005)Casarotto, Bianchi, Cerutti, and
+  Chiarenza]{Casarotto2005}
+Casarotto, S.; Bianchi, A.; Cerutti, S.; Chiarenza, G.
+\newblock {Dynamic time warping in the analysis of event-related potentials}.
+\newblock {\em IEEE Engineering in Medicine and Biology Magazine} {\bf 2005},
+  {\em 24},~68--77.
+
+\bibitem[Ouyang \em{et~al.}(2017)Ouyang, Hildebrandt, Sommer, and
+  Zhou]{Ouyang2017}
+Ouyang, G.; Hildebrandt, A.; Sommer, W.; Zhou, C.
+\newblock {Exploiting the intra-subject latency variability from single-trial
+  event-related potentials in the P3 time range: A review and comparative
+  evaluation of methods}.
+\newblock {\em Neuroscience and Biobehavioral Reviews} {\bf 2017}, {\em
+  75},~1--21.
+
+\bibitem[{Van Drongelen}(2006)]{van2006signal}
+{Van Drongelen}, W.
+\newblock {\em {Signal processing for neuroscientists: an introduction to the
+  analysis of physiological signals}}; Academic press,  2006.
+
+\bibitem[Nijboer and Broermann(2009)]{Nijboer2009}
+Nijboer, F.; Broermann, U.
+\newblock {Brain–Computer Interfaces for Communication and Control in
+  Locked-in Patients}; Springer Berlin Heidelberg,  2009; pp. 185--201.
 
 \end{thebibliography}
