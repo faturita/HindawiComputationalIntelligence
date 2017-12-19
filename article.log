@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  19 DEC 2017 03:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  19 DEC 2017 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,23 +827,23 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (./article.aux)
 \openout1 = `article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 113.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -863,7 +863,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 114.
+(lastpage)             ! on input line 113.
 \AtBeginShipoutBox=\box35
  (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
@@ -873,7 +873,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 144.
 )
-Package hyperref Info: Link coloring ON on input line 114.
+Package hyperref Info: Link coloring ON on input line 113.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -883,9 +883,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count154
 )
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
+LaTeX Info: Redefining \ref on input line 113.
+LaTeX Info: Redefining \pageref on input line 113.
+LaTeX Info: Redefining \nameref on input line 113.
 
 (./article.out) (./article.out)
 \@outlinefile=\write3
@@ -930,77 +930,77 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <18> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 114.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 114.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 113.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 113.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 114
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 113
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 114
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 113
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 114
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 113
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 114
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 113
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 114.
+(Font)              scaled to size 10.42007pt on input line 113.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 114.
+(Font)              scaled to size 7.91925pt on input line 113.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 114.
+(Font)              scaled to size 6.25204pt on input line 113.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 114.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 113.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 114.
+(Font)              scaled to size 9.37807pt on input line 113.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 114.
+(Font)              scaled to size 7.29405pt on input line 113.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 114.
+(Font)              scaled to size 5.21004pt on input line 113.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 114.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 114.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 113.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 113.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
 []\T1/ppl/m/n/10 Although re-cent ad-vances in neu-roimag-in-ing tech-niques (p
 ar-tic-u-larly radio-nuclear
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 124--125
+Underfull \hbox (badness 4036) in paragraph at lines 123--124
 \T1/ppl/m/n/10 and ra-di-o-log-i-cal scan-ning meth-ods) [[]] have di-min-ished
  the prospects of the tra-di-tional
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 128--129
+Underfull \hbox (badness 1668) in paragraph at lines 127--128
 []\T1/ppl/m/n/10 One note-wor-thy as-pect of this novel com-mu-ni-ca-tion chan-
 nel is the abil-ity to trans-mit
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 130--131
+Underfull \hbox (badness 2961) in paragraph at lines 129--130
 []\T1/ppl/m/n/10 EEG sig-nals are re-mark-ably com-plex and have been char-ac-t
 er-ized as a mul-ti-chan-nel
  []
@@ -1012,48 +1012,48 @@ er-ized as a mul-ti-chan-nel
 File: openvibep300matrix.png Graphic file (type png)
 
 <use openvibep300matrix.png>
-Package pdftex.def Info: openvibep300matrix.png used on input line 152.
+Package pdftex.def Info: openvibep300matrix.png used on input line 149.
 (pdftex.def)             Requested size: 128.71733pt x 173.94041pt.
 
 <p300matrixcoloriginal.png, id=107, 362.10281pt x 490.08093pt>
 File: p300matrixcoloriginal.png Graphic file (type png)
 
 <use p300matrixcoloriginal.png>
-Package pdftex.def Info: p300matrixcoloriginal.png used on input line 153.
+Package pdftex.def Info: p300matrixcoloriginal.png used on input line 150.
 (pdftex.def)             Requested size: 128.71733pt x 174.20802pt.
  [2]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 166.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 162.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
  [3 <./openvibep300matrix.png> <./p300matrixcoloriginal.png>]
 <signalpatchkeypoint.png, id=151, 664.4825pt x 561.09625pt>
 File: signalpatchkeypoint.png Graphic file (type png)
 
 <use signalpatchkeypoint.png>
-Package pdftex.def Info: signalpatchkeypoint.png used on input line 232.
+Package pdftex.def Info: signalpatchkeypoint.png used on input line 228.
 (pdftex.def)             Requested size: 217.49539pt x 183.65549pt.
 
 <histogramsbines.png, id=152, 283.0575pt x 149.8097pt>
 File: histogramsbines.png Graphic file (type png)
 
 <use histogramsbines.png>
-Package pdftex.def Info: histogramsbines.png used on input line 233.
+Package pdftex.def Info: histogramsbines.png used on input line 229.
 (pdftex.def)             Requested size: 217.49539pt x 115.11378pt.
  [4]
 <classificationgraph.pdf, id=175, 614.295pt x 398.3386pt>
 File: classificationgraph.pdf Graphic file (type pdf)
 
 <use classificationgraph.pdf>
-Package pdftex.def Info: classificationgraph.pdf used on input line 287.
+Package pdftex.def Info: classificationgraph.pdf used on input line 283.
 (pdftex.def)             Requested size: 426.79134pt x 276.75638pt.
  [5 <./signalpatchkeypoint.png> <./histogramsbines.png>] [6 <./classificationgr
 aph.pdf>]
-Underfull \hbox (badness 1565) in paragraph at lines 319--320
+Underfull \hbox (badness 1565) in paragraph at lines 315--316
 []\T1/ppl/m/n/10 Participants are re-cruited vol-un-tar-ily and the ex-per-i-me
 nt is con-ducted anony-mously in
  []
@@ -1062,79 +1062,82 @@ nt is con-ducted anony-mously in
 File: patchgeometry.pdf Graphic file (type pdf)
 
 <use patchgeometry.pdf>
-Package pdftex.def Info: patchgeometry.pdf used on input line 352.
+Package pdftex.def Info: patchgeometry.pdf used on input line 348.
 (pdftex.def)             Requested size: 284.52756pt x 227.64235pt.
 
-Underfull \hbox (badness 1057) in paragraph at lines 358--359
+Underfull \hbox (badness 1057) in paragraph at lines 354--355
 []\T1/ppl/m/n/10 Lastly, the num-ber of chan-nels $\OML/zplm/m/it/10 Ch$ \T1/pp
 l/m/n/10 is equal to $\OT1/ppl/m/n/10 8$ \T1/ppl/m/n/10 for both datasets, and 
 the num-ber of
  []
 
 [8 <./patchgeometry.pdf>]
-Package epstopdf Info: Source file: <performance.eps>
-(epstopdf)                    date: 2017-09-14 15:24:22
-(epstopdf)                    size: 338199 bytes
-(epstopdf)             Output file: <performance-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-14 15:34:59
-(epstopdf)                    size: 86640 bytes
-(epstopdf)             Command: <repstopdf --outfile=performance-eps-converted-
-to.pdf performance.eps>
-(epstopdf)             \includegraphics on input line 433.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <performance2.eps>
+(epstopdf)                    date: 2017-12-19 15:07:37
+(epstopdf)                    size: 25543 bytes
+(epstopdf)             Output file: <performance2-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=performance2-eps-converted
+-to.pdf performance2.eps>
+(epstopdf)             \includegraphics on input line 429.
+runsystem(repstopdf --outfile=performance2-eps-converted-to.pdf performance2.ep
+s)...executed safely (allowed).
 
-<performance-eps-converted-to.pdf, id=324, 562.1pt x 421.575pt>
-File: performance-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <performance2-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-12-19 15:07:47
+(epstopdf)                    size: 8722 bytes.
 
-<use performance-eps-converted-to.pdf>
-Package pdftex.def Info: performance-eps-converted-to.pdf used on input line 43
-3.
+<performance2-eps-converted-to.pdf, id=324, 562.1pt x 421.575pt>
+File: performance2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use performance2-eps-converted-to.pdf>
+Package pdftex.def Info: performance2-eps-converted-to.pdf used on input line 4
+29.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
  [9]
 <subject8.png, id=336, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
-Package pdftex.def Info: subject8.png used on input line 444.
+Package pdftex.def Info: subject8.png used on input line 440.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
 
 <subject3.png, id=337, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
  <use subject3.png>
-Package pdftex.def Info: subject3.png used on input line 445.
+Package pdftex.def Info: subject3.png used on input line 441.
 (pdftex.def)             Requested size: 284.52756pt x 100.81685pt.
- [10 <./performance-eps-converted-to.pdf>]
-Underfull \hbox (badness 1043) in paragraph at lines 462--463
+ [10 <./performance2-eps-converted-to.pdf>]
+Underfull \hbox (badness 1043) in paragraph at lines 458--459
 []\T1/ppl/m/n/10 Another prob-lem is the am-pli-tude vari-a-tion of the P300. W
 e pro-pose an ap-proach by
  []
 
 [11 <./subject8.png (PNG copy)> <./subject3.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 570--570
+Underfull \hbox (badness 10000) in paragraph at lines 568--568
 
  []
 
 (./article.bbl [12] [13])
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 610.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 608.
  
 AED: lastpage setting LastPage
 [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 610.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 610.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
  (./article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 610.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 610.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 608.
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: EF385D0DA0CE0B529D7EC1FC8AFFEFC4;2602.
  ) 
 Here is how much of TeX's memory you used:
  14123 strings out of 493014
- 199503 string characters out of 6133352
+ 199508 string characters out of 6133352
  299240 words of memory out of 5000000
  17324 multiletter control sequences out of 15000+600000
  52689 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,12n,45p,2038b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,2038b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
@@ -1148,10 +1151,10 @@ dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/palatino/uplri8a.pfb>
-Output written on article.pdf (14 pages, 419462 bytes).
+Output written on article.pdf (14 pages, 341358 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
- 361 compressed objects within 4 object streams
+ 441 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
  93 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

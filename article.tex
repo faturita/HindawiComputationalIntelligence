@@ -83,8 +83,7 @@ $^{1}$ \quad Computer Engineering Department, Instituto Tecnológico de Buenos A
 %\simplesumm{}
 
 % Abstract (Do not use inserted blank lines, i.e. \\) 
-\abstract{%EL OBJETIVO DE ESTE PAPER, EL HILO CONDUCTOR, ES DEMOSTRAR QUE ESTE METODO QUE ESTA BASADO EN LA ESTRUCTURA DE LA SENIAL SE PUEDE UTILIZAR TAMBIEN PARA IDENTIFICAR EVENTOS TRANSIENTES COMO EL P300, Y QUE CON ESO SE PUEDE IMPLEMENTAR UN SPELLER DE P300.  
-The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset for healthy subjects.}
+\abstract{The analysis of Electroencephalographic (EEG) signals is of ulterior importance to elucidate patterns that could improve the implementation of Brain Computer Interfaces (BCI). These systems are meant to provide alternative pathways to transmit volitional information which could potentially enhance the quality of life of patients affected by neurodegenerative disorders or improve Human Computer Interaction systems.  Of particular interests are those which are based on the recognition of Event-Related Potentials (ERP) because they can be elicited by external stimuli and used to implement spellers, to control external devices or even avatars in virtual reality environments.  This work mimics what electroencephalographers have been doing clinically, visually inspecting and categorizing phenomena within the EEG by the extraction of features from the images of the plots of the signals.  It also aims to provide a framework to analyze, characterize and classify EEG signals, with a focus on the P300, an ERP elicited by the oddball paradigm of rare events.  The validity of the method is shown by offline processing a public dataset of Amyotrophic Lateral Sclerosis (ALS) patients and an own dataset for healthy subjects.}
 
 % Keywords
 \keyword{EEG; BCI; P300; ALS; NBNN; HGOSP; SIFT}
@@ -131,8 +130,6 @@ EEG signals are remarkably complex and have been characterized as a multichannel
 
 Moreover, EEG markers~\citep{Clerc} that can be used to  transmit volitional information are limited, and each one of them has a particular combination of appropriate methods to decode them. Inevitably, it is necessary to implement  distinct and specialized algorithmic methods, to filter the signal, enhance its Signal to Noise Ratio (SNR), and try to determine some meaning out of it.  
 
-%Patients suffering from ALS their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.
-
 BCI has gained mainstream public awareness with worldwide challenge competitions like Cybathlon~\citep{Riener2014} and even been broadcasted during the inauguration ceremony of the 2014 Soccer World Cup.  New developments have overcome the out-of-the-lab high-bar and they are starting to be used in real world environments~\citep{Guger2017,Huggins2016}.  However, they still lack the necessary robustness, and its performance is well behind any other method of human computer interaction, including any kind of detection of residual muscular movement~\citep{Clerc}.
 
 A few works have explored the idea of exploiting the signal waveform to analyze the EEG signal.  In~\citep{Alvarado-Gonzalez2016} an approach based on Slope Horizontal Chain Code is presented, whereas in ~\citep{Yamaguchi2009} a similar procedure was implemented based on Mathematical Morphological Analysis.  The seminal work of Bandt-Pompe Permutation Entropy~\citep{Berger2017} also explores succinctly this idea as a basis to establish the time series ordinal patterns.  In the article~\citep{Ramele2016},  the authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves  and Motor Imagery rolandic central $\mu$ rhythms using the histogram of gradient orientations of signal plots.  Inspired in that work, we proposed a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  
@@ -157,7 +154,6 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 
 \subsection{Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot} \label{Feature}
 
-%The underlying idea of this method is to generate templates for the signal \citep{Ramele2016}, based on the image plot.  Hence, the first step is the processing of the EEG signal.
 In this section, the signal preprocessing, the method for generating images from signal plots, the feature extraction procedure and the speller matrix identification are described. 
 
 \subsubsection{Preprocessing Pipeline} \label{Pipeline}
@@ -332,7 +328,7 @@ Gel-based active electrodes (g.LADYbird, g.Tec, Austria) are used on the same lo
 The patch size is $S_P = 3s.4 \times 3s.4$ pixels, where $s$ is the scale of the local patch and it is an input parameter of the algorithm. The P300 event can have a span of $400$ ms and its amplitude can reach $ 10 \mu V $~\citep{Rao2013}.  Hence it is necessary to utilize a size patch $S_P$ that could capture an entire transient event. With this purpose in consideration, the $s$ value election is essential.
 
 %necesitamos definir el valor de s en función de los parámetros de la señal, de modo tal que el parche cubra el evento completo.  
-We propose the equations~\ref{eq:mapping2} and~\ref{eq:mapping1} to compute the scale value in horizontal and vertical directions, respectively. 
+We propose the Equations~\ref{eq:mapping2} and~\ref{eq:mapping1} to compute the scale value in horizontal and vertical directions, respectively. 
 \begin{equation}
 s_x = \frac{\lambda \cdot Fs}{4 \cdot 3} \cdot \gamma
 \label{eq:mapping2}
@@ -355,7 +351,7 @@ Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the c
 \label{fig:sampledescriptor2}
 \end{figure}
 
-Lastly, the number of channels $Ch$ is equal to $8$ for both datasets, and the number of intensification sequences $k_a$ is statically assigned to $10$.  The parameter $k$ used in the Near Neighbor $NN_T(d^l_u), \;l\in\{row,{col}\}$ is set to $k=7$.  In addition, the distance function used on  equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol} was the cosine norm, and descriptors were normalized to $ \left[ -1, 1 \right] $.
+Lastly, the number of channels $Ch$ is equal to $8$ for both datasets, and the number of intensification sequences $k_a$ is statically assigned to $10$.  The parameter $k$ used in the Near Neighbor $NN_T(d^l_u), \;l\in\{row,{col}\}$ is set to $k=7$.  In addition, the norm used on  Equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol} was the cosine norm, and descriptors were normalized to $ \left[ -1, 1 \right] $.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
@@ -370,7 +366,7 @@ Lastly, the number of channels $Ch$ is equal to $8$ for both datasets, and the n
 %\label{fig:subjectaveraged}
 %\end{figure}
 
-The P300 ERP  consists of two overlapping components the P3a and P3b, the former with frontocentral distribution while the later stronger on centroparietal region~\citep{Polich2007} then, the classical approach finds the stronger response on the central channel Cz~\citep{Riccio2013}. However, Wolpaw et al~\citep{Krusienski2006} show that the response may also arise in occipital channels.  In our approach, occipital channels PO8 and PO7 show higher performances for some subjects. %For example in the articles~\citep{Huggins2016,Jure2016} the authors show that channels PO8 and PO7 have higher performances.
+The P300 ERP  consists of two overlapping components: the P3a and P3b, the former with frontocentral distribution while the later stronger on centroparietal region~\citep{Polich2007} then, the classical approach finds the stronger response on the central channel Cz~\citep{Riccio2013}. However, Wolpaw et al~\citep{Krusienski2006} show that the response may also arise in occipital channels.  In our approach, occipital channels PO8 and PO7 show higher performances for some subjects. %For example in the articles~\citep{Huggins2016,Jure2016} the authors show that channels PO8 and PO7 have higher performances.
 
 %The authors~\citep{Riccio2013} that analyzed the public dataset concluded that Cz is the best performing channel, more representative of the difference in amplitudes. However, in our approach, occipital channels,  PO8 and PO7 show higher performances~\citep{Huggins2016,Jure2016}.
 
@@ -411,7 +407,7 @@ In Table~\ref{tab:resultsowndataset} results obtained for 8 healthy subjects are
 \textbf{Participant}	&  \textbf{BPC}	& \textbf{Performance}\\
 \midrule
 1     &     Oz   &     $40\%$  \\
-2     &     P07   &     $30\%$ \\
+2     &     PO7   &     $30\%$ \\
 3     &     P4   &     $40\%$ \\
 4     &     P4   &     $45\%$ \\
 5     &     P4   &      $60\%$ \\
@@ -430,12 +426,12 @@ The Information Transfer Rate (ITR), or Bit Transfer Rate (BTR), in the case of 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10cm]{performance.eps}
+\includegraphics[width=10cm]{performance2.eps}
 \caption{Performance curves for the eight subjects included in the dataset of ALS patients.  Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.}
 \label{fig:performance}
 \end{figure}
 
-As can be seen in the figure, as the number of intensification sequences tend to 1, which corresponds to single trial letter identification, the performance is reduced. As mentioned before, the SNR of the single trial P300 is very low. The ensemble average is carried out in order to improve the SNR but other problems arise, for example inter-trial variability due to latencies shifts that may produce an unstable P300 signature. To solve this problem, we tested an approach to assess if the morphological shape of the P300 can be stabilized by applying different shifts and we verified that there is a better performance when a correct resynchronization is applied, but results are still in process.  We also applied DTW~\citep{Casarotto2005} but we were unable to find a substantial improvement.     On the other hand amplitude, width and latency are generally affected by habituation, fatigue or level of attention and may lead to null signals\citep{Ouyang2017}. This is another source of instability of the P300 signature component that may need to be addressed.
+As can be seen in the figure, as the number of intensification sequences tend to 1, which corresponds to single trial letter identification, the performance is reduced. As mentioned before, the SNR of the single trial P300 is very low. The ensemble average is carried out in order to improve the SNR but other problems arise, for example inter-trial variability due to latencies shifts that may produce an unstable P300 signature. To solve this problem, we tested an approach to assess if the morphological shape of the P300 can be stabilized by applying different shifts and we verified that there is a better performance when a correct resynchronization is applied, but results are still in process.  We also applied Dynamic Time Warping (DTW)~\citep{Casarotto2005} but we were unable to find a substantial improvement.     On the other hand amplitude, width and latency are generally affected by habituation, fatigue or level of attention and may lead to null signals\citep{Ouyang2017}. This is another source of instability of the P300 signature component that may need to be addressed.
 
 As subjects may have different \textit{latencies}, \textit{amplitudes} and \textit{width} of their P300 components, they may also have distinct \textit{shapes} of the generated ERP.  Figure~\ref{fig:p300templates} shows the P300 templates patches for patients 8 and 3 from the public dataset. It can be observed that in coincidence with the performance results, the P300 signature is more clear and consistent for subject 8 (Fig.~\ref{subject8})  while for subject 3 (Fig.~\ref{subject3}) the characteristic pattern is more difficult to perceive.
 
