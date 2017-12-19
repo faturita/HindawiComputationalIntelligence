@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: article.aux
 The style file: mdpi.bst
 Database file #1: article.bib
-Warning--empty booktitle in Nijboer2009
-You've used 34 entries,
+You've used 35 entries,
             2795 wiz_defined-function locations,
-            816 strings with 12670 characters,
-and the built_in function-call counts, 13461 in all, are:
-= -- 1127
-> -- 822
-< -- 23
-+ -- 312
-- -- 244
-* -- 1195
-:= -- 2185
-add.period$ -- 93
-call.type$ -- 34
-change.case$ -- 34
-chr.to.int$ -- 34
+            822 strings with 12805 characters,
+and the built_in function-call counts, 13914 in all, are:
+= -- 1178
+> -- 843
+< -- 24
++ -- 320
+- -- 250
+* -- 1221
+:= -- 2256
+add.period$ -- 97
+call.type$ -- 35
+change.case$ -- 35
+chr.to.int$ -- 35
 cite$ -- 35
-duplicate$ -- 617
-empty$ -- 1089
-format.name$ -- 296
-if$ -- 2810
+duplicate$ -- 640
+empty$ -- 1129
+format.name$ -- 303
+if$ -- 2921
 int.to.chr$ -- 1
-int.to.str$ -- 34
-missing$ -- 40
-newline$ -- 165
-num.names$ -- 102
-pop$ -- 230
+int.to.str$ -- 35
+missing$ -- 41
+newline$ -- 169
+num.names$ -- 105
+pop$ -- 237
 preamble$ -- 0
-purify$ -- 34
+purify$ -- 35
 quote$ -- 0
-skip$ -- 354
+skip$ -- 367
 stack$ -- 0
-substring$ -- 628
-swap$ -- 164
-text.length$ -- 8
+substring$ -- 646
+swap$ -- 172
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 217
-warning$ -- 1
-while$ -- 125
+type$ -- 224
+warning$ -- 0
+while$ -- 130
 width$ -- 0
-write$ -- 408
-(There was 1 warning)
+write$ -- 421

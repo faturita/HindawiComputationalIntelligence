@@ -60,6 +60,11 @@ Riener, R.; Seward, L.J.
 \newblock {\em 2014 IEEE International Conference on Systems, Man, and
   Cybernetics (SMC)} {\bf 2014}, pp. 2792--2794.
 
+\bibitem[Guger \em{et~al.}(2017)Guger, Allison, and Lebedev]{Guger2017}
+Guger, C.; Allison, B.Z.; Lebedev, M.A.
+\newblock {Introduction}. In {\em Brain Computer Interface Research: A State of
+  the Art Summary 6}; Springer, Cham,  2017; pp. 1--8.
+
 \bibitem[Huggins \em{et~al.}(2016)Huggins, Alcaide-Aguirre, and
   Hill]{Huggins2016}
 Huggins, J.E.; Alcaide-Aguirre, R.E.; Hill, K.
@@ -197,9 +202,7 @@ Rao, R.P.N.
 
 \bibitem[Polich(2007)]{Polich2007}
 Polich, J.
-\newblock {Updating P300: An integrative theory of P3a and P3b},  2007,
-  \href{http://xxx.lanl.gov/abs/arXiv:1011.1669v3}{{\normalfont
-  [arXiv:1011.1669v3]}}.
+\newblock {Updating P300: An integrative theory of P3a and P3b},  2007.
 
 \bibitem[Casarotto \em{et~al.}(2005)Casarotto, Bianchi, Cerutti, and
   Chiarenza]{Casarotto2005}
@@ -224,7 +227,9 @@ Ouyang, G.; Hildebrandt, A.; Sommer, W.; Zhou, C.
 
 \bibitem[Nijboer and Broermann(2009)]{Nijboer2009}
 Nijboer, F.; Broermann, U.
-\newblock {Brain–Computer Interfaces for Communication and Control in
-  Locked-in Patients}; Springer Berlin Heidelberg,  2009; pp. 185--201.
+\newblock {Brain Computer Interfaces for Communication and Control in Locked-in
+  Patients}. In {\em Graimann B., Pfurtscheller G., Allison B. (eds)
+  Brain-Computer Interfaces. The Frontiers Collection.}; Springer Berlin
+  Heidelberg,  2009; pp. 185--201.
 
 \end{thebibliography}

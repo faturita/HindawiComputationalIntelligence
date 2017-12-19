@@ -7,6 +7,7 @@
 \usepackage{color}
 \usepackage{fancybox}
 \usepackage{url,booktabs}
+\usepackage[round]{natbib}
 
 \usepackage{xr}
 
@@ -14,7 +15,7 @@
 
 \title{Reply to Reviewer's Comments on\\
 ``EEG characterization and classification based on image gradient histograms''\\
-(now ``Oriented Gradient Histogram applied to P300 Detection'')}
+(now ``Histogram of Gradient Orientations of Signal Plots applied to P300 Detection'')}
 \author{}
 
 \begin{document}
@@ -23,14 +24,14 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
-We are grateful to the reviewers for pointing at relevant issues in our manuscript.
+We are grateful to the reviewer for pointing out relevant issues in our manuscript.
 
 In the following, we discuss how we dealt with each raised issue. 
 
 \vskip+1ex
 \noindent \dotfill
 
-\section*{\fbox{Reviewer \#1:}}
+\section*{\fbox{Reviewer \#1 Transcript:}}
 
 I have read the manuscript "EEG characterization and classification based on Histogram of Gradients of Signal Plots" with great interest since its title promised a solution to an important problem. In spite of presenting an interesting methodology and some interesting issues related to EEG characterization, I consider the manuscript is not ready for publication. 
 
@@ -84,7 +85,7 @@ Thank you for the observation. The title of the article was changed accordingly 
 %
 \begin{quotation}
 {\color{blue}
-You're  right, thank you very much for your comment.  We published in Ramele et al 2016 the application of the same method to identify rhythmic EEG events like Visual Occipital Alpha Waves and to decode Motor Imagery.  We are also working on unpublished material where we are analyzing the same approach for the detection of K-Complexes and to decode SSVEP patterns.  We added this information on the article (section INTRODUCTION and section CONCLUSION).  We hope this new information enrich the article and clarifies this point.
+You're  right, thank you very much for your comment.  We published in ~\citep{Ramele2016} the application of the same method to identify rhythmic EEG events like Visual Occipital Alpha Waves and to classify Motor Imagery.  We are also working on unpublished material where we are analyzing the same approach for the detection of K-Complexes and classification of  SSVEP patterns.  We added this information on the article (Introduction and Conclusion, section 3).  We hope this new information enriches the article and clarifies this point.
 
 }
 \end{quotation}
@@ -102,7 +103,7 @@ You're  right, thank you very much for your comment.  We published in Ramele et 
 %
 \begin{quotation}
 {\color{blue}
-Thank you for the observation.  We worked hard to improve all the mathematical description of the method. Section FEATURE was modified as well as section PARAMETERS.  Section SIGNAL PLOT was revised and its mathematical terminology were corrected.}
+Thank you for the observation.  We worked hard to improve all the mathematical description of the method. The issue with variable T was fixed and we improved on the font styling to differentiate vectors and scalars.  Section 1.1(Feature Extraction...) was modified as well as section 1.2.3(Parameters).  The mathematical terminology were corrected all along the article.}
 \end{quotation}
 %
 \vskip+1ex
@@ -134,7 +135,7 @@ We reviewed the equation, clarified their terms and we hope it is now more clear
 %
 \begin{quotation}
 {\color{blue}
-We have revised the manuscript and corrected equations (7) and (8) which specify the ration between the signal properties and the SIFT's geometric parameters. 
+We have revised the manuscript and modified equations (7) and (8) (now (8) and (9)) which are located on Section 1.2.3 (Parameters).  We added more information on the text and specified subscript indexes to avoid the inconsistency.
 We thank you for noticing this.
 }
 \end{quotation}
@@ -151,7 +152,7 @@ We thank you for noticing this.
 %
 \begin{quotation}
 {\color{blue}
-Thank you for the observation.  We modified all equations to emphasize the point that they are calculated in digital space. We also added that image gradients are also calculated using finite differences.
+Thank you for the observation.  We modified all equations to emphasize the point that they are calculated in digital space, particularly on equation (4). We also added that image gradients are also calculated using finite differences, and added information about the support of each equation to clarifies that they are actually calculated in digital space.
 With this, we hope we have addressed your point.
  }
 \end{quotation}
@@ -171,7 +172,6 @@ With this, we hope we have addressed your point.
 \begin{quotation}
 {\color{blue}
 Thank you for the observation. 
-We fully addressed your point.
  }
 \end{quotation}
 %
@@ -187,8 +187,8 @@ We fully addressed your point.
 %
 \begin{quotation}
 {\color{blue}
-Thank you for your suggestion. The original dataset was published at the BNCI-Horizon website, which is very popular in BCI research.  Our approach emphasize the structure of the signal in terms of their morphological components in their visual description.% THIS IS TOUGH TO JUSTIFY 
-In order to address this issue, we included a new dataset that we generated ourselves, on healthy subjects that we hope now improves the number of different subjects and that can help to validate the method.
+Thank you for your suggestion. The original dataset was published as the 004-2014 dataset at the BNCI-Horizon website, which is very popular in BCI Research.  As far as we are aware of, experiments on this dataset of ALS patients has not been published by any independent group.
+In order to address this issue, we included a new own dataset with the same experimental conditions that we generated ourselves, on healthy subjects. We believe it now improves the number of different subjects and that can help to validate the method.  We are also publishing this dataset on the kaggle platform for replication.
 }
 \end{quotation}
 %
@@ -205,12 +205,7 @@ In order to address this issue, we included a new dataset that we generated ours
 %
 \begin{quotation}
 {\color{blue}
-THIS IS EVEN TOUGHER.
-
-ACA LE PUEDO PONER QUE HAY POCOS METODOS QUE PERMITAN ENGANCHAR BIEN QUE EL METODO
-
-
-All these points were modified according to the suggestions.
+We added more detailed information that address this issue. First in Section 1.1.4 (Speller Matrix Letter Identification) we included information about how we approach the signal averaging procedure.  In Section 1.2.3 (Parameters) we added the parameters that were used.  More importantly, in Section 2(Results and Discussion) we added information and references about the tests that we did to address latency and amplitude issues.  We included in Section 3(Conclusion) information about future and current works where we are also dealing with these problems.
 We hope this is acceptable.
 }
 \end{quotation}
@@ -231,8 +226,8 @@ We hope this is acceptable.
 %
 \begin{quotation}
 {\color{blue}
-The Results section was modified to clarify more precisely the expectation about the EEG channels where a visual P300 detection task would be obtained.  We added references and improved the section to clarify this point more thoughtfully.
-We hope this is acceptable.
+We apologize for our mistake. The Results section was modified to clarify more precisely the expectation about the EEG channels where a visual P300 oddball paradigm generates stronger signals.  We added references and improved the section to clarify this point more thoughtfully.
+We hope we may have addressed your point with this.
 }
 \end{quotation}
 %
@@ -248,7 +243,7 @@ We hope this is acceptable.
 %
 \begin{quotation}
 {\color{blue}
-Thank you a lot for this important comment.  We re-read all the manuscript and asked to collegues to proofread the article.  They gave us interesting suggestions that helped us to improve different sections.  We would be very pleased if you find it now easier to read it.
+Thank you a lot for this important comment.  We re-read all the manuscript and asked  colleagues to proofread the article.  They gave us interesting suggestions that helped us to improve different sections.  We would be very pleased if you find it now easier to read it.
 }
 \end{quotation}
 %
@@ -266,7 +261,7 @@ Thank you a lot for this important comment.  We re-read all the manuscript and a
 %
 \begin{quotation}
 {\color{blue}
-Thank you very much for this information.  We reviewed completely that equation (it is now equation (6) and equation (7)) and we included a step-by-step procedure that describes the algorithm that we propose and we used.
+Thank you very much for this information.  We reviewed completely that equation (it is now equation (6) and equation (7)) and we included a step-by-step procedure that describes the algorithm that we propose and we used as well as a schematic chart in Figure 3.
 }
 \end{quotation}
 %
@@ -274,6 +269,6 @@ Thank you very much for this information.  We reviewed completely that equation 
 \noindent \dotfill
 \vskip+1ex
 
-
+\bibliography{response.letter}
 
 \end{document}
