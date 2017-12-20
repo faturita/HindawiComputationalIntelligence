@@ -6,6 +6,7 @@
 %=================================================================
 \documentclass[entropy,article,submit,moreauthors,pdftex,10pt,a4paper]{mdpi} 
 \usepackage{subfigure} 
+\usepackage{siunitx}
 
 
 %
@@ -136,9 +137,9 @@ BCI has gained mainstream public awareness with worldwide challenge competitions
 A few works have explored the idea of exploiting the signal waveform to analyze the EEG signal.  In~\citep{Alvarado-Gonzalez2016} an approach based on Slope Horizontal Chain Code is presented, whereas in ~\citep{Yamaguchi2009} a similar procedure was implemented based on Mathematical Morphological Analysis.  The seminal work of Bandt-Pompe Permutation Entropy~\citep{Berger2017} also explores succinctly this idea as a basis to establish the time series ordinal patterns.  In the article~\citep{Ramele2016},  the authors introduce a method for classification of rhythmic EEG events like Visual Occipital Alpha Waves  and Motor Imagery rolandic central $\mu$ rhythms using the histogram of gradient orientations of signal plots.  Inspired in that work, we propose a novel application of the developed method to classify and describe transient events, particularly the P300 Event Related Potential.  
 The proposed approach is based on the waveform analysis of the shape of the EEG signal, but using histogram of gradient orientations. The method is built by mimicking what traditionally electroencephalographers have been performing for almost a century: visually inspecting raw signal plots, as it is described in~\citep{Hartman2005}.
 
-This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of gradient orientations extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two public datasets. Its validity is verified by processing offline data for ALS patients and for healthy subjects. 
+This paper reports a method to, (1) classify P300 signals based on the identification of their structure in the shape domain using histograms of gradient orientations extracted from the image of signal plots, and (2) describe the way in which this classification can be used to implement an offline P300-based BCI Speller application using two datasets. Its validity is verified by processing offline data for ALS patients and for healthy subjects. 
 
-This article unfolds as follows: Section~\ref{Feature} is dedicated to explain the Feature Extraction method based on Histogram of Gradient Orientations of the Signal Plot: Section~\ref{Pipeline} shows the preprocessing pipeline,  Section~\ref{Plot}  describes the image generation of the signal plot, Section~\ref{SIFT}  presents the feature extraction procedure while  Section~\ref{Classification}  introduces the whole  Speller Matrix Letter Identification procedure including the classification algorithm based on Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}. In Section~\ref{Protocol}, the experimental protocol is expounded. Section~\ref{Results} shows the results of applying the proposal technique and a discussion is presented. 
+This article unfolds as follows: Section~\ref{Feature} is dedicated to explain the Feature Extraction method based on Histogram of Gradient Orientations of the Signal Plot: Section~\ref{Pipeline} shows the preprocessing pipeline,  Section~\ref{Plot}  describes the image generation of the signal plot, Section~\ref{SIFT}  presents the feature extraction procedure while  Section~\ref{Classification}  introduces the whole  Speller Matrix Letter Identification procedure including the classification algorithm based on Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}. In Section~\ref{Protocol}, the experimental protocol is expounded. Section~\ref{Results} shows the results of applying the proposal technique and a discussion is presented as well.
 In the final Section~\ref{conclusion}  we expose our remarks, conclusions and future work.
 %This kind of EEG events are described in~\citep{Hartman2005} and~\citep{Ben-Simon2013}.
 
@@ -146,7 +147,7 @@ In the final Section~\ref{conclusion}  we expose our remarks, conclusions and fu
 
 The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signal which occurs around $300$ ms after the onset of a rare and deviant stimulus that the subject is expected to attend.  It is produced under the oddball paradigm~\cite{WolpawJonathanR2012} and it is consistent across different subjects. It has a lower amplitude  ($\pm 5 \mu V $) compared to basal EEG activity, reaching a SNR of around $-15$ db estimated based on the amplitude of the P300 response signal divided by the standard deviation of the background EEG activity~\citep{Hu2010}.  This signal can be used to implement a speller application by means of a Speller Matrix~\citep{Farwell1988}. Fig.~\ref{fig:p300matrix} shows an example of the Speller Matrix used in the OpenVibe Open Source software~\citep{Renard2010}, where the flashes of rows and columns provide the deviant stimulus required to elicit this physiological response.   Each time a row or a column that contains the desired letter flashes, the corresponding synchronized EEG signal should also contain the P300 signature and by detecting it, the selected letter can be identified.
 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \subfigure[Row flash.]{\includegraphics[width=.29\linewidth]{openvibep300matrix.png}}
 \subfigure[Column flash.]{\includegraphics[width=.29\linewidth]{p300matrixcoloriginal.png}}
@@ -156,14 +157,14 @@ The P300~\citep{Farwell1988,Knuth2006} is a positive deflection of the EEG signa
 
 \subsection{Feature Extraction based on Histogram of Gradient Orientations of the Signal Plot} \label{Feature}
 
-In this section, the signal preprocessing, the method for generating images from signal plots, the feature extraction procedure and the speller matrix identification are described. 
+In this section, the signal preprocessing, the method for generating images from signal plots, the feature extraction procedure and the Speller Matrix identification are described. 
 
 \subsubsection{Preprocessing Pipeline} \label{Pipeline}
 
 \begin{itemize}
 \item \textbf{Signal Enhancement}: The preprocessing stage consists of the enhancement of the SNR of the P300 pattern above the level of basal EEG. The processing pipeline starts by applying a notch filter to the raw digital signal, a 
 $4$th degree $10$ Hz lowpass Butterworth filter and finally a decimation with a Finite Impulse Response (FIR) filter of order $30$ from the original sampling frequency down to $16$ Hz \citep{Krusienski2006}.
-\item \textbf{Artifact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every 12 flashing stimuli, i.e. one complete sequence of intensification of each of the $6$ rows plus the $6$ columns, a basic artefact elimination procedure is implemented by removing the entire sequence when any signal deviates above/bellow $ \pm 70 \mu V $.
+\item \textbf{Artifact Removal}: The EEG signal matrix is processed on a channel by channel basis.   For every complete sequence of intensification of $6$ rows and $6$ columns, a basic artifact elimination procedure is implemented by removing the entire sequence when any signal deviates above/bellow $ \pm 70 \mu V $.
 \item \textbf{Segmentation}: For each of the $12$ stimuli,  a window of $t_{max} = 1$ second of the multichannel signal is extracted, starting from the stimulus onset, corresponding to each row/column intensification.  Two of these segments should contain the P300 ERP signature time-locked to the flashing stimulus, one for the row, and one for the column.
 \item \textbf{Signal Averaging}:  The P300 ERP is deeply buried under background EEG so the traditional approach to identify it is by point-to-point averaging the time-locked stacked signal segments.  Hence the values which are not related to, and not time-locked to the onset of the stimulus are canceled out~\citep{Liang2008}. 
 \end{itemize}
@@ -175,11 +176,11 @@ This last step determines the operation of any P300 Speller.  In order to obtain
 Averaged signal segments are standardized and scaled by 
 
 \begin{equation}
-\tilde{x}(n,c) = \left \lfloor{ \gamma \cdot \frac{( x(n,c) - \bar{x}(c)  )}{ \sigma(c) } }\right \rfloor, n \in \{ 1, \dots, n_{max}\},c \in \{1,2,\dots,Ch\}
+\tilde{x}(n,c) = \left \lfloor{ \gamma \cdot \frac{( x(n,c) - \bar{x}(c)  )}{ \hat{\sigma}(c) } }\right \rfloor, \; n \in \{ 1, \dots, n_{max}\},\; c \in \{1,2,\dots,Ch\}
 \label{eq:standarizedaverages}
 \end{equation}
 
-\noindent where $\gamma > 0$ is an input parameter of the algorithm and  it is related with the image scale. In addition, $ x(n,c) $ is the point-to-point averaged EEG matrix for the sample point $n$ and for channel $c$, $n_{max}=F_s.t_{max}$ and $F_s$ is the sampling frequency. The parameter  $Ch$ is the number of available EEG channels. Lastly, $$\bar{x}(c) =\frac{1}{n_{max}}\sum_{n=1}^{n_{max}}x(n,c)$$ and $$ \sigma(c) = (\frac{1}{n_{max}-1}\sum_{n=1}^{n_{max}}(x(n,c)-\bar{x}(c))^2 )^{\frac{1}{2}}$$ are the mean and standard deviation of $x(n,c), n \in 1,\dots,n_{max}$, for each channel $c$.
+\noindent where $\gamma > 0$ is an input parameter of the algorithm and  it is related to the image scale. In addition, $ x(n,c) $ is the point-to-point averaged EEG matrix for the sample point $n$ and for channel $c$, $n_{max}=F_s.t_{max}$ and $F_s$ is the sampling frequency. The parameter  $Ch$ is the number of available EEG channels. Lastly, $$\bar{x}(c) =\frac{1}{n_{max}}\sum_{n=1}^{n_{max}}x(n,c)$$ and $$ \hat{\sigma}(c) = (\frac{1}{n_{max}-1}\sum_{n=1}^{n_{max}}(x(n,c)-\bar{x}(c))^2 )^{\frac{1}{2}}$$ are the mean and estimated standard deviation of $x(n,c), n \in 1,\dots,n_{max}$, for each channel $c$.
 
 Consequently, the image is constructed by placing the sample points according to
 
@@ -191,7 +192,9 @@ I(z_1,z_2) = \left\{ \begin{array}{rl}
 \label{eq:images}
 \end{equation}
 
-\noindent where $ (z_1,z_2) \in \mathbb{N} \times \mathbb{N}$ iterate over the width (based on the length of the signal segment) and height (based on the peak-to-peak amplitude) of the newly created image,  $n \in \{1, \dots, n_{max}\}$ and $c \in \{1,2,\dots,Ch\}$.  The function $z(c)$, $c \in \{1,2,\dots,Ch\}$ is the location on the image where the signal's zero value has to be located in order to fit the entire signal within the image:
+%$\max\limits_{1\leq j\leq n}$
+
+\noindent where $ (z_1,z_2) \in \mathbb{N} \times \mathbb{N}$ iterate over the width (based on the length of the signal segment) and height (based on the peak-to-peak amplitude) of the newly created image,  $n \in \{1, \dots, n_{max}\}$ and $c \in \{1,2,\dots,Ch\}$.  The values $z(c)$, $c \in \{1,2,\dots,Ch\}$ are the location on the image where the signal's zero value has to be located in order to fit the entire signal within the image for each c:
 
 \begin{equation}
 z(c) = \left \lfloor{ \frac{\max_{1 \leq n\leq n_{max}} \tilde{x}(n,c)  - \min_{1 \leq n\leq n_{max}} \tilde{x}(n,c) }{2} }\right \rfloor -   \left \lfloor{ \frac{\max_{1 \leq n\leq n_{max}} \tilde{x}(t,c)  + \min_{1 \leq n\leq n_{max}} \tilde{x}(n,c)}{ 2} }\right \rfloor
@@ -214,18 +217,18 @@ A local representation of the shape of the signal within the patch can be descri
  
 
 \begin{equation}
- h(\theta,i,j) = 3s \sum_{\mathbf{x} \in B_{i,j}} w_\mathrm{ang}(\angle J(\mathbf{x}) - \theta)\, w_{ij}\left(\frac{\mathbf{x} - \mathbf{kp}}{3 s}\right)\, |J(\mathbf{x})|
+ h(\theta,i,j) = 3s \sum_{\mathbf{p} \in B_{i,j}} w_\mathrm{ang}(\angle J(\mathbf{p}) - \theta)\, w_{ij}\left(\frac{\mathbf{p} - \mathbf{kp}}{3 s}\right)\, |J(\mathbf{p})|
 \label{eq:histogram}
 \end{equation}
 
-\noindent  where $\mathbf{x}$ is a pixel from  the $i,j$-block $B_{i,j}$, $ i,j \in \{1,2,3,4\} $, $ \theta \in \{0, 45, 90, 135, 180, 225, 270, 315\} $,  $ |J(\mathbf{x})| $ is the norm of the gradient vector in the pixel $\mathbf{x}$ and it is computed using finite differences, $\angle J(\mathbf{x}) $ is the angle of the gradient vector,  $\theta$ is the angle bin,   and $ w_\mathrm{ang}(\cdot) $  and $ w_{ij}(\cdot) $ are linear interpolation functions used by Lowe and Vedaldi et al. in~\citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each block when $s = 1$.  As the patch has  $16$ blocks and  $8$ bin angles are considered, a descriptor of $128$ dimension is obtained. It can be observed that in each step, the histogram is computed by multiplying by $ |J(\mathbf{x})| $, so the method considers both, the magnitude and the orientation of the gradient vector. 
+\noindent  where $\mathbf{p}$ is a pixel from  the $i,j$-block $B_{i,j}$, $ i,j \in \{1,2,3,4\} $,  $\theta$ is the angle bin with $ \theta \in \{0, 45, 90, 135, 180, 225, 270, 315\} $,  $ |J(\mathbf{p})| $ is the norm of the gradient vector in the pixel $\mathbf{p}$ and it is computed using finite differences, $\angle J(\mathbf{p}) $ is the angle of the gradient vector, and $ w_\mathrm{ang}(\cdot) $  and $ w_{ij}(\cdot) $ are linear interpolation functions used by Lowe and Vedaldi et al. in~\citep{Lowe2004,Vedaldi2010}.  Lastly, the fixed value of $ 3 $ is a magnification factor which corresponds to the number of pixels per each block when $s = 1$.  As the patch has  $16$ blocks and  $8$ bin angles are considered, a descriptor of $128$ dimension is obtained. It can be observed that in each step, the histogram is computed by multiplying by $ |J(\mathbf{p})| $, so the method considers both, the magnitude and the orientation of the gradient vector. 
 
 
 Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the histogram computation. Fig.~\ref{patch} is a plot of the signal and the patch centered in the keypoint. In Fig.~\ref{histogrambines} the possible orientations on each patch are illustrated. They form the corresponding $\mathbf{kp}$-descriptor of $128$ coordinates. The first two blocks are shown.  Following this procedure for every assigned keypoint, we obtain $N_{kp}$ descriptors.
  
 
  
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \subfigure[Plot of the signal, a keypoint and the corresponding patch.]{\includegraphics[width=.49\linewidth]{signalpatchkeypoint.png}\label{patch}}
 \subfigure[Orientations on two blocks of the patch.]{\includegraphics[width=.49\linewidth]{histogramsbines.png}\label{histogrambines}}
@@ -239,12 +242,11 @@ Fig.~\ref{fig:sampledescriptor} shows an example of a patch and a scheme of the 
 
 %The following step is classify the descriptors $\{d_{kp}, kp =1,\dots, 12\}$ in order to determine the correct row and column of the chosen letter on the Speller Matrix.   The classification is carried out by using a discriminative semi-supervised classification method, based on the Naive Bayes Nearest Neighbor (NBNN)~\citep{Boiman2008}.
 
-The aim is to identify the selected letter from the matrix. Previously, during training phase, two descriptors are extracted from averaged signal segments which correspond to the letter where the user was supposed to be focusing onto.  These descriptors are the P300 templates which are grouped in a template set called $ T $.  Segments corresponding to rows are labeled 1-6, whereas those corresponding to columns are labeled 7-12.  The process has the following steps:
-
+The aim is to identify the selected letter from the matrix. Previously, during the training phase, two descriptors are extracted from averaged signal segments which correspond to the letter where the user was supposed to be focusing onto.  These descriptors are the P300 templates which are grouped in a template set called $ T $.  This set is constructed using the steps 1-6 of the following algorithm.  Segments corresponding to rows are labeled 1-6, whereas those corresponding to columns are labeled 7-12.  The whole process has the following steps:
 
 \begin{enumerate}
 \item \label{paso1}Highlight randomly the rows and columns from the matrix.  There is one row and one column that should match the letter selected by the subject.
-\item  \label{paso2} Repeat step~\ref{paso1} $k_a$ times, obtaining the single trial segments $S_1(n,c),\dots,S_{k_a}(n,c)$, where the variables $n \in \{1, \dots, n_{max}\}$ and $c \in \{1,2,\dots,Ch\}$ correspond to time and channel, respectively. The parameter $k_a$ is the number of repetitions and it is an input parameter of the algorithm.
+\item  \label{paso2} Repeat step~\ref{paso1} $k_a$ times, obtaining the single trial segments $S_1(n,c),\dots,S_{k_a}(n,c)$, where the variables $n \in \{1, \dots, n_{max}\}$ and $c \in \{1,2,\dots,Ch\}$ correspond to sample points and channel, respectively. The parameter $k_a$ is the number of repetitions and it is an input parameter of the algorithm.
 \item \label{paso3} Compute the Ensemble Average by
 \begin{equation}
 x(n,c)= \frac{1}{k_a}\sum_{i=1}^{k_a}S_i(n,c),n \in \{1, \dots, n_{max}\}, c \in \{1,\dots,Ch\}
@@ -272,7 +274,7 @@ for each row and column.
 \label{eq:multiclassificationcol}
 \end{equation}
 
-where $NN_T(d^l_u), \;l\in\{row,{col}\}$ is the set of the $k$ nearest neighbors to $d^l_u, \;l\in\{row,{col}\}$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u), \;l\in\{row,{col}\}$.  
+where $NN_T(d^l_u), \;l\in\{row,{col}\}$ is the set of the $k$ nearest neighbors to $d^l_u, \;l\in\{row,{col}\}$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u), \;l\in\{row,{col}\}$.  This set is obtained according to the k-NNBN  algorithm~\citep{Boiman2008}.
 
 % By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. 
 %The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first among the 6 rows, and then among the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
@@ -280,6 +282,8 @@ where $NN_T(d^l_u), \;l\in\{row,{col}\}$ is the set of the $k$ nearest neighbors
 \end{enumerate}
 By computing the aforementioned equations, the letter of the matrix can be determined from the intersection of the row $ \hat{row} $ and column $ \hat{col} $. 
 Figure~\ref{fig:classification} shows a scheme of this process. 
+
+
 \begin{figure}[htp]
 \centering
 \includegraphics[width=15cm]{classificationgraph.pdf}
@@ -314,7 +318,7 @@ In order to asses and verify the identification of the P300 response, subjects a
 
 We replicate the same experiment on healthy subjects using a wireless digital EEG device (g.Nautilus, g.Tec, Austria).  The experimental conditions are the same as those used for the previous dataset, as detailed in section~\ref{ALSDataset}.
 
-Participants are recruited voluntarily and the experiment is conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation is handed out and all participants agree and sign a written informed consent.  All healthy subjects have normal or corrected-to normal vision and no history of neurological disorders. The experiment is performed with 8 subjects, 6 males, 2 females, 6 right-handed, 2 left-handed, average age 28.25 years, standard deviation  9.58 years, range 20-50 years.
+Participants are recruited voluntarily and the experiment is conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation is handed out and all participants agree and sign a written informed consent.  All healthy subjects have normal or corrected-to normal vision and no history of neurological disorders. The experiment is performed with 8 subjects, 6 males, 2 females, 6 right-handed, 2 left-handed, average age 29.00 years, standard deviation  11.56 years, range 20-56 years.
 
 EEG data is collected in a single recording session. Participants are seated in a comfortable chair, with their vision aligned to a computer screen located one meter in front of them.  The handling and processing of the data and stimulations is conducted by the OpenVibe platform~\citep{Renard2010}. 
 
@@ -344,15 +348,15 @@ s_y= \frac{\Delta \mu V}{4 \cdot 3} \cdot \gamma
 \noindent where $ \lambda $ is the length in seconds covered by the patch, $ Fs $ is the sampling frequency of the EEG signal (downsampled to 16 Hz) and  $\Delta  \mu V $ corresponds to the amplitude in microvolts that can be covered by the height of the patch. The geometric structure of the patch forces a squared configuration, then we discerned that by using $ s =s_x =s_y = 3 $ and $ \gamma = 4 $  the local patch and the descriptor can identify events of 9 $ \mu V $ of amplitude, with a span of $ \lambda = 0.56$ seconds.  This also provides that $ 1 $ pixel represents $ \frac{1}{\gamma}= \frac{1}{4} \mu V $ on the vertical direction and $\frac{1}{F_s.\gamma}=\frac{1}{64}$ seconds on the horizontal direction. Descriptors  $\mathbf{kp}$  are located at $ (x_{kp}, y_{kp} )= ( 0.55 Fs.\gamma, z(c) )= (35,  z(c)) $ for the corresponding channel $c$ (see Eq.~\ref{eq:zerolevel}).   In this way the whole transient event is captured. 
 Figure~\ref{fig:sampledescriptor2} shows a patch of a signal plot covering the complete amplitude (vertical direction) and the complete span of the signal event (horizontal direction). 
 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=10cm]{patchgeometry.pdf}
-\caption{The scale of local patch is selected in order to capture the whole transient event.  The size of the patch is $S_p \times S_p$ pixels. The vertical size consists of $4$ blocks of size $3 s_y$ pixels which is long enough as to contain the signal $\Delta  \mu V $, the peak-to-peak amplitude of the transient event. The horizontal size on the other hand, includes $4$ blocks  of $3 s_x$ and covers the entire duration in seconds of the transient signal event, $ \lambda $.   }
+\caption{The scale of local patch is selected in order to capture the whole transient event.  The size of the patch is $S_p \times S_p$ pixels. The vertical size consists of $4$ blocks of size $3 s_y$ pixels which is long enough as to contain the signal $\Delta  \mu V $, the peak-to-peak amplitude of the transient event. The horizontal size includes $4$ blocks  of $3 s_x$ and covers the entire duration in seconds of the transient signal event, $ \lambda $.   }
 
 \label{fig:sampledescriptor2}
 \end{figure}
 
-Lastly, the number of channels $Ch$ is equal to $8$ for both datasets, and the number of intensification sequences $k_a$ is statically assigned to $10$.  The parameter $k$ used in the Near Neighbor $NN_T(d^l_u), \;l\in\{row,{col}\}$ is set to $k=7$, following the suggestion of the article~\citep{Boiman2008}.  In addition, the norm used on  Equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol} was the cosine norm, and descriptors were normalized to $ \left[ -1, 1 \right] $.
+Lastly, the number of channels $Ch$ is equal to $8$ for both datasets, and the number of intensification sequences $k_a$ is statically assigned to $10$.  The parameter $k$ used in the Near Neighbor $NN_T(d^l_u), \;l\in\{row,{col}\}$ is set to $k=7$, following the suggestion of the article~\citep{Boiman2008}.  In addition, the norm used on  Equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol} is the cosine norm, and descriptors are normalized to $ \left[ -1, 1 \right] $.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion} \label{Results}
@@ -373,8 +377,8 @@ The P300 ERP  consists of two overlapping components: the P3a and P3b, the forme
 
 Table~\ref{tab:results} shows the results of applying the algorithm to the subjects of the public dataset of ALS patients~\citep{Riccio2013}. The percentage of correctly spelled letters is calculated while performing an offline BCI Simulation.  From the seven words for each subject, the first three are used as training, and the remaining four for testing.  The best performing channel is informed as well. The chance level is $2\%$.  It can be observed that the best performance of the letter identification method is reached in various channels depending on the subject on study. 
 
-\begin{table}[H]
-\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject of the public dataset 008-2014. Twenty letters, four words of five letters each, were used for testing. }
+\begin{table}[htb]
+\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each subject of the public dataset 008-2014. The spelled words are \textit{GATTO}, \textit{MENTE}, \textit{VIOLA} and \textit{REBUS}. }
 \centering
 %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
 \begin{tabular}{ccc}
@@ -395,12 +399,12 @@ Table~\ref{tab:results} shows the results of applying the algorithm to the subje
 \label{tab:results}
 \end{table}
 
-In Table~\ref{tab:resultsowndataset} results obtained for 8 healthy subjects are shown.   These results were obtained by the present method as described in previous sections.  
+In Table~\ref{tab:resultsowndataset} results obtained for 8 healthy subjects are shown.   
 
 %We used an additional subject as control as he was instructed to count only the letters and to stare at the screen but  neglecting row/column flashing, which achieved zero performance.  We also validated the procedure by visualizing clearly the SSVEP generated by the 4 Hz flashings.
 
-\begin{table}[H]
-\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each healthy subject. The method is applied on a channel by channel basis, and the best performing channel is shown. }
+\begin{table}[htb]
+\caption{Percentage of correctly predicted letters while performing an offline BCI Simulation for the best performing channel for each healthy subject. The spelled words are \textit{MANSO},\textit{CINCO},\textit{JUEGO} and \textit{QUESO}. }
 \centering
 %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
 \begin{tabular}{cccc}
@@ -425,18 +429,18 @@ In Table~\ref{tab:resultsowndataset} results obtained for 8 healthy subjects are
 The Information Transfer Rate (ITR), or Bit Transfer Rate (BTR), in the case of reactive BCIs~\citep{WolpawJonathanR2012}  depends on the amount of signal averaging required to transmit a valid and robust selection.  Fig.~\ref{fig:performance} shows the performance curves for varying intensification sequences. It can be observed that the percentage of correctly identified letters depends on the number of intensification sequences $k_a$ that are used to obtain the averaged signal.
 
 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=10cm]{performance2.eps}
 \caption{Performance curves for the eight subjects included in the dataset of ALS patients.  Three out of eight subjects achieved the necessary performance to implement a valid P300 speller.}
 \label{fig:performance}
 \end{figure}
 
-As can be seen in the figure, as the number of intensification sequences tend to 1, which corresponds to single trial letter identification, the performance is reduced. As mentioned before, the SNR of the single trial P300 is very low. The ensemble average is carried out in order to improve the SNR but other problems arise, for example inter-trial variability due to latencies shifts that may produce an unstable P300 signature. To solve this problem, we tested an approach to assess if the morphological shape of the P300 can be stabilized by applying different shifts and we verified that there is a better performance when a correct resynchronization is applied, but results are still in process.  We also applied Dynamic Time Warping (DTW)~\citep{Casarotto2005} but we were unable to find a substantial improvement.     On the other hand amplitude, width and latency are generally affected by habituation, fatigue or level of attention and may lead to null signals\citep{Ouyang2017}. This is another source of instability of the P300 signature component that may need to be addressed.
+As can be seen in the figure, as the number of intensification sequences tend to 1, which corresponds to single trial letter identification, the performance is reduced. As mentioned before, the SNR of the single trial P300 is very low. The ensemble average is carried out in order to improve the SNR but other problems arise, for example inter-trial variability due to latencies shifts that may produce an unstable P300 signature. To solve this problem, we tested an approach to assess if the morphological shape of the P300 can be stabilized by applying different shifts and we verified that there is a better performance when a correct single-trial alignment is applied, but results are still in process.  We also applied Dynamic Time Warping (DTW)~\citep{Casarotto2005} but we were unable to find a substantial improvement.     On the other hand amplitude, width and latency are generally affected by habituation, fatigue or level of attention and may lead to null signals\citep{Ouyang2017}. This is another source of instability of the P300 signature component that may need to be addressed.
 
 As subjects may have different \textit{latencies}, \textit{amplitudes} and \textit{width} of their P300 components, they may also have distinct \textit{shapes} of the generated ERP.  Figure~\ref{fig:p300templates} shows the P300 templates patches for patients 8 and 3 from the public dataset. It can be observed that in coincidence with the performance results, the P300 signature is more clear and consistent for subject 8 (Fig.~\ref{subject8})  while for subject 3 (Fig.~\ref{subject3}) the characteristic pattern is more difficult to perceive.
 
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \subfigure[Subject 8.]{\includegraphics[width=10cm]{subject8.png}\label{subject8}}
 \subfigure[Subject 3.]{\includegraphics[width=10cm]{subject3.png}\label{subject3}}
@@ -444,19 +448,7 @@ As subjects may have different \textit{latencies}, \textit{amplitudes} and \text
 \label{fig:p300templates}
 \end{figure}
 
-%\begin{itemize}
-%\item Lo que pusimos antes de la sincronización de las señales apunta a la latencia.
-%\item Por el lado de la amplitud, lo que hicimos fue ir por un lado conservador de llevar todo a varianza uno.
-%\item Si bien el zscore nos ayuda también genera otro problema adicional que es el que ponemos en el texto (y por el cual con razón Juan me criticaba).
-
-%\end{itemize}
-
-%La estandarizacion produce dos efectos contrarios entre si, contrapues.
-
-%Por un lado reduce el ruido y outliers
-%por otro lado reduce aquellos p300 significativos positivos que ayudarian su identificacion.
-
-Another problem is the amplitude variation of the P300. We propose an approach by standardizing the signal, shown in Eq.~\ref{eq:standarizedaverages}.  First, it has the effect of normalizing the peak-to-peak amplitude, moderating its variation. It has also the advantage of reducing noise that were not reduced by the averaging procedure.   It is important to remark that the signal variance depends on the number of single-trials used to compute it \citep{van2006signal}.  The standardizing process converts the signal to unit signal variance which makes it independent of the number $k_a$ of signals averaged.   This is another advantage of this approach.  On the downsize, the standardizing process reduces the amplitude of any significant P300 complex diminishing its automatic interpretation capability.
+Another problem is the amplitude variation of the P300. We propose an approach by standardizing the signal, shown in Eq.~\ref{eq:standarizedaverages}.  First, it has the effect of normalizing the peak-to-peak amplitude, moderating its variation. It has also the advantage of reducing noise that were not reduced by the averaging procedure.   It is important to remark that the signal variance depends on the number of single-trials used to compute it \citep{van2006signal}.  The standardizing process converts the signal to unit signal variance which makes it independent of the number $k_a$ of signals averaged.   This is another advantage of this approach.  On the hand, the standardizing process reduces the amplitude of any significant P300 complex diminishing its automatic interpretation capability.
 
 For both datasets, the experimental protocol uses a very short inter-stimulus interval which has the potential to increase the ITR but at the same time it reduces the amplitude of the P300 response, hence it may be more difficult to detect it~\citep{Rao2013}.  
 
@@ -497,14 +489,15 @@ We know that we have to keep working but the results are promising.
 The method works on a channel by channel basis; in this way the best performing channel can be identified and used it to reduce the number of required EEG electrodes, leading to the development of more ergonomic capturing device.
 
 We observed that the shape of the wave is more stable in occipital channels, where the performance for identifying letters is higher.   % It is understood that for people suffering from ALS, even though this pathology do not harm the CNS, their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.  
-It is important to evaluate if there is any correlation between the lower performance obtained for some subjects and the characterization of their ALS stage.  Although,  we did not find any evidence in terms of the shape digital signal and the best response was obtained for an ALS subject.  Moreover, this method can be used as an alternate BCI predictor.  
+It is important to evaluate if there is any correlation between the lower performance obtained for some subjects and the characterization of their ALS stage.  Although,  we did not find any evidence in terms of the digital signal shape and the best response was obtained for an ALS subject.  Moreover, this method can be used as an alternate BCI predictor.  
 
 By analyzing the generated descriptors, a metric about the shape of the P300 response can also be derived.  
 
 By means of the empirical experiments, we concluded that the stability of the P300 in terms of shape is crucial: synchronization averaging,  inter-stimulus interval,  montages, the signal to noise ratio and spatial filters can all of them affect the stability of the shape of the P300 ERP. 
 
+
 In our opinion, the best application of this approach is that a closer collaboration with physicians can be fostered, because our method intent to imitate human visual observation.
-Automatically classify those patterns in EEG that are specifically identified by their shapes (e.g. K-Complex, Vertex Waves, Positive Occipital Sharp Transient~\citep{Hartman2005}) is a prospect future work to be considered. We are currently working in unpublished material analyzing KComplex that also provide  assistance to physician to locate these EEG patterns, specially in long recording periods, frequent in sleep research.  
+Automatic classification of patterns in EEG that are specifically identified by their shapes (e.g. K-Complex, Vertex Waves, Positive Occipital Sharp Transient~\citep{Hartman2005}) is a prospect future work to be considered. We are currently working in unpublished material analyzing KComplex that also provide  assistance to physician to locate these EEG patterns, specially in long recording periods, frequent in sleep research.  
 Additionally, it can be used for artifact removal which is performed on many occasions by visually inspecting the signal.  This is due to the fact that the descriptors are directly based on the signals behavior in shape domain.  In line with these applications,  it can be used to build a database~\citep{Chavarriaga2017} of descriptors and improve atlases~\citep{Hartman2005}.
 
 We also want to solve the problem of signal stabilization by applying different shifts on the averaging procedure and another methods for obtaining a correct synchronization.  
