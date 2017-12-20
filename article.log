@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  19 DEC 2017 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  20 DEC 2017 01:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1030,29 +1030,28 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
- [3 <./openvibep300matrix.png> <./p300matrixcoloriginal.png>]
-<signalpatchkeypoint.png, id=151, 664.4825pt x 561.09625pt>
+ [3 <./openvibep300matrix.png> <./p300matrixcoloriginal.png>] [4]
+<signalpatchkeypoint.png, id=163, 664.4825pt x 561.09625pt>
 File: signalpatchkeypoint.png Graphic file (type png)
 
 <use signalpatchkeypoint.png>
 Package pdftex.def Info: signalpatchkeypoint.png used on input line 228.
 (pdftex.def)             Requested size: 217.49539pt x 183.65549pt.
 
-<histogramsbines.png, id=152, 283.0575pt x 149.8097pt>
+<histogramsbines.png, id=164, 283.0575pt x 149.8097pt>
 File: histogramsbines.png Graphic file (type png)
 
 <use histogramsbines.png>
 Package pdftex.def Info: histogramsbines.png used on input line 229.
 (pdftex.def)             Requested size: 217.49539pt x 115.11378pt.
- [4]
-<classificationgraph.pdf, id=175, 614.295pt x 398.3386pt>
+ [5 <./signalpatchkeypoint.png> <./histogramsbines.png>] <classificationgraph.p
+df, id=191, 614.295pt x 398.3386pt>
 File: classificationgraph.pdf Graphic file (type pdf)
 
 <use classificationgraph.pdf>
 Package pdftex.def Info: classificationgraph.pdf used on input line 283.
 (pdftex.def)             Requested size: 426.79134pt x 276.75638pt.
- [5 <./signalpatchkeypoint.png> <./histogramsbines.png>] [6 <./classificationgr
-aph.pdf>]
+ [6 <./classificationgraph.pdf>]
 Underfull \hbox (badness 1565) in paragraph at lines 315--316
 []\T1/ppl/m/n/10 Participants are re-cruited vol-un-tar-ily and the ex-per-i-me
 nt is con-ducted anony-mously in
@@ -1062,10 +1061,10 @@ nt is con-ducted anony-mously in
 File: patchgeometry.pdf Graphic file (type pdf)
 
 <use patchgeometry.pdf>
-Package pdftex.def Info: patchgeometry.pdf used on input line 348.
+Package pdftex.def Info: patchgeometry.pdf used on input line 347.
 (pdftex.def)             Requested size: 284.52756pt x 227.64235pt.
 
-Underfull \hbox (badness 1057) in paragraph at lines 354--355
+Underfull \hbox (badness 1057) in paragraph at lines 353--354
 []\T1/ppl/m/n/10 Lastly, the num-ber of chan-nels $\OML/zplm/m/it/10 Ch$ \T1/pp
 l/m/n/10 is equal to $\OT1/ppl/m/n/10 8$ \T1/ppl/m/n/10 for both datasets, and 
 the num-ber of
@@ -1076,68 +1075,65 @@ Package epstopdf Info: Source file: <performance2.eps>
 (epstopdf)                    date: 2017-12-19 15:07:37
 (epstopdf)                    size: 25543 bytes
 (epstopdf)             Output file: <performance2-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-12-19 15:07:47
+(epstopdf)                    size: 8722 bytes
 (epstopdf)             Command: <repstopdf --outfile=performance2-eps-converted
 -to.pdf performance2.eps>
-(epstopdf)             \includegraphics on input line 429.
-runsystem(repstopdf --outfile=performance2-eps-converted-to.pdf performance2.ep
-s)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 428.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <performance2-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-12-19 15:07:47
-(epstopdf)                    size: 8722 bytes.
-
-<performance2-eps-converted-to.pdf, id=324, 562.1pt x 421.575pt>
+<performance2-eps-converted-to.pdf, id=323, 562.1pt x 421.575pt>
 File: performance2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use performance2-eps-converted-to.pdf>
 Package pdftex.def Info: performance2-eps-converted-to.pdf used on input line 4
-29.
+28.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
  [9]
-<subject8.png, id=336, 1261.71375pt x 451.6875pt>
+<subject8.png, id=335, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
-Package pdftex.def Info: subject8.png used on input line 440.
+Package pdftex.def Info: subject8.png used on input line 439.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
 
-<subject3.png, id=337, 1226.5825pt x 434.62375pt>
+<subject3.png, id=336, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
  <use subject3.png>
-Package pdftex.def Info: subject3.png used on input line 441.
+Package pdftex.def Info: subject3.png used on input line 440.
 (pdftex.def)             Requested size: 284.52756pt x 100.81685pt.
  [10 <./performance2-eps-converted-to.pdf>]
-Underfull \hbox (badness 1043) in paragraph at lines 458--459
+Underfull \hbox (badness 1043) in paragraph at lines 457--458
 []\T1/ppl/m/n/10 Another prob-lem is the am-pli-tude vari-a-tion of the P300. W
 e pro-pose an ap-proach by
  []
 
 [11 <./subject8.png (PNG copy)> <./subject3.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 568--568
+Underfull \hbox (badness 10000) in paragraph at lines 561--561
 
  []
 
-(./article.bbl [12] [13])
+[12] (./article.bbl [13])
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 608.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 601.
  
 AED: lastpage setting LastPage
 [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 601.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 601.
  (./article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 608.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 601.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 601.
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: EF385D0DA0CE0B529D7EC1FC8AFFEFC4;2602.
  ) 
 Here is how much of TeX's memory you used:
- 14123 strings out of 493014
- 199508 string characters out of 6133352
- 299240 words of memory out of 5000000
- 17324 multiletter control sequences out of 15000+600000
+ 14131 strings out of 493014
+ 199658 string characters out of 6133352
+ 299069 words of memory out of 5000000
+ 17330 multiletter control sequences out of 15000+600000
  52689 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,12n,45p,2038b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,13n,45p,2038b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
@@ -1151,10 +1147,10 @@ dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/palatino/uplri8a.pfb>
-Output written on article.pdf (14 pages, 341358 bytes).
+Output written on article.pdf (14 pages, 342918 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
  150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
