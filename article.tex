@@ -128,7 +128,7 @@ A key contribution to this expansion has been the field of Brain Computer Interf
 
 One noteworthy aspect of this novel communication channel is the ability to transmit information from the Central Nervous System (CNS) to a computer device and from there use that information to control a wheelchair~\citep{Carlson2013}, as input to a speller application~\citep{Guger2009a}, in a Virtual Reality environment~\citep{Lotte2013} or as aiding tool in a rehabilitation procedure~\citep{Jure2016}.  The holly grail of BCI is to implement a new complete and alternative pathway to restore lost locomotion~\citep{WolpawJonathanR2012}.
 
-EEG signals are remarkably complex and have been characterized as a multichannel non-stationary stochastic process.  Additionally, they have high variability between different subjects and even between different moments for the same subject, requiring adaptive and co-adaptive calibration and learning procedures \citep{Clerc}.  Hence, this imposes an outstanding challenge that is necessary to overcome in order to extract information from raw EEG signals.
+EEG signals are remarkably complex and have been characterized as a multichannel non-stationary stochastic process.  Additionally, they have high variability between different subjects and even between different moments for the same subject, requiring adaptive and co-adaptive calibration and learning procedures~\citep{Clerc}.  Hence, this imposes an outstanding challenge that is necessary to overcome in order to extract information from raw EEG signals.
 
 Moreover, EEG markers~\citep{Clerc} that can be used to  transmit volitional information are limited, and each one of them has a particular combination of appropriate methods to decode them. Inevitably, it is necessary to implement  distinct and specialized algorithmic methods, to filter the signal, enhance its Signal to Noise Ratio (SNR), and try to determine some meaning out of it.  
 
@@ -207,6 +207,7 @@ In order to complete the plot from the pixels, the Bresenham \citep{Bresenham196
 \subsubsection{Feature Extraction: Histogram of Gradient Orientations}
 \label{SIFT}
 
+
 %is calculated on local image patches centered on sample points \citep{Vedaldi2010}.
 
 On the generated image $I$, a keypoint $\mathbf{kp}$ is placed on a pixel $(x_{kp}, y_{kp})$ over the image plot and a window around the keypoint is considered. A local image patch of size $S_p \times S_p$ pixels is constructed by dividing the window in $16$ blocks of size $3s$ each one,  where $s$ is the scale of the local patch and it is an input parameter of the algorithm. It is arranged in a $4 \times 4$ grid and the pixel $ \mathbf{kp}$ is the patch center, thus $S_p = 4.3.s $ pixels. 
@@ -217,7 +218,7 @@ A local representation of the shape of the signal within the patch can be descri
  
 
 \begin{equation}
- h(\theta,i,j) = 3s \sum_{\mathbf{p} \in B_{i,j}} w_\mathrm{ang}(\angle J(\mathbf{p}) - \theta)\, w_{ij}\left(\frac{\mathbf{p} - \mathbf{kp}}{3 s}\right)\, |J(\mathbf{p})|
+ h(\theta,i,j) = 3.s \sum_{\mathbf{p} \in B_{i,j}} w_\mathrm{ang}(\angle J(\mathbf{p}) - \theta)\, w_{ij}\left(\frac{\mathbf{p} - \mathbf{kp}}{3 s}\right)\, |J(\mathbf{p})|
 \label{eq:histogram}
 \end{equation}
 
@@ -290,7 +291,7 @@ for each row and column.
 \label{eq:multiclassificationcol}
 \end{equation}
 
-where $NN_T(d^l_u), \;l\in\{row,{col}\}$ is the set of the $k$ nearest neighbors to $d^l_u$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u)$.  This set is obtained according to the k-NBNN  algorithm~\citep{Boiman2008}.
+where $NN_T(d^l_u)$  is the set of the $k$ nearest neighbors to $d^l_u$ and $q$ is a template descriptor that belongs to $NN_T(d^l_u),\;l\in\{row,{col}\}$.  This set is obtained according to the k-NBNN  algorithm~\citep{Boiman2008}.
 
 % By reversing the roles of the query and the class in equations \ref{eq:multiclassificationrow} and \ref{eq:multiclassificationcol}, it is only necessary to obtain the template set $ T $ with the learned descriptors representative of the P300 ERP, hence avoiding the problem of unbalanced classes. 
 %The first step consists in extracting labeled \textit{hit} descriptors from the training set which are thus grouped together in a KD-tree \citep{Vedaldi2010} template set $ T $.  On decoding stage, 12 new images from the signal segments are generated, and their descriptors extracted.  The 12 descriptors are divided in rows and columns.  For each one of the 6 query descriptors $ q $ for row/column, its $ k $ nearest neighbours in the template set $T$, $ NN_T^k(q) $ (acquired during the training phase)  are obtained and the distance between each one of them, $ x_i $, and the query descriptor $ q $ is summarized.  The query descriptor $ q $ that minimizes this summation is the one that is chosen, first among the 6 rows, and then among the remaining 6 columns.  By performing this procedure, the correct letter can be identified by matching the row $ r $ and column $ c $ from the P300 speller matrix.   
@@ -336,7 +337,7 @@ We replicate the same experiment on healthy subjects using a wireless digital EE
 
 Participants are recruited voluntarily and the experiment is conducted anonymously in accordance with the declaration of Helsinki published by the World Health Organization.  No monetary compensation is handed out and all participants agree and sign a written informed consent.  All healthy subjects have normal or corrected-to normal vision and no history of neurological disorders. The experiment is performed with 8 subjects, 6 males, 2 females, 6 right-handed, 2 left-handed, average age 29.00 years, standard deviation  11.56 years, range 20-56 years.
 
-EEG data is collected in a single recording session. Participants are seated in a comfortable chair, with their vision aligned to a computer screen located one meter in front of them.  The handling and processing of the data and stimulations is conducted by the OpenVibe platform~\citep{Renard2010}. 
+EEG data is collected in a single recording session. Participants are seated in a comfortable chair, with their vision aligned to a computer screen located one meter in front of them.  The handling and processing of the data and stimuli is conducted by the OpenVibe platform~\citep{Renard2010}. 
 
 Gel-based active electrodes (g.LADYbird, g.Tec, Austria) are used on the same locations Fz, Cz, Pz, Oz, P3,P4, PO7 and PO8.  Reference is set to the right ear lobe and ground is preset as the AFz position.   Sampling frequency is slightly different, and is set to 250 Hz, which is the closest possible to the one used with the other dataset.
 
@@ -507,9 +508,9 @@ The method works on a channel by channel basis; in this way the best performing 
 We observed that the shape of the wave is more stable in occipital channels, where the performance for identifying letters is higher.   % It is understood that for people suffering from ALS, even though this pathology do not harm the CNS, their brain signals do suffer slow and deteriorating changes that may lead to different EEG patterns alterations \citep{Nijboer2009,Riener2014}.  
 It is important to evaluate if there is any correlation between the lower performance obtained for some subjects and the characterization of their ALS stage.  Although,  we did not find any evidence in terms of the digital signal shape and the best response was obtained for an ALS subject.  Moreover, this method can be used as an alternate BCI predictor.  
 
-By analyzing the generated descriptors, a metric about the shape of the P300 response can also be derived.  
-
-El uso de descriptores basados en histogramas, presentado en este trabajo, también puede ser usado para derivar una métrica acerca de la forma de la señal de P300.
+%By analyzing the generated descriptors, a metric about the shape of the P300 response can also be derived.  
+The use of descriptors based on  histogram of gradient orientation, presented in this work, also can be utilized for deriving a shape metric in the space of the P300 signals.
+%El uso de descriptores basados en histogramas, presentado en este trabajo, también puede ser usado para derivar una métrica acerca de la forma de la señal de P300.
 
 
 By means of the empirical experiments, we concluded that the stability of the P300 in terms of shape is crucial: synchronization averaging,  inter-stimulus interval,  montages, the signal to noise ratio and spatial filters can all of them affect the stability of the shape of the P300 ERP. 
@@ -557,7 +558,7 @@ We also want to solve the problem of signal stabilization by applying different 
 %\supplementary{The following are available online at www.mdpi.com/link, Figure S1: title, Table S1: title, Video S1: title.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{This project was supported by the ITBACyT-15 funding program issued by ITBA University. The authors would like to thank Dr. Juliana Gambini for their insights and help with the detailed description of the histogram of gradients.}
+\acknowledgments{This project was supported by the ITBACyT-15 funding program issued by ITBA University.} %The authors would like to thank Dr. Juliana Gambini for their insights and help with the detailed description of the histogram of gradients.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
