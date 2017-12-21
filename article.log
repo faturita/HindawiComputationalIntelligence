@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  20 DEC 2017 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.5)  21 DEC 2017 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1428,24 +1428,24 @@ ith $\OML/zplm/m/it/10 ^^R \OMS/zplm/m/n/10 2
 File: signalpatchkeypoint.png Graphic file (type png)
 
 <use signalpatchkeypoint.png>
-Package pdftex.def Info: signalpatchkeypoint.png used on input line 233.
+Package pdftex.def Info: signalpatchkeypoint.png used on input line 248.
 (pdftex.def)             Requested size: 217.49539pt x 183.65549pt.
 
 <histogramsbines.png, id=168, 283.0575pt x 149.8097pt>
 File: histogramsbines.png Graphic file (type png)
 
 <use histogramsbines.png>
-Package pdftex.def Info: histogramsbines.png used on input line 234.
+Package pdftex.def Info: histogramsbines.png used on input line 249.
 (pdftex.def)             Requested size: 217.49539pt x 115.11378pt.
  [5 <./signalpatchkeypoint.png> <./histogramsbines.png>] <classificationgraph.p
 df, id=196, 614.295pt x 398.3386pt>
 File: classificationgraph.pdf Graphic file (type pdf)
 
 <use classificationgraph.pdf>
-Package pdftex.def Info: classificationgraph.pdf used on input line 289.
+Package pdftex.def Info: classificationgraph.pdf used on input line 305.
 (pdftex.def)             Requested size: 426.79134pt x 276.75638pt.
  [6 <./classificationgraph.pdf>]
-Underfull \hbox (badness 1565) in paragraph at lines 321--322
+Underfull \hbox (badness 1565) in paragraph at lines 337--338
 []\T1/ppl/m/n/10 Participants are re-cruited vol-un-tar-ily and the ex-per-i-me
 nt is con-ducted anony-mously in
  []
@@ -1454,10 +1454,10 @@ nt is con-ducted anony-mously in
 File: patchgeometry.pdf Graphic file (type pdf)
 
 <use patchgeometry.pdf>
-Package pdftex.def Info: patchgeometry.pdf used on input line 353.
+Package pdftex.def Info: patchgeometry.pdf used on input line 369.
 (pdftex.def)             Requested size: 284.52756pt x 227.64235pt.
 
-Underfull \hbox (badness 1057) in paragraph at lines 359--360
+Underfull \hbox (badness 1057) in paragraph at lines 375--376
 []\T1/ppl/m/n/10 Lastly, the num-ber of chan-nels $\OML/zplm/m/it/10 Ch$ \T1/pp
 l/m/n/10 is equal to $\OT1/ppl/m/n/10 8$ \T1/ppl/m/n/10 for both datasets, and 
 the num-ber of
@@ -1472,7 +1472,7 @@ Package epstopdf Info: Source file: <performance2.eps>
 (epstopdf)                    size: 8722 bytes
 (epstopdf)             Command: <repstopdf --outfile=performance2-eps-converted
 -to.pdf performance2.eps>
-(epstopdf)             \includegraphics on input line 434.
+(epstopdf)             \includegraphics on input line 450.
 Package epstopdf Info: Output file is already uptodate.
 
 <performance2-eps-converted-to.pdf, id=329, 562.1pt x 421.575pt>
@@ -1480,43 +1480,43 @@ File: performance2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use performance2-eps-converted-to.pdf>
 Package pdftex.def Info: performance2-eps-converted-to.pdf used on input line 4
-34.
+50.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
  [9]
 <subject8.png, id=344, 1261.71375pt x 451.6875pt>
 File: subject8.png Graphic file (type png)
  <use subject8.png>
-Package pdftex.def Info: subject8.png used on input line 445.
+Package pdftex.def Info: subject8.png used on input line 461.
 (pdftex.def)             Requested size: 284.52756pt x 101.85963pt.
 
 <subject3.png, id=345, 1226.5825pt x 434.62375pt>
 File: subject3.png Graphic file (type png)
  <use subject3.png>
-Package pdftex.def Info: subject3.png used on input line 446.
+Package pdftex.def Info: subject3.png used on input line 462.
 (pdftex.def)             Requested size: 284.52756pt x 100.81685pt.
 
-Underfull \hbox (badness 1043) in paragraph at lines 451--452
+Underfull \hbox (badness 1043) in paragraph at lines 467--468
 []\T1/ppl/m/n/10 Another prob-lem is the am-pli-tude vari-a-tion of the P300. W
 e pro-pose an ap-proach by
  []
 
 [10 <./performance2-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 562--562
+Underfull \hbox (badness 10000) in paragraph at lines 581--581
 
  []
 
 [11 <./subject8.png (PNG copy)> <./subject3.png (PNG copy)>] (./article.bbl
 [12])
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 602.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 621.
  
 AED: lastpage setting LastPage
 [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 602.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 602.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 621.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 621.
  (./article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 602.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 602.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 621.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 621.
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: EF385D0DA0CE0B529D7EC1FC8AFFEFC4;2602.
  ) 
@@ -1527,7 +1527,7 @@ Here is how much of TeX's memory you used:
  26716 multiletter control sequences out of 15000+600000
  55507 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,13n,45p,10358b,896s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,13n,45p,10358b,894s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
@@ -1542,7 +1542,7 @@ xmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/
 fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
 ype1/urw/palatino/uplri8a.pfb>
-Output written on article.pdf (13 pages, 348495 bytes).
+Output written on article.pdf (13 pages, 348543 bytes).
 PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  367 compressed objects within 4 object streams
